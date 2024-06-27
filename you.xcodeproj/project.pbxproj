@@ -1,0 +1,979 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1C11FBCA2C2A6FF40087C39F /* youApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C11FBC92C2A6FF40087C39F /* youApp.swift */; };
+		1C11FBCC2C2A6FF40087C39F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C11FBCB2C2A6FF40087C39F /* ContentView.swift */; };
+		1C11FBCE2C2A6FF60087C39F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C11FBCD2C2A6FF60087C39F /* Assets.xcassets */; };
+		1C11FBD12C2A6FF60087C39F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C11FBD02C2A6FF60087C39F /* Preview Assets.xcassets */; };
+		1C11FBD92C2A714F0087C39F /* WiFiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C11FBD82C2A714F0087C39F /* WiFiView.swift */; };
+		1C11FBDB2C2A71B70087C39F /* PageRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C11FBDA2C2A71B70087C39F /* PageRow.swift */; };
+		1C11FBDE2C2A753D0087C39F /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C11FBDD2C2A753D0087C39F /* View+Ext.swift */; };
+		1C11FBE12C2A77A70087C39F /* NetworkUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C11FBE02C2A77A70087C39F /* NetworkUtil.swift */; };
+		1C4B6EDC2C2A9A3B0095D27D /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4B6EDB2C2A9A3B0095D27D /* LocationManager.swift */; };
+		1C4B6EDF2C2AA62B0095D27D /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C4B6EDE2C2AA62B0095D27D /* NetworkExtension.framework */; };
+		1C9FC9E12C2BC1D10013163C /* PersistentStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9FC9E02C2BC1D10013163C /* PersistentStorageManager.swift */; };
+		1C9FC9E32C2BED8E0013163C /* BluetoothView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9FC9E22C2BED8E0013163C /* BluetoothView.swift */; };
+		1C9FC9ED2C2BF04D0013163C /* Bluejay.docc in Sources */ = {isa = PBXBuildFile; fileRef = 1C9FC9EC2C2BF04D0013163C /* Bluejay.docc */; };
+		1C9FC9EE2C2BF04D0013163C /* Bluejay.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C9FC9EB2C2BF04D0013163C /* Bluejay.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1C9FC9F12C2BF04D0013163C /* Bluejay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C9FC9E92C2BF04D0013163C /* Bluejay.framework */; };
+		1C9FC9F22C2BF04D0013163C /* Bluejay.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1C9FC9E92C2BF04D0013163C /* Bluejay.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1C9FCAE12C2BF1A90013163C /* Bluejay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9FCADF2C2BF1A90013163C /* Bluejay.swift */; };
+		1C9FCAE22C2BF1A90013163C /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9FCAE02C2BF1A90013163C /* Error.swift */; };
+		1C9FCAE72C2BF1C30013163C /* PeripheralDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9FCAE42C2BF1C30013163C /* PeripheralDelegate.swift */; };
+		1C9FCAE82C2BF1C30013163C /* SynchronizedPeripheral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9FCAE52C2BF1C30013163C /* SynchronizedPeripheral.swift */; };
+		1C9FCAE92C2BF1C30013163C /* Peripheral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9FCAE62C2BF1C30013163C /* Peripheral.swift */; };
+		1C9FCAF02C2BF1F90013163C /* CBPeripheral+FindService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9FCAEC2C2BF1F90013163C /* CBPeripheral+FindService.swift */; };
+		1C9FCAF12C2BF1F90013163C /* CBManagerState+ReturnString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9FCAED2C2BF1F90013163C /* CBManagerState+ReturnString.swift */; };
+		1C9FCAF22C2BF1F90013163C /* CBService+FindCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9FCAEE2C2BF1F90013163C /* CBService+FindCharacteristic.swift */; };
+		1C9FCAF32C2BF1F90013163C /* CBPeripheralState+ReturnString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9FCAEF2C2BF1F90013163C /* CBPeripheralState+ReturnString.swift */; };
+		1C9FCB322C2BF2100013163C /* PeripheralIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9FCAF52C2BF20F0013163C /* PeripheralIdentifier.swift */; };
+		1C9FCB332C2BF2100013163C /* ServiceIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9FCAF62C2BF20F0013163C /* ServiceIdentifier.swift */; };
+		1C9FCB342C2BF2100013163C /* DataPadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9FCAF72C2BF20F0013163C /* DataPadding.swift */; };
+		1C9FCB352C2BF2100013163C /* CharacteristicIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9FCAF82C2BF20F0013163C /* CharacteristicIdentifier.swift */; };
+		1C9FCB712C2BF2270013163C /* StartOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9FCB6F2C2BF2270013163C /* StartOptions.swift */; };
+		1C9FCB722C2BF2270013163C /* WarningOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9FCB702C2BF2270013163C /* WarningOptions.swift */; };
+		1C9FCB792C2BF23F0013163C /* LogObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9FCB742C2BF23E0013163C /* LogObserver.swift */; };
+		1C9FCB7A2C2BF23F0013163C /* RSSIObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9FCB752C2BF23E0013163C /* RSSIObserver.swift */; };
+		1C9FCB7B2C2BF23F0013163C /* ServiceObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9FCB762C2BF23E0013163C /* ServiceObserver.swift */; };
+		1C9FCB7C2C2BF23F0013163C /* ConnectionObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9FCB772C2BF23E0013163C /* ConnectionObserver.swift */; };
+		1C9FCB7D2C2BF23F0013163C /* DisconnectHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9FCB782C2BF23E0013163C /* DisconnectHandler.swift */; };
+		1C9FCB852C2BF2550013163C /* Receivable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9FCB7F2C2BF2550013163C /* Receivable.swift */; };
+		1C9FCB862C2BF2550013163C /* String+Transferable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9FCB802C2BF2550013163C /* String+Transferable.swift */; };
+		1C9FCB872C2BF2550013163C /* Data+Extractable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9FCB812C2BF2550013163C /* Data+Extractable.swift */; };
+		1C9FCB882C2BF2550013163C /* Data+Sendable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9FCB822C2BF2550013163C /* Data+Sendable.swift */; };
+		1C9FCB892C2BF2550013163C /* Sendable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9FCB832C2BF2550013163C /* Sendable.swift */; };
+		1C9FCB8A2C2BF2550013163C /* Integer+Transferable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9FCB842C2BF2550013163C /* Integer+Transferable.swift */; };
+		1C9FCB902C2BF2660013163C /* ListenRestorer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9FCB8C2C2BF2660013163C /* ListenRestorer.swift */; };
+		1C9FCB912C2BF2660013163C /* BackgroundRestorer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9FCB8D2C2BF2660013163C /* BackgroundRestorer.swift */; };
+		1C9FCB922C2BF2660013163C /* BackgroundRestoreConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9FCB8E2C2BF2660013163C /* BackgroundRestoreConfig.swift */; };
+		1C9FCB932C2BF2660013163C /* BackgroundRestoreMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9FCB8F2C2BF2660013163C /* BackgroundRestoreMode.swift */; };
+		1C9FCB992C2BF27D0013163C /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9FCB952C2BF27C0013163C /* Event.swift */; };
+		1C9FCB9A2C2BF27D0013163C /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9FCB962C2BF27C0013163C /* Queue.swift */; };
+		1C9FCB9B2C2BF27D0013163C /* QueueableState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9FCB972C2BF27C0013163C /* QueueableState.swift */; };
+		1C9FCB9C2C2BF27D0013163C /* Queueable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9FCB982C2BF27C0013163C /* Queueable.swift */; };
+		1C9FCBA12C2BF2940013163C /* Scan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9FCB9E2C2BF2940013163C /* Scan.swift */; };
+		1C9FCBA22C2BF2940013163C /* ScanAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9FCB9F2C2BF2940013163C /* ScanAction.swift */; };
+		1C9FCBA32C2BF2940013163C /* ScanDiscovery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9FCBA02C2BF2940013163C /* ScanDiscovery.swift */; };
+		1C9FCBAA2C2BF2BF0013163C /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9FCBA62C2BF2BF0013163C /* Connection.swift */; };
+		1C9FCBAB2C2BF2BF0013163C /* DisconnectionResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9FCBA72C2BF2BF0013163C /* DisconnectionResult.swift */; };
+		1C9FCBAC2C2BF2BF0013163C /* Disconnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9FCBA82C2BF2BF0013163C /* Disconnection.swift */; };
+		1C9FCBAD2C2BF2BF0013163C /* ConnectionResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9FCBA92C2BF2BF0013163C /* ConnectionResult.swift */; };
+		1C9FCBBC2C2BF2E10013163C /* ReadResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9FCBAF2C2BF2DF0013163C /* ReadResult.swift */; };
+		1C9FCBBD2C2BF2E10013163C /* WriteCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9FCBB02C2BF2DF0013163C /* WriteCharacteristic.swift */; };
+		1C9FCBBE2C2BF2E10013163C /* WriteResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9FCBB12C2BF2DF0013163C /* WriteResult.swift */; };
+		1C9FCBBF2C2BF2E10013163C /* ListenCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9FCBB22C2BF2DF0013163C /* ListenCharacteristic.swift */; };
+		1C9FCBC02C2BF2E10013163C /* DiscoveryResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9FCBB32C2BF2DF0013163C /* DiscoveryResult.swift */; };
+		1C9FCBC12C2BF2E10013163C /* ReadCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9FCBB42C2BF2E00013163C /* ReadCharacteristic.swift */; };
+		1C9FCBC22C2BF2E10013163C /* ListenCallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9FCBB52C2BF2E00013163C /* ListenCallback.swift */; };
+		1C9FCBC32C2BF2E10013163C /* ListenAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9FCBB62C2BF2E00013163C /* ListenAction.swift */; };
+		1C9FCBC42C2BF2E10013163C /* RunResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9FCBB72C2BF2E00013163C /* RunResult.swift */; };
+		1C9FCBC52C2BF2E10013163C /* DiscoverCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9FCBB82C2BF2E00013163C /* DiscoverCharacteristic.swift */; };
+		1C9FCBC62C2BF2E10013163C /* DiscoverService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9FCBB92C2BF2E00013163C /* DiscoverService.swift */; };
+		1C9FCBC72C2BF2E10013163C /* MultipleListenOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9FCBBA2C2BF2E10013163C /* MultipleListenOption.swift */; };
+		1C9FCBC82C2BF2E10013163C /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9FCBBB2C2BF2E10013163C /* Operation.swift */; };
+		1C9FCBCC2C2C10660013163C /* BluetoothManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9FCBCB2C2C10660013163C /* BluetoothManager.swift */; };
+		1C9FCBCF2C2D0A590013163C /* SharedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9FCBCE2C2D0A590013163C /* SharedData.swift */; };
+		1C9FCBD22C2D19770013163C /* BluetoothConnectHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9FCBD12C2D19770013163C /* BluetoothConnectHelper.swift */; };
+		1C9FCBD42C2D413C0013163C /* BluetoothDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9FCBD32C2D413C0013163C /* BluetoothDataView.swift */; };
+		1C9FCBD62C2D42CB0013163C /* BluetoothDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9FCBD52C2D42CB0013163C /* BluetoothDataManager.swift */; };
+		1C9FCBD82C2D44B70013163C /* BluetoothInfoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9FCBD72C2D44B70013163C /* BluetoothInfoData.swift */; };
+		1C9FCBDA2C2D5D190013163C /* BluetoothBaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9FCBD92C2D5D190013163C /* BluetoothBaseManager.swift */; };
+		1C9FCBDC2C2D620C0013163C /* BluetoothServiceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9FCBDB2C2D620C0013163C /* BluetoothServiceHelper.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1C9FC9EF2C2BF04D0013163C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1C11FBBE2C2A6FF40087C39F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1C9FC9E82C2BF04D0013163C;
+			remoteInfo = Bluejay;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		1C9FC9F62C2BF04D0013163C /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				1C9FC9F22C2BF04D0013163C /* Bluejay.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		1C11FBC62C2A6FF40087C39F /* you.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = you.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1C11FBC92C2A6FF40087C39F /* youApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = youApp.swift; sourceTree = "<group>"; };
+		1C11FBCB2C2A6FF40087C39F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		1C11FBCD2C2A6FF60087C39F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1C11FBD02C2A6FF60087C39F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		1C11FBD82C2A714F0087C39F /* WiFiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WiFiView.swift; sourceTree = "<group>"; };
+		1C11FBDA2C2A71B70087C39F /* PageRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageRow.swift; sourceTree = "<group>"; };
+		1C11FBDD2C2A753D0087C39F /* View+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Ext.swift"; sourceTree = "<group>"; };
+		1C11FBE02C2A77A70087C39F /* NetworkUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkUtil.swift; sourceTree = "<group>"; };
+		1C11FBE22C2A92290087C39F /* you.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = you.entitlements; sourceTree = "<group>"; };
+		1C4B6EDB2C2A9A3B0095D27D /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		1C4B6EDE2C2AA62B0095D27D /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = System/Library/Frameworks/NetworkExtension.framework; sourceTree = SDKROOT; };
+		1C4B6EE32C2ABB140095D27D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		1C9FC9E02C2BC1D10013163C /* PersistentStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentStorageManager.swift; sourceTree = "<group>"; };
+		1C9FC9E22C2BED8E0013163C /* BluetoothView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothView.swift; sourceTree = "<group>"; };
+		1C9FC9E92C2BF04D0013163C /* Bluejay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Bluejay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1C9FC9EB2C2BF04D0013163C /* Bluejay.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bluejay.h; sourceTree = "<group>"; };
+		1C9FC9EC2C2BF04D0013163C /* Bluejay.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = Bluejay.docc; sourceTree = "<group>"; };
+		1C9FCADF2C2BF1A90013163C /* Bluejay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bluejay.swift; sourceTree = "<group>"; };
+		1C9FCAE02C2BF1A90013163C /* Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		1C9FCAE42C2BF1C30013163C /* PeripheralDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeripheralDelegate.swift; sourceTree = "<group>"; };
+		1C9FCAE52C2BF1C30013163C /* SynchronizedPeripheral.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SynchronizedPeripheral.swift; sourceTree = "<group>"; };
+		1C9FCAE62C2BF1C30013163C /* Peripheral.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Peripheral.swift; sourceTree = "<group>"; };
+		1C9FCAEC2C2BF1F90013163C /* CBPeripheral+FindService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CBPeripheral+FindService.swift"; sourceTree = "<group>"; };
+		1C9FCAED2C2BF1F90013163C /* CBManagerState+ReturnString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CBManagerState+ReturnString.swift"; sourceTree = "<group>"; };
+		1C9FCAEE2C2BF1F90013163C /* CBService+FindCharacteristic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CBService+FindCharacteristic.swift"; sourceTree = "<group>"; };
+		1C9FCAEF2C2BF1F90013163C /* CBPeripheralState+ReturnString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CBPeripheralState+ReturnString.swift"; sourceTree = "<group>"; };
+		1C9FCAF52C2BF20F0013163C /* PeripheralIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeripheralIdentifier.swift; sourceTree = "<group>"; };
+		1C9FCAF62C2BF20F0013163C /* ServiceIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceIdentifier.swift; sourceTree = "<group>"; };
+		1C9FCAF72C2BF20F0013163C /* DataPadding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataPadding.swift; sourceTree = "<group>"; };
+		1C9FCAF82C2BF20F0013163C /* CharacteristicIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacteristicIdentifier.swift; sourceTree = "<group>"; };
+		1C9FCB6F2C2BF2270013163C /* StartOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartOptions.swift; sourceTree = "<group>"; };
+		1C9FCB702C2BF2270013163C /* WarningOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WarningOptions.swift; sourceTree = "<group>"; };
+		1C9FCB742C2BF23E0013163C /* LogObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogObserver.swift; sourceTree = "<group>"; };
+		1C9FCB752C2BF23E0013163C /* RSSIObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSSIObserver.swift; sourceTree = "<group>"; };
+		1C9FCB762C2BF23E0013163C /* ServiceObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceObserver.swift; sourceTree = "<group>"; };
+		1C9FCB772C2BF23E0013163C /* ConnectionObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionObserver.swift; sourceTree = "<group>"; };
+		1C9FCB782C2BF23E0013163C /* DisconnectHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisconnectHandler.swift; sourceTree = "<group>"; };
+		1C9FCB7F2C2BF2550013163C /* Receivable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Receivable.swift; sourceTree = "<group>"; };
+		1C9FCB802C2BF2550013163C /* String+Transferable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Transferable.swift"; sourceTree = "<group>"; };
+		1C9FCB812C2BF2550013163C /* Data+Extractable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Data+Extractable.swift"; sourceTree = "<group>"; };
+		1C9FCB822C2BF2550013163C /* Data+Sendable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Data+Sendable.swift"; sourceTree = "<group>"; };
+		1C9FCB832C2BF2550013163C /* Sendable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sendable.swift; sourceTree = "<group>"; };
+		1C9FCB842C2BF2550013163C /* Integer+Transferable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Integer+Transferable.swift"; sourceTree = "<group>"; };
+		1C9FCB8C2C2BF2660013163C /* ListenRestorer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListenRestorer.swift; sourceTree = "<group>"; };
+		1C9FCB8D2C2BF2660013163C /* BackgroundRestorer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundRestorer.swift; sourceTree = "<group>"; };
+		1C9FCB8E2C2BF2660013163C /* BackgroundRestoreConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundRestoreConfig.swift; sourceTree = "<group>"; };
+		1C9FCB8F2C2BF2660013163C /* BackgroundRestoreMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundRestoreMode.swift; sourceTree = "<group>"; };
+		1C9FCB952C2BF27C0013163C /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		1C9FCB962C2BF27C0013163C /* Queue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
+		1C9FCB972C2BF27C0013163C /* QueueableState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueueableState.swift; sourceTree = "<group>"; };
+		1C9FCB982C2BF27C0013163C /* Queueable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Queueable.swift; sourceTree = "<group>"; };
+		1C9FCB9E2C2BF2940013163C /* Scan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scan.swift; sourceTree = "<group>"; };
+		1C9FCB9F2C2BF2940013163C /* ScanAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanAction.swift; sourceTree = "<group>"; };
+		1C9FCBA02C2BF2940013163C /* ScanDiscovery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanDiscovery.swift; sourceTree = "<group>"; };
+		1C9FCBA62C2BF2BF0013163C /* Connection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Connection.swift; sourceTree = "<group>"; };
+		1C9FCBA72C2BF2BF0013163C /* DisconnectionResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisconnectionResult.swift; sourceTree = "<group>"; };
+		1C9FCBA82C2BF2BF0013163C /* Disconnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Disconnection.swift; sourceTree = "<group>"; };
+		1C9FCBA92C2BF2BF0013163C /* ConnectionResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionResult.swift; sourceTree = "<group>"; };
+		1C9FCBAF2C2BF2DF0013163C /* ReadResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadResult.swift; sourceTree = "<group>"; };
+		1C9FCBB02C2BF2DF0013163C /* WriteCharacteristic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WriteCharacteristic.swift; sourceTree = "<group>"; };
+		1C9FCBB12C2BF2DF0013163C /* WriteResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WriteResult.swift; sourceTree = "<group>"; };
+		1C9FCBB22C2BF2DF0013163C /* ListenCharacteristic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListenCharacteristic.swift; sourceTree = "<group>"; };
+		1C9FCBB32C2BF2DF0013163C /* DiscoveryResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoveryResult.swift; sourceTree = "<group>"; };
+		1C9FCBB42C2BF2E00013163C /* ReadCharacteristic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadCharacteristic.swift; sourceTree = "<group>"; };
+		1C9FCBB52C2BF2E00013163C /* ListenCallback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListenCallback.swift; sourceTree = "<group>"; };
+		1C9FCBB62C2BF2E00013163C /* ListenAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListenAction.swift; sourceTree = "<group>"; };
+		1C9FCBB72C2BF2E00013163C /* RunResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunResult.swift; sourceTree = "<group>"; };
+		1C9FCBB82C2BF2E00013163C /* DiscoverCharacteristic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverCharacteristic.swift; sourceTree = "<group>"; };
+		1C9FCBB92C2BF2E00013163C /* DiscoverService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverService.swift; sourceTree = "<group>"; };
+		1C9FCBBA2C2BF2E10013163C /* MultipleListenOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultipleListenOption.swift; sourceTree = "<group>"; };
+		1C9FCBBB2C2BF2E10013163C /* Operation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operation.swift; sourceTree = "<group>"; };
+		1C9FCBCB2C2C10660013163C /* BluetoothManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothManager.swift; sourceTree = "<group>"; };
+		1C9FCBCE2C2D0A590013163C /* SharedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedData.swift; sourceTree = "<group>"; };
+		1C9FCBD12C2D19770013163C /* BluetoothConnectHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothConnectHelper.swift; sourceTree = "<group>"; };
+		1C9FCBD32C2D413C0013163C /* BluetoothDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothDataView.swift; sourceTree = "<group>"; };
+		1C9FCBD52C2D42CB0013163C /* BluetoothDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothDataManager.swift; sourceTree = "<group>"; };
+		1C9FCBD72C2D44B70013163C /* BluetoothInfoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothInfoData.swift; sourceTree = "<group>"; };
+		1C9FCBD92C2D5D190013163C /* BluetoothBaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothBaseManager.swift; sourceTree = "<group>"; };
+		1C9FCBDB2C2D620C0013163C /* BluetoothServiceHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothServiceHelper.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1C11FBC32C2A6FF40087C39F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1C4B6EDF2C2AA62B0095D27D /* NetworkExtension.framework in Frameworks */,
+				1C9FC9F12C2BF04D0013163C /* Bluejay.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1C9FC9E62C2BF04D0013163C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1C11FBBD2C2A6FF40087C39F = {
+			isa = PBXGroup;
+			children = (
+				1C11FBC82C2A6FF40087C39F /* you */,
+				1C9FC9EA2C2BF04D0013163C /* Bluejay */,
+				1C11FBC72C2A6FF40087C39F /* Products */,
+				1C4B6EDD2C2AA62B0095D27D /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		1C11FBC72C2A6FF40087C39F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1C11FBC62C2A6FF40087C39F /* you.app */,
+				1C9FC9E92C2BF04D0013163C /* Bluejay.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1C11FBC82C2A6FF40087C39F /* you */ = {
+			isa = PBXGroup;
+			children = (
+				1C4B6EE32C2ABB140095D27D /* Info.plist */,
+				1C11FBE22C2A92290087C39F /* you.entitlements */,
+				1C9FCBCD2C2D0A390013163C /* Data */,
+				1C4B6EDA2C2A9A2F0095D27D /* Manager */,
+				1C9FCBD02C2D19540013163C /* Helper */,
+				1C11FBDF2C2A77960087C39F /* Util */,
+				1C11FBDC2C2A750A0087C39F /* Extension */,
+				1C11FBD72C2A71300087C39F /* Page */,
+				1C11FBC92C2A6FF40087C39F /* youApp.swift */,
+				1C11FBCB2C2A6FF40087C39F /* ContentView.swift */,
+				1C11FBDA2C2A71B70087C39F /* PageRow.swift */,
+				1C11FBCD2C2A6FF60087C39F /* Assets.xcassets */,
+				1C11FBCF2C2A6FF60087C39F /* Preview Content */,
+			);
+			path = you;
+			sourceTree = "<group>";
+		};
+		1C11FBCF2C2A6FF60087C39F /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				1C11FBD02C2A6FF60087C39F /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		1C11FBD72C2A71300087C39F /* Page */ = {
+			isa = PBXGroup;
+			children = (
+				1C11FBD82C2A714F0087C39F /* WiFiView.swift */,
+				1C9FC9E22C2BED8E0013163C /* BluetoothView.swift */,
+				1C9FCBD32C2D413C0013163C /* BluetoothDataView.swift */,
+			);
+			path = Page;
+			sourceTree = "<group>";
+		};
+		1C11FBDC2C2A750A0087C39F /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				1C11FBDD2C2A753D0087C39F /* View+Ext.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		1C11FBDF2C2A77960087C39F /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				1C11FBE02C2A77A70087C39F /* NetworkUtil.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		1C4B6EDA2C2A9A2F0095D27D /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				1C4B6EDB2C2A9A3B0095D27D /* LocationManager.swift */,
+				1C9FC9E02C2BC1D10013163C /* PersistentStorageManager.swift */,
+				1C9FCBD52C2D42CB0013163C /* BluetoothDataManager.swift */,
+				1C9FCBCB2C2C10660013163C /* BluetoothManager.swift */,
+				1C9FCBD92C2D5D190013163C /* BluetoothBaseManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		1C4B6EDD2C2AA62B0095D27D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1C4B6EDE2C2AA62B0095D27D /* NetworkExtension.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1C9FC9EA2C2BF04D0013163C /* Bluejay */ = {
+			isa = PBXGroup;
+			children = (
+				1C9FC9EB2C2BF04D0013163C /* Bluejay.h */,
+				1C9FCADF2C2BF1A90013163C /* Bluejay.swift */,
+				1C9FCAE02C2BF1A90013163C /* Error.swift */,
+				1C9FCAEA2C2BF1D10013163C /* Queueing */,
+				1C9FCAE32C2BF1B80013163C /* Peripheral */,
+				1C9FCB8B2C2BF25E0013163C /* Background Restoration */,
+				1C9FCB7E2C2BF24C0013163C /* Serialization and Deserialization */,
+				1C9FCB732C2BF2370013163C /* Protocols */,
+				1C9FCAF42C2BF2050013163C /* Structs */,
+				1C9FCAEB2C2BF1EF0013163C /* Extensions */,
+				1C9FC9EC2C2BF04D0013163C /* Bluejay.docc */,
+			);
+			path = Bluejay;
+			sourceTree = "<group>";
+		};
+		1C9FCAE32C2BF1B80013163C /* Peripheral */ = {
+			isa = PBXGroup;
+			children = (
+				1C9FCAE62C2BF1C30013163C /* Peripheral.swift */,
+				1C9FCAE42C2BF1C30013163C /* PeripheralDelegate.swift */,
+				1C9FCAE52C2BF1C30013163C /* SynchronizedPeripheral.swift */,
+			);
+			path = Peripheral;
+			sourceTree = "<group>";
+		};
+		1C9FCAEA2C2BF1D10013163C /* Queueing */ = {
+			isa = PBXGroup;
+			children = (
+				1C9FCB942C2BF2750013163C /* Queue */,
+				1C9FCB9D2C2BF28B0013163C /* Scanning */,
+				1C9FCBA52C2BF2B70013163C /* Connectivity */,
+				1C9FCBAE2C2BF2D60013163C /* Peripheral Operations */,
+			);
+			path = Queueing;
+			sourceTree = "<group>";
+		};
+		1C9FCAEB2C2BF1EF0013163C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1C9FCAED2C2BF1F90013163C /* CBManagerState+ReturnString.swift */,
+				1C9FCAEC2C2BF1F90013163C /* CBPeripheral+FindService.swift */,
+				1C9FCAEF2C2BF1F90013163C /* CBPeripheralState+ReturnString.swift */,
+				1C9FCAEE2C2BF1F90013163C /* CBService+FindCharacteristic.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		1C9FCAF42C2BF2050013163C /* Structs */ = {
+			isa = PBXGroup;
+			children = (
+				1C9FCB6E2C2BF21F0013163C /* Options */,
+				1C9FCAF82C2BF20F0013163C /* CharacteristicIdentifier.swift */,
+				1C9FCAF72C2BF20F0013163C /* DataPadding.swift */,
+				1C9FCAF52C2BF20F0013163C /* PeripheralIdentifier.swift */,
+				1C9FCAF62C2BF20F0013163C /* ServiceIdentifier.swift */,
+			);
+			path = Structs;
+			sourceTree = "<group>";
+		};
+		1C9FCB6E2C2BF21F0013163C /* Options */ = {
+			isa = PBXGroup;
+			children = (
+				1C9FCB6F2C2BF2270013163C /* StartOptions.swift */,
+				1C9FCB702C2BF2270013163C /* WarningOptions.swift */,
+			);
+			path = Options;
+			sourceTree = "<group>";
+		};
+		1C9FCB732C2BF2370013163C /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				1C9FCB772C2BF23E0013163C /* ConnectionObserver.swift */,
+				1C9FCB782C2BF23E0013163C /* DisconnectHandler.swift */,
+				1C9FCB742C2BF23E0013163C /* LogObserver.swift */,
+				1C9FCB752C2BF23E0013163C /* RSSIObserver.swift */,
+				1C9FCB762C2BF23E0013163C /* ServiceObserver.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		1C9FCB7E2C2BF24C0013163C /* Serialization and Deserialization */ = {
+			isa = PBXGroup;
+			children = (
+				1C9FCB812C2BF2550013163C /* Data+Extractable.swift */,
+				1C9FCB822C2BF2550013163C /* Data+Sendable.swift */,
+				1C9FCB842C2BF2550013163C /* Integer+Transferable.swift */,
+				1C9FCB7F2C2BF2550013163C /* Receivable.swift */,
+				1C9FCB832C2BF2550013163C /* Sendable.swift */,
+				1C9FCB802C2BF2550013163C /* String+Transferable.swift */,
+			);
+			path = "Serialization and Deserialization";
+			sourceTree = "<group>";
+		};
+		1C9FCB8B2C2BF25E0013163C /* Background Restoration */ = {
+			isa = PBXGroup;
+			children = (
+				1C9FCB8E2C2BF2660013163C /* BackgroundRestoreConfig.swift */,
+				1C9FCB8F2C2BF2660013163C /* BackgroundRestoreMode.swift */,
+				1C9FCB8D2C2BF2660013163C /* BackgroundRestorer.swift */,
+				1C9FCB8C2C2BF2660013163C /* ListenRestorer.swift */,
+			);
+			path = "Background Restoration";
+			sourceTree = "<group>";
+		};
+		1C9FCB942C2BF2750013163C /* Queue */ = {
+			isa = PBXGroup;
+			children = (
+				1C9FCB952C2BF27C0013163C /* Event.swift */,
+				1C9FCB962C2BF27C0013163C /* Queue.swift */,
+				1C9FCB982C2BF27C0013163C /* Queueable.swift */,
+				1C9FCB972C2BF27C0013163C /* QueueableState.swift */,
+			);
+			path = Queue;
+			sourceTree = "<group>";
+		};
+		1C9FCB9D2C2BF28B0013163C /* Scanning */ = {
+			isa = PBXGroup;
+			children = (
+				1C9FCB9E2C2BF2940013163C /* Scan.swift */,
+				1C9FCB9F2C2BF2940013163C /* ScanAction.swift */,
+				1C9FCBA02C2BF2940013163C /* ScanDiscovery.swift */,
+			);
+			path = Scanning;
+			sourceTree = "<group>";
+		};
+		1C9FCBA52C2BF2B70013163C /* Connectivity */ = {
+			isa = PBXGroup;
+			children = (
+				1C9FCBA62C2BF2BF0013163C /* Connection.swift */,
+				1C9FCBA92C2BF2BF0013163C /* ConnectionResult.swift */,
+				1C9FCBA82C2BF2BF0013163C /* Disconnection.swift */,
+				1C9FCBA72C2BF2BF0013163C /* DisconnectionResult.swift */,
+			);
+			path = Connectivity;
+			sourceTree = "<group>";
+		};
+		1C9FCBAE2C2BF2D60013163C /* Peripheral Operations */ = {
+			isa = PBXGroup;
+			children = (
+				1C9FCBB82C2BF2E00013163C /* DiscoverCharacteristic.swift */,
+				1C9FCBB92C2BF2E00013163C /* DiscoverService.swift */,
+				1C9FCBB32C2BF2DF0013163C /* DiscoveryResult.swift */,
+				1C9FCBB62C2BF2E00013163C /* ListenAction.swift */,
+				1C9FCBB52C2BF2E00013163C /* ListenCallback.swift */,
+				1C9FCBB22C2BF2DF0013163C /* ListenCharacteristic.swift */,
+				1C9FCBBA2C2BF2E10013163C /* MultipleListenOption.swift */,
+				1C9FCBBB2C2BF2E10013163C /* Operation.swift */,
+				1C9FCBB42C2BF2E00013163C /* ReadCharacteristic.swift */,
+				1C9FCBAF2C2BF2DF0013163C /* ReadResult.swift */,
+				1C9FCBB72C2BF2E00013163C /* RunResult.swift */,
+				1C9FCBB02C2BF2DF0013163C /* WriteCharacteristic.swift */,
+				1C9FCBB12C2BF2DF0013163C /* WriteResult.swift */,
+			);
+			path = "Peripheral Operations";
+			sourceTree = "<group>";
+		};
+		1C9FCBCD2C2D0A390013163C /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				1C9FCBCE2C2D0A590013163C /* SharedData.swift */,
+				1C9FCBD72C2D44B70013163C /* BluetoothInfoData.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		1C9FCBD02C2D19540013163C /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				1C9FCBD12C2D19770013163C /* BluetoothConnectHelper.swift */,
+				1C9FCBDB2C2D620C0013163C /* BluetoothServiceHelper.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		1C9FC9E42C2BF04D0013163C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1C9FC9EE2C2BF04D0013163C /* Bluejay.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		1C11FBC52C2A6FF40087C39F /* you */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1C11FBD42C2A6FF60087C39F /* Build configuration list for PBXNativeTarget "you" */;
+			buildPhases = (
+				1C11FBC22C2A6FF40087C39F /* Sources */,
+				1C11FBC32C2A6FF40087C39F /* Frameworks */,
+				1C11FBC42C2A6FF40087C39F /* Resources */,
+				1C9FC9F62C2BF04D0013163C /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1C9FC9F02C2BF04D0013163C /* PBXTargetDependency */,
+			);
+			name = you;
+			productName = you;
+			productReference = 1C11FBC62C2A6FF40087C39F /* you.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1C9FC9E82C2BF04D0013163C /* Bluejay */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1C9FC9F32C2BF04D0013163C /* Build configuration list for PBXNativeTarget "Bluejay" */;
+			buildPhases = (
+				1C9FC9E42C2BF04D0013163C /* Headers */,
+				1C9FC9E52C2BF04D0013163C /* Sources */,
+				1C9FC9E62C2BF04D0013163C /* Frameworks */,
+				1C9FC9E72C2BF04D0013163C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Bluejay;
+			productName = Bluejay;
+			productReference = 1C9FC9E92C2BF04D0013163C /* Bluejay.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1C11FBBE2C2A6FF40087C39F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					1C11FBC52C2A6FF40087C39F = {
+						CreatedOnToolsVersion = 14.2;
+					};
+					1C9FC9E82C2BF04D0013163C = {
+						CreatedOnToolsVersion = 14.2;
+					};
+				};
+			};
+			buildConfigurationList = 1C11FBC12C2A6FF40087C39F /* Build configuration list for PBXProject "you" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1C11FBBD2C2A6FF40087C39F;
+			productRefGroup = 1C11FBC72C2A6FF40087C39F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1C11FBC52C2A6FF40087C39F /* you */,
+				1C9FC9E82C2BF04D0013163C /* Bluejay */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1C11FBC42C2A6FF40087C39F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1C11FBD12C2A6FF60087C39F /* Preview Assets.xcassets in Resources */,
+				1C11FBCE2C2A6FF60087C39F /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1C9FC9E72C2BF04D0013163C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1C11FBC22C2A6FF40087C39F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1C9FCBCF2C2D0A590013163C /* SharedData.swift in Sources */,
+				1C9FCBDA2C2D5D190013163C /* BluetoothBaseManager.swift in Sources */,
+				1C9FCBD82C2D44B70013163C /* BluetoothInfoData.swift in Sources */,
+				1C11FBCC2C2A6FF40087C39F /* ContentView.swift in Sources */,
+				1C9FCBDC2C2D620C0013163C /* BluetoothServiceHelper.swift in Sources */,
+				1C11FBDB2C2A71B70087C39F /* PageRow.swift in Sources */,
+				1C9FC9E12C2BC1D10013163C /* PersistentStorageManager.swift in Sources */,
+				1C11FBE12C2A77A70087C39F /* NetworkUtil.swift in Sources */,
+				1C9FCBD22C2D19770013163C /* BluetoothConnectHelper.swift in Sources */,
+				1C9FCBD42C2D413C0013163C /* BluetoothDataView.swift in Sources */,
+				1C4B6EDC2C2A9A3B0095D27D /* LocationManager.swift in Sources */,
+				1C11FBDE2C2A753D0087C39F /* View+Ext.swift in Sources */,
+				1C9FCBCC2C2C10660013163C /* BluetoothManager.swift in Sources */,
+				1C11FBD92C2A714F0087C39F /* WiFiView.swift in Sources */,
+				1C9FC9E32C2BED8E0013163C /* BluetoothView.swift in Sources */,
+				1C9FCBD62C2D42CB0013163C /* BluetoothDataManager.swift in Sources */,
+				1C11FBCA2C2A6FF40087C39F /* youApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1C9FC9E52C2BF04D0013163C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1C9FCAE12C2BF1A90013163C /* Bluejay.swift in Sources */,
+				1C9FCB882C2BF2550013163C /* Data+Sendable.swift in Sources */,
+				1C9FCBA12C2BF2940013163C /* Scan.swift in Sources */,
+				1C9FCBC52C2BF2E10013163C /* DiscoverCharacteristic.swift in Sources */,
+				1C9FCB722C2BF2270013163C /* WarningOptions.swift in Sources */,
+				1C9FCB9B2C2BF27D0013163C /* QueueableState.swift in Sources */,
+				1C9FCB352C2BF2100013163C /* CharacteristicIdentifier.swift in Sources */,
+				1C9FCBBC2C2BF2E10013163C /* ReadResult.swift in Sources */,
+				1C9FCBBF2C2BF2E10013163C /* ListenCharacteristic.swift in Sources */,
+				1C9FCBC32C2BF2E10013163C /* ListenAction.swift in Sources */,
+				1C9FCB7C2C2BF23F0013163C /* ConnectionObserver.swift in Sources */,
+				1C9FCB892C2BF2550013163C /* Sendable.swift in Sources */,
+				1C9FCAE92C2BF1C30013163C /* Peripheral.swift in Sources */,
+				1C9FCBC72C2BF2E10013163C /* MultipleListenOption.swift in Sources */,
+				1C9FCBA32C2BF2940013163C /* ScanDiscovery.swift in Sources */,
+				1C9FCAE22C2BF1A90013163C /* Error.swift in Sources */,
+				1C9FCB992C2BF27D0013163C /* Event.swift in Sources */,
+				1C9FCBC22C2BF2E10013163C /* ListenCallback.swift in Sources */,
+				1C9FCAF02C2BF1F90013163C /* CBPeripheral+FindService.swift in Sources */,
+				1C9FCBAA2C2BF2BF0013163C /* Connection.swift in Sources */,
+				1C9FCAE72C2BF1C30013163C /* PeripheralDelegate.swift in Sources */,
+				1C9FCBA22C2BF2940013163C /* ScanAction.swift in Sources */,
+				1C9FCB9C2C2BF27D0013163C /* Queueable.swift in Sources */,
+				1C9FCB922C2BF2660013163C /* BackgroundRestoreConfig.swift in Sources */,
+				1C9FCB342C2BF2100013163C /* DataPadding.swift in Sources */,
+				1C9FCBAB2C2BF2BF0013163C /* DisconnectionResult.swift in Sources */,
+				1C9FCB7D2C2BF23F0013163C /* DisconnectHandler.swift in Sources */,
+				1C9FCAF22C2BF1F90013163C /* CBService+FindCharacteristic.swift in Sources */,
+				1C9FCB912C2BF2660013163C /* BackgroundRestorer.swift in Sources */,
+				1C9FCAF12C2BF1F90013163C /* CBManagerState+ReturnString.swift in Sources */,
+				1C9FC9ED2C2BF04D0013163C /* Bluejay.docc in Sources */,
+				1C9FCAE82C2BF1C30013163C /* SynchronizedPeripheral.swift in Sources */,
+				1C9FCB7A2C2BF23F0013163C /* RSSIObserver.swift in Sources */,
+				1C9FCBC82C2BF2E10013163C /* Operation.swift in Sources */,
+				1C9FCB8A2C2BF2550013163C /* Integer+Transferable.swift in Sources */,
+				1C9FCB7B2C2BF23F0013163C /* ServiceObserver.swift in Sources */,
+				1C9FCBC62C2BF2E10013163C /* DiscoverService.swift in Sources */,
+				1C9FCB792C2BF23F0013163C /* LogObserver.swift in Sources */,
+				1C9FCBBE2C2BF2E10013163C /* WriteResult.swift in Sources */,
+				1C9FCB902C2BF2660013163C /* ListenRestorer.swift in Sources */,
+				1C9FCBBD2C2BF2E10013163C /* WriteCharacteristic.swift in Sources */,
+				1C9FCBC42C2BF2E10013163C /* RunResult.swift in Sources */,
+				1C9FCB852C2BF2550013163C /* Receivable.swift in Sources */,
+				1C9FCB9A2C2BF27D0013163C /* Queue.swift in Sources */,
+				1C9FCB862C2BF2550013163C /* String+Transferable.swift in Sources */,
+				1C9FCAF32C2BF1F90013163C /* CBPeripheralState+ReturnString.swift in Sources */,
+				1C9FCB332C2BF2100013163C /* ServiceIdentifier.swift in Sources */,
+				1C9FCBC12C2BF2E10013163C /* ReadCharacteristic.swift in Sources */,
+				1C9FCB932C2BF2660013163C /* BackgroundRestoreMode.swift in Sources */,
+				1C9FCB872C2BF2550013163C /* Data+Extractable.swift in Sources */,
+				1C9FCBAD2C2BF2BF0013163C /* ConnectionResult.swift in Sources */,
+				1C9FCBAC2C2BF2BF0013163C /* Disconnection.swift in Sources */,
+				1C9FCB322C2BF2100013163C /* PeripheralIdentifier.swift in Sources */,
+				1C9FCBC02C2BF2E10013163C /* DiscoveryResult.swift in Sources */,
+				1C9FCB712C2BF2270013163C /* StartOptions.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1C9FC9F02C2BF04D0013163C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1C9FC9E82C2BF04D0013163C /* Bluejay */;
+			targetProxy = 1C9FC9EF2C2BF04D0013163C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		1C11FBD22C2A6FF60087C39F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		1C11FBD32C2A6FF60087C39F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1C11FBD52C2A6FF60087C39F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = you/you.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"you/Preview Content\"";
+				DEVELOPMENT_TEAM = 36S5C989P7;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = you/Info.plist;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "连接蓝牙设备";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "APP可能需要使用您的定位";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zai.you;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1C11FBD62C2A6FF60087C39F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = you/you.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"you/Preview Content\"";
+				DEVELOPMENT_TEAM = 36S5C989P7;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = you/Info.plist;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "连接蓝牙设备";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "APP可能需要使用您的定位";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zai.you;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		1C9FC9F42C2BF04D0013163C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zai.Bluejay;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		1C9FC9F52C2BF04D0013163C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zai.Bluejay;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1C11FBC12C2A6FF40087C39F /* Build configuration list for PBXProject "you" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1C11FBD22C2A6FF60087C39F /* Debug */,
+				1C11FBD32C2A6FF60087C39F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1C11FBD42C2A6FF60087C39F /* Build configuration list for PBXNativeTarget "you" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1C11FBD52C2A6FF60087C39F /* Debug */,
+				1C11FBD62C2A6FF60087C39F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1C9FC9F32C2BF04D0013163C /* Build configuration list for PBXNativeTarget "Bluejay" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1C9FC9F42C2BF04D0013163C /* Debug */,
+				1C9FC9F52C2BF04D0013163C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1C11FBBE2C2A6FF40087C39F /* Project object */;
+}

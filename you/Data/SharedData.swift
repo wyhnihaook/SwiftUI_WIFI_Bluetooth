@@ -1,0 +1,15 @@
+//
+//  SharedData.swift
+//  you
+//  共享数据，全局统一调用内容。调用视图需要使用 @EnvironmentObject var sharedData : SharedData 来获取实例直接使用
+//  Created by 翁益亨 on 2024/6/27.
+//
+
+import Foundation
+import Bluejay
+
+class SharedData:ObservableObject{
+    ///创建蓝牙管理类的唯一实例
+    static let bluejay = Bluejay()
+    
+}
