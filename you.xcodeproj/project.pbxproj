@@ -79,12 +79,11 @@
 		1C9FCBC82C2BF2E10013163C /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9FCBBB2C2BF2E10013163C /* Operation.swift */; };
 		1C9FCBCC2C2C10660013163C /* BluetoothManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9FCBCB2C2C10660013163C /* BluetoothManager.swift */; };
 		1C9FCBCF2C2D0A590013163C /* SharedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9FCBCE2C2D0A590013163C /* SharedData.swift */; };
-		1C9FCBD22C2D19770013163C /* BluetoothConnectHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9FCBD12C2D19770013163C /* BluetoothConnectHelper.swift */; };
 		1C9FCBD42C2D413C0013163C /* BluetoothDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9FCBD32C2D413C0013163C /* BluetoothDataView.swift */; };
 		1C9FCBD62C2D42CB0013163C /* BluetoothDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9FCBD52C2D42CB0013163C /* BluetoothDataManager.swift */; };
 		1C9FCBD82C2D44B70013163C /* BluetoothInfoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9FCBD72C2D44B70013163C /* BluetoothInfoData.swift */; };
 		1C9FCBDA2C2D5D190013163C /* BluetoothBaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9FCBD92C2D5D190013163C /* BluetoothBaseManager.swift */; };
-		1C9FCBDC2C2D620C0013163C /* BluetoothServiceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9FCBDB2C2D620C0013163C /* BluetoothServiceHelper.swift */; };
+		1C9FCBDE2C2E4D910013163C /* OtherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9FCBDD2C2E4D910013163C /* OtherView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -186,12 +185,11 @@
 		1C9FCBBB2C2BF2E10013163C /* Operation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operation.swift; sourceTree = "<group>"; };
 		1C9FCBCB2C2C10660013163C /* BluetoothManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothManager.swift; sourceTree = "<group>"; };
 		1C9FCBCE2C2D0A590013163C /* SharedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedData.swift; sourceTree = "<group>"; };
-		1C9FCBD12C2D19770013163C /* BluetoothConnectHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothConnectHelper.swift; sourceTree = "<group>"; };
 		1C9FCBD32C2D413C0013163C /* BluetoothDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothDataView.swift; sourceTree = "<group>"; };
 		1C9FCBD52C2D42CB0013163C /* BluetoothDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothDataManager.swift; sourceTree = "<group>"; };
 		1C9FCBD72C2D44B70013163C /* BluetoothInfoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothInfoData.swift; sourceTree = "<group>"; };
 		1C9FCBD92C2D5D190013163C /* BluetoothBaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothBaseManager.swift; sourceTree = "<group>"; };
-		1C9FCBDB2C2D620C0013163C /* BluetoothServiceHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothServiceHelper.swift; sourceTree = "<group>"; };
+		1C9FCBDD2C2E4D910013163C /* OtherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -267,6 +265,7 @@
 				1C11FBD82C2A714F0087C39F /* WiFiView.swift */,
 				1C9FC9E22C2BED8E0013163C /* BluetoothView.swift */,
 				1C9FCBD32C2D413C0013163C /* BluetoothDataView.swift */,
+				1C9FCBDD2C2E4D910013163C /* OtherView.swift */,
 			);
 			path = Page;
 			sourceTree = "<group>";
@@ -478,8 +477,6 @@
 		1C9FCBD02C2D19540013163C /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				1C9FCBD12C2D19770013163C /* BluetoothConnectHelper.swift */,
-				1C9FCBDB2C2D620C0013163C /* BluetoothServiceHelper.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -600,13 +597,12 @@
 				1C9FCBDA2C2D5D190013163C /* BluetoothBaseManager.swift in Sources */,
 				1C9FCBD82C2D44B70013163C /* BluetoothInfoData.swift in Sources */,
 				1C11FBCC2C2A6FF40087C39F /* ContentView.swift in Sources */,
-				1C9FCBDC2C2D620C0013163C /* BluetoothServiceHelper.swift in Sources */,
 				1C11FBDB2C2A71B70087C39F /* PageRow.swift in Sources */,
 				1C9FC9E12C2BC1D10013163C /* PersistentStorageManager.swift in Sources */,
 				1C11FBE12C2A77A70087C39F /* NetworkUtil.swift in Sources */,
-				1C9FCBD22C2D19770013163C /* BluetoothConnectHelper.swift in Sources */,
 				1C9FCBD42C2D413C0013163C /* BluetoothDataView.swift in Sources */,
 				1C4B6EDC2C2A9A3B0095D27D /* LocationManager.swift in Sources */,
+				1C9FCBDE2C2E4D910013163C /* OtherView.swift in Sources */,
 				1C11FBDE2C2A753D0087C39F /* View+Ext.swift in Sources */,
 				1C9FCBCC2C2C10660013163C /* BluetoothManager.swift in Sources */,
 				1C11FBD92C2A714F0087C39F /* WiFiView.swift in Sources */,

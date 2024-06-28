@@ -1412,6 +1412,12 @@ extension Bluejay: CBCentralManagerDelegate {
         // let peripheralString = advertisementData[CBAdvertisementDataLocalNameKey] ?? peripheral.identifier.uuidString
         // log("Did discover: \(peripheralString)")
 
+        //发现了设备，如果需要特殊过滤逻辑，可以在这里添加。例如：过滤没有名称的设备
+        //当然不推荐直接根据有无名称来过滤，因为存在没有名称的蓝牙设备，连接之后再同步出对应的名称
+//        if peripheral.name != nil{
+//            queue.process(event: .didDiscoverPeripheral(peripheral, advertisementData, RSSI), error: nil)
+//        }
+        
         queue.process(event: .didDiscoverPeripheral(peripheral, advertisementData, RSSI), error: nil)
     }
 

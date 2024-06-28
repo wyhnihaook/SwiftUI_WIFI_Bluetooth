@@ -25,6 +25,11 @@ struct ContentView: View {
                     }
                 }
                 
+                Section("其他功能") {
+                    NavigationLink(destination: OtherView()) {
+                        PageRow(title: "其他相关", subTitle: "- -")
+                    }
+                }
             }
             //设置分组模式，默认适配模式根据内容加载
             .listStyle(.grouped)

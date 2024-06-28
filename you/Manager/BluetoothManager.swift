@@ -22,6 +22,8 @@ class BluetoothManager : BluetoothBaseManager{
             //如果需要指定匹配的设备，那么就要匹配设备所广播的服务UUID。设定完毕之后只会回调指定设备信息
             //经过实践发现如果不置顶相关的服务UUID，那么周边的很多支持蓝牙的设备将会被扫描进入。
             //例如：MAC电脑、Android手机以及一大部分No Name的设备
+            //即使过滤了No Name【设备列表和系统蓝牙识别的结果列表完全不一致】
+            //根据连接固定蓝牙的需求设定，这里就通过UUID去做匹配信息连接【真实设备之间互相影响的问题需要实践】
             
             //这里设定的UUID为蓝牙外设广播的UUID信息
             let heartRateService = ServiceIdentifier(uuid: "180D")
@@ -81,5 +83,38 @@ class BluetoothManager : BluetoothBaseManager{
     //MARK: - 暂停扫描设备
     func stopScanning(){
         bluejay.stopScanning()
+    }
+}
+
+extension BluetoothManager : ConnectionObserver, DisconnectHandler{
+    //蓝牙连接回调相关信息
+    func bluetoothAvailable(_ available: Bool) {
+        if available{
+            //识别到中心设备蓝牙可用，开始接收外部广播信息【外设的广播信息】
+            scanHeartSensors()
+            
+        }else{
+            //页面上展示对应因为蓝牙不可用无法识别的标识
+        }
+    }
+    
+    ///关注扫描API的调用：manager.scanForPeripherals
+    func connected(to peripheral: PeripheralIdentifier) {
+        print("connected----:\(peripheral)")
+
+        //完成连接之后的回调。根据业务需求处理：停止扫描、可以跳转新的页面去接受处理对应的操作信息等
+        //注册回调完毕之后如果检测连接状态是已连接 - 还是会执行这里，主要是用于体现当前的状态回调
+        stopScanning()
+        
+        //注意：Connection deinitialized.日志表示的是队列中连接的task任务已经完成并完成回收，和真实连接情况没有关联
+    }
+    
+    
+    //要获取该回调需要注册对应方法【registerDisconnectHandler】
+    func didDisconnect(from peripheral: PeripheralIdentifier, with error: Error?, willReconnect autoReconnect: Bool) -> AutoReconnectMode {
+        //断开连接之后的业务逻辑添加
+        print("didDisconnect")
+
+        return .noChange
     }
 }

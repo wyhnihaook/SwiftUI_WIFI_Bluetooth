@@ -1,7 +1,7 @@
 //
 //  BluetoothView.swift
 //  you
-//  蓝牙扫描页面内容
+//  蓝牙扫描页面内容【当应用退到后台时暂停扫描，回到前台时开启扫描】
 //  Created by 翁益亨 on 2024/6/26.
 //
 
@@ -14,8 +14,6 @@ struct BluetoothView: View {
     
     //创建内部管理数据对象
     @StateObject var model = BluetoothManager()
-    
-    let connectHelper : BluetoothConnectHelper = BluetoothConnectHelper()
         
     
     var body: some View {
@@ -56,15 +54,16 @@ struct BluetoothView: View {
             }
             .listStyle(.grouped)
             .navigationBarTitle(Text("蓝牙"), displayMode: .large).onAppear{
-                connectHelper.binding(bluetoothManager: model)
             //视图初始化创建[BluetoothScanHelper]遵守协议的帮助类，用于验证蓝牙是否可用并开启扫描等业务
             //开始扫描，列表展示设备内容。通过点击方法进行连接
-            SharedData.bluejay.register(connectionObserver: connectHelper)
+            SharedData.bluejay.register(connectionObserver: model)
             
         }.onDisappear{
             //视图销毁
-            SharedData.bluejay.unregister(connectionObserver: connectHelper)
-            print("onDisappear")
+            SharedData.bluejay.unregister(connectionObserver: model)
+            
+            //页面关闭后，停止扫描功能
+            SharedData.bluejay.stopScanning()
         }
     }
 }
