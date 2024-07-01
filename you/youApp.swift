@@ -25,7 +25,9 @@ struct youApp: App {
     @Environment(\.scenePhase) var scenePhase
     var body: some Scene {
         WindowGroup {
-            ContentView().environmentObject(sharedData)
+//            ContentView()
+              OtherView()
+                .environmentObject(sharedData)
         }.onChange(of: scenePhase) { newValue in
             switch newValue{
             case .active:

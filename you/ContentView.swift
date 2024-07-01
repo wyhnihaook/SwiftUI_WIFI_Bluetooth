@@ -25,9 +25,9 @@ struct ContentView: View {
                     }
                 }
                 
-                Section("其他功能") {
+                Section("页面展示") {
                     NavigationLink(destination: OtherView()) {
-                        PageRow(title: "其他相关", subTitle: "- -")
+                        PageRow(title: "静态页面", subTitle: "静态APP内容")
                     }
                 }
             }

@@ -84,6 +84,23 @@
 		1C9FCBD82C2D44B70013163C /* BluetoothInfoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9FCBD72C2D44B70013163C /* BluetoothInfoData.swift */; };
 		1C9FCBDA2C2D5D190013163C /* BluetoothBaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9FCBD92C2D5D190013163C /* BluetoothBaseManager.swift */; };
 		1C9FCBDE2C2E4D910013163C /* OtherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9FCBDD2C2E4D910013163C /* OtherView.swift */; };
+		1C9FCBE32C2EBBB80013163C /* FileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9FCBE22C2EBBB80013163C /* FileView.swift */; };
+		1CBBADD82C32A8200015DF46 /* DefaultTabItemStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBBADD72C32A8200015DF46 /* DefaultTabItemStyle.swift */; };
+		1CBBADDA2C32A8410015DF46 /* TabItemStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBBADD92C32A8410015DF46 /* TabItemStyle.swift */; };
+		1CBBADDD2C32A8630015DF46 /* AnyTabItemStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBBADDC2C32A8630015DF46 /* AnyTabItemStyle.swift */; };
+		1CBBADDF2C32A8E40015DF46 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBBADDE2C32A8E40015DF46 /* TabBar.swift */; };
+		1CBBADE12C32AA390015DF46 /* CustomTabItemStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBBADE02C32AA390015DF46 /* CustomTabItemStyle.swift */; };
+		1CBBADE32C32AA6B0015DF46 /* CustomTabBarStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBBADE22C32AA6B0015DF46 /* CustomTabBarStyle.swift */; };
+		1CBBADE52C32AD100015DF46 /* CustomTabBarWhiteStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBBADE42C32AD100015DF46 /* CustomTabBarWhiteStyle.swift */; };
+		1CBBADE72C32AE120015DF46 /* CustomTabItemNormalStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBBADE62C32AE120015DF46 /* CustomTabItemNormalStyle.swift */; };
+		1CD057782C32A0A90002E58D /* MineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD057772C32A0A90002E58D /* MineView.swift */; };
+		1CD0577C2C32A1BB0002E58D /* TabBarViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD0577B2C32A1BB0002E58D /* TabBarViewModifier.swift */; };
+		1CD057802C32A5230002E58D /* Tabbable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD0577F2C32A5220002E58D /* Tabbable.swift */; };
+		1CD057822C32A5B00002E58D /* TabBarSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD057812C32A5B00002E58D /* TabBarSelection.swift */; };
+		1CD057842C32A5D40002E58D /* TabBarPreferenceKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD057832C32A5D40002E58D /* TabBarPreferenceKey.swift */; };
+		1CD057862C32A64B0002E58D /* TabBarStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD057852C32A64B0002E58D /* TabBarStyle.swift */; };
+		1CD057882C32A67A0002E58D /* DefaultTabBarStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD057872C32A67A0002E58D /* DefaultTabBarStyle.swift */; };
+		1CD0578A2C32A69F0002E58D /* AnyTabBarStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD057892C32A69F0002E58D /* AnyTabBarStyle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -190,6 +207,23 @@
 		1C9FCBD72C2D44B70013163C /* BluetoothInfoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothInfoData.swift; sourceTree = "<group>"; };
 		1C9FCBD92C2D5D190013163C /* BluetoothBaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothBaseManager.swift; sourceTree = "<group>"; };
 		1C9FCBDD2C2E4D910013163C /* OtherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherView.swift; sourceTree = "<group>"; };
+		1C9FCBE22C2EBBB80013163C /* FileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileView.swift; sourceTree = "<group>"; };
+		1CBBADD72C32A8200015DF46 /* DefaultTabItemStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTabItemStyle.swift; sourceTree = "<group>"; };
+		1CBBADD92C32A8410015DF46 /* TabItemStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabItemStyle.swift; sourceTree = "<group>"; };
+		1CBBADDC2C32A8630015DF46 /* AnyTabItemStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyTabItemStyle.swift; sourceTree = "<group>"; };
+		1CBBADDE2C32A8E40015DF46 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
+		1CBBADE02C32AA390015DF46 /* CustomTabItemStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabItemStyle.swift; sourceTree = "<group>"; };
+		1CBBADE22C32AA6B0015DF46 /* CustomTabBarStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarStyle.swift; sourceTree = "<group>"; };
+		1CBBADE42C32AD100015DF46 /* CustomTabBarWhiteStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarWhiteStyle.swift; sourceTree = "<group>"; };
+		1CBBADE62C32AE120015DF46 /* CustomTabItemNormalStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabItemNormalStyle.swift; sourceTree = "<group>"; };
+		1CD057772C32A0A90002E58D /* MineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineView.swift; sourceTree = "<group>"; };
+		1CD0577B2C32A1BB0002E58D /* TabBarViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewModifier.swift; sourceTree = "<group>"; };
+		1CD0577F2C32A5220002E58D /* Tabbable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tabbable.swift; sourceTree = "<group>"; };
+		1CD057812C32A5B00002E58D /* TabBarSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarSelection.swift; sourceTree = "<group>"; };
+		1CD057832C32A5D40002E58D /* TabBarPreferenceKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarPreferenceKey.swift; sourceTree = "<group>"; };
+		1CD057852C32A64B0002E58D /* TabBarStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarStyle.swift; sourceTree = "<group>"; };
+		1CD057872C32A67A0002E58D /* DefaultTabBarStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTabBarStyle.swift; sourceTree = "<group>"; };
+		1CD057892C32A69F0002E58D /* AnyTabBarStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyTabBarStyle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -262,6 +296,7 @@
 		1C11FBD72C2A71300087C39F /* Page */ = {
 			isa = PBXGroup;
 			children = (
+				1C9FCBE12C2EBB9B0013163C /* Static */,
 				1C11FBD82C2A714F0087C39F /* WiFiView.swift */,
 				1C9FC9E22C2BED8E0013163C /* BluetoothView.swift */,
 				1C9FCBD32C2D413C0013163C /* BluetoothDataView.swift */,
@@ -481,6 +516,62 @@
 			path = Helper;
 			sourceTree = "<group>";
 		};
+		1C9FCBE12C2EBB9B0013163C /* Static */ = {
+			isa = PBXGroup;
+			children = (
+				1CD057792C32A18C0002E58D /* View */,
+				1C9FCBE22C2EBBB80013163C /* FileView.swift */,
+				1CD057772C32A0A90002E58D /* MineView.swift */,
+			);
+			path = Static;
+			sourceTree = "<group>";
+		};
+		1CD057792C32A18C0002E58D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1CD0577D2C32A4F20002E58D /* TabBar */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1CD0577A2C32A1A70002E58D /* TabItem */ = {
+			isa = PBXGroup;
+			children = (
+				1CD0577B2C32A1BB0002E58D /* TabBarViewModifier.swift */,
+				1CD057812C32A5B00002E58D /* TabBarSelection.swift */,
+				1CD057832C32A5D40002E58D /* TabBarPreferenceKey.swift */,
+				1CBBADD72C32A8200015DF46 /* DefaultTabItemStyle.swift */,
+				1CBBADDC2C32A8630015DF46 /* AnyTabItemStyle.swift */,
+				1CBBADD92C32A8410015DF46 /* TabItemStyle.swift */,
+				1CBBADE02C32AA390015DF46 /* CustomTabItemStyle.swift */,
+				1CBBADE62C32AE120015DF46 /* CustomTabItemNormalStyle.swift */,
+			);
+			path = TabItem;
+			sourceTree = "<group>";
+		};
+		1CD0577D2C32A4F20002E58D /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				1CD0577E2C32A5100002E58D /* Protocol */,
+				1CD0577A2C32A1A70002E58D /* TabItem */,
+				1CD057872C32A67A0002E58D /* DefaultTabBarStyle.swift */,
+				1CD057892C32A69F0002E58D /* AnyTabBarStyle.swift */,
+				1CBBADE22C32AA6B0015DF46 /* CustomTabBarStyle.swift */,
+				1CBBADE42C32AD100015DF46 /* CustomTabBarWhiteStyle.swift */,
+				1CD057852C32A64B0002E58D /* TabBarStyle.swift */,
+				1CBBADDE2C32A8E40015DF46 /* TabBar.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		1CD0577E2C32A5100002E58D /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				1CD0577F2C32A5220002E58D /* Tabbable.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -593,20 +684,37 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CD057862C32A64B0002E58D /* TabBarStyle.swift in Sources */,
+				1CBBADDA2C32A8410015DF46 /* TabItemStyle.swift in Sources */,
 				1C9FCBCF2C2D0A590013163C /* SharedData.swift in Sources */,
+				1CD057782C32A0A90002E58D /* MineView.swift in Sources */,
+				1CD057802C32A5230002E58D /* Tabbable.swift in Sources */,
 				1C9FCBDA2C2D5D190013163C /* BluetoothBaseManager.swift in Sources */,
 				1C9FCBD82C2D44B70013163C /* BluetoothInfoData.swift in Sources */,
+				1CD0577C2C32A1BB0002E58D /* TabBarViewModifier.swift in Sources */,
+				1CD057822C32A5B00002E58D /* TabBarSelection.swift in Sources */,
 				1C11FBCC2C2A6FF40087C39F /* ContentView.swift in Sources */,
+				1CBBADE32C32AA6B0015DF46 /* CustomTabBarStyle.swift in Sources */,
 				1C11FBDB2C2A71B70087C39F /* PageRow.swift in Sources */,
 				1C9FC9E12C2BC1D10013163C /* PersistentStorageManager.swift in Sources */,
 				1C11FBE12C2A77A70087C39F /* NetworkUtil.swift in Sources */,
+				1CBBADDF2C32A8E40015DF46 /* TabBar.swift in Sources */,
+				1CBBADE72C32AE120015DF46 /* CustomTabItemNormalStyle.swift in Sources */,
 				1C9FCBD42C2D413C0013163C /* BluetoothDataView.swift in Sources */,
+				1CBBADE52C32AD100015DF46 /* CustomTabBarWhiteStyle.swift in Sources */,
 				1C4B6EDC2C2A9A3B0095D27D /* LocationManager.swift in Sources */,
 				1C9FCBDE2C2E4D910013163C /* OtherView.swift in Sources */,
+				1CD057842C32A5D40002E58D /* TabBarPreferenceKey.swift in Sources */,
+				1CBBADD82C32A8200015DF46 /* DefaultTabItemStyle.swift in Sources */,
 				1C11FBDE2C2A753D0087C39F /* View+Ext.swift in Sources */,
+				1CBBADDD2C32A8630015DF46 /* AnyTabItemStyle.swift in Sources */,
+				1C9FCBE32C2EBBB80013163C /* FileView.swift in Sources */,
 				1C9FCBCC2C2C10660013163C /* BluetoothManager.swift in Sources */,
+				1CBBADE12C32AA390015DF46 /* CustomTabItemStyle.swift in Sources */,
+				1CD0578A2C32A69F0002E58D /* AnyTabBarStyle.swift in Sources */,
 				1C11FBD92C2A714F0087C39F /* WiFiView.swift in Sources */,
 				1C9FC9E32C2BED8E0013163C /* BluetoothView.swift in Sources */,
+				1CD057882C32A67A0002E58D /* DefaultTabBarStyle.swift in Sources */,
 				1C9FCBD62C2D42CB0013163C /* BluetoothDataManager.swift in Sources */,
 				1C11FBCA2C2A6FF40087C39F /* youApp.swift in Sources */,
 			);
