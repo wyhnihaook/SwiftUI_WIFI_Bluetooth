@@ -93,6 +93,10 @@
 		1CBBADE32C32AA6B0015DF46 /* CustomTabBarStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBBADE22C32AA6B0015DF46 /* CustomTabBarStyle.swift */; };
 		1CBBADE52C32AD100015DF46 /* CustomTabBarWhiteStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBBADE42C32AD100015DF46 /* CustomTabBarWhiteStyle.swift */; };
 		1CBBADE72C32AE120015DF46 /* CustomTabItemNormalStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBBADE62C32AE120015DF46 /* CustomTabItemNormalStyle.swift */; };
+		1CBBADE92C33ACCE0015DF46 /* Color+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBBADE82C33ACCE0015DF46 /* Color+Ext.swift */; };
+		1CBBADEB2C33D9720015DF46 /* NonBouncyScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBBADEA2C33D9720015DF46 /* NonBouncyScrollView.swift */; };
+		1CBBADEF2C33FE040015DF46 /* UserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBBADEE2C33FE040015DF46 /* UserInfoView.swift */; };
+		1CBBADF12C3400C90015DF46 /* TabBarVisibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBBADF02C3400C90015DF46 /* TabBarVisibility.swift */; };
 		1CD057782C32A0A90002E58D /* MineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD057772C32A0A90002E58D /* MineView.swift */; };
 		1CD0577C2C32A1BB0002E58D /* TabBarViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD0577B2C32A1BB0002E58D /* TabBarViewModifier.swift */; };
 		1CD057802C32A5230002E58D /* Tabbable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD0577F2C32A5220002E58D /* Tabbable.swift */; };
@@ -216,6 +220,10 @@
 		1CBBADE22C32AA6B0015DF46 /* CustomTabBarStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarStyle.swift; sourceTree = "<group>"; };
 		1CBBADE42C32AD100015DF46 /* CustomTabBarWhiteStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarWhiteStyle.swift; sourceTree = "<group>"; };
 		1CBBADE62C32AE120015DF46 /* CustomTabItemNormalStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabItemNormalStyle.swift; sourceTree = "<group>"; };
+		1CBBADE82C33ACCE0015DF46 /* Color+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Ext.swift"; sourceTree = "<group>"; };
+		1CBBADEA2C33D9720015DF46 /* NonBouncyScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NonBouncyScrollView.swift; sourceTree = "<group>"; };
+		1CBBADEE2C33FE040015DF46 /* UserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoView.swift; sourceTree = "<group>"; };
+		1CBBADF02C3400C90015DF46 /* TabBarVisibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarVisibility.swift; sourceTree = "<group>"; };
 		1CD057772C32A0A90002E58D /* MineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineView.swift; sourceTree = "<group>"; };
 		1CD0577B2C32A1BB0002E58D /* TabBarViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewModifier.swift; sourceTree = "<group>"; };
 		1CD0577F2C32A5220002E58D /* Tabbable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tabbable.swift; sourceTree = "<group>"; };
@@ -309,6 +317,7 @@
 			isa = PBXGroup;
 			children = (
 				1C11FBDD2C2A753D0087C39F /* View+Ext.swift */,
+				1CBBADE82C33ACCE0015DF46 /* Color+Ext.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -519,6 +528,7 @@
 		1C9FCBE12C2EBB9B0013163C /* Static */ = {
 			isa = PBXGroup;
 			children = (
+				1CBBADED2C33FDEA0015DF46 /* UserView */,
 				1CD057792C32A18C0002E58D /* View */,
 				1C9FCBE22C2EBBB80013163C /* FileView.swift */,
 				1CD057772C32A0A90002E58D /* MineView.swift */,
@@ -526,9 +536,26 @@
 			path = Static;
 			sourceTree = "<group>";
 		};
+		1CBBADEC2C33D97A0015DF46 /* ScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				1CBBADEA2C33D9720015DF46 /* NonBouncyScrollView.swift */,
+			);
+			path = ScrollView;
+			sourceTree = "<group>";
+		};
+		1CBBADED2C33FDEA0015DF46 /* UserView */ = {
+			isa = PBXGroup;
+			children = (
+				1CBBADEE2C33FE040015DF46 /* UserInfoView.swift */,
+			);
+			path = UserView;
+			sourceTree = "<group>";
+		};
 		1CD057792C32A18C0002E58D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1CBBADEC2C33D97A0015DF46 /* ScrollView */,
 				1CD0577D2C32A4F20002E58D /* TabBar */,
 			);
 			path = View;
@@ -556,6 +583,7 @@
 				1CD0577A2C32A1A70002E58D /* TabItem */,
 				1CD057872C32A67A0002E58D /* DefaultTabBarStyle.swift */,
 				1CD057892C32A69F0002E58D /* AnyTabBarStyle.swift */,
+				1CBBADF02C3400C90015DF46 /* TabBarVisibility.swift */,
 				1CBBADE22C32AA6B0015DF46 /* CustomTabBarStyle.swift */,
 				1CBBADE42C32AD100015DF46 /* CustomTabBarWhiteStyle.swift */,
 				1CD057852C32A64B0002E58D /* TabBarStyle.swift */,
@@ -689,6 +717,7 @@
 				1C9FCBCF2C2D0A590013163C /* SharedData.swift in Sources */,
 				1CD057782C32A0A90002E58D /* MineView.swift in Sources */,
 				1CD057802C32A5230002E58D /* Tabbable.swift in Sources */,
+				1CBBADF12C3400C90015DF46 /* TabBarVisibility.swift in Sources */,
 				1C9FCBDA2C2D5D190013163C /* BluetoothBaseManager.swift in Sources */,
 				1C9FCBD82C2D44B70013163C /* BluetoothInfoData.swift in Sources */,
 				1CD0577C2C32A1BB0002E58D /* TabBarViewModifier.swift in Sources */,
@@ -705,10 +734,13 @@
 				1C4B6EDC2C2A9A3B0095D27D /* LocationManager.swift in Sources */,
 				1C9FCBDE2C2E4D910013163C /* OtherView.swift in Sources */,
 				1CD057842C32A5D40002E58D /* TabBarPreferenceKey.swift in Sources */,
+				1CBBADE92C33ACCE0015DF46 /* Color+Ext.swift in Sources */,
 				1CBBADD82C32A8200015DF46 /* DefaultTabItemStyle.swift in Sources */,
 				1C11FBDE2C2A753D0087C39F /* View+Ext.swift in Sources */,
 				1CBBADDD2C32A8630015DF46 /* AnyTabItemStyle.swift in Sources */,
 				1C9FCBE32C2EBBB80013163C /* FileView.swift in Sources */,
+				1CBBADEB2C33D9720015DF46 /* NonBouncyScrollView.swift in Sources */,
+				1CBBADEF2C33FE040015DF46 /* UserInfoView.swift in Sources */,
 				1C9FCBCC2C2C10660013163C /* BluetoothManager.swift in Sources */,
 				1CBBADE12C32AA390015DF46 /* CustomTabItemStyle.swift in Sources */,
 				1CD0578A2C32A69F0002E58D /* AnyTabBarStyle.swift in Sources */,

@@ -15,12 +15,14 @@ public struct TabBar<TabItem: Tabbable, Content: View>: View {
     private var tabBarStyle  : AnyTabBarStyle
     
     @State private var items: [TabItem]
-    
+    @Binding private var visibility: TabBarVisibility
+
     /**
      初始化根据传递的TabItem来设定显示内容
      */
     public init(
         selection: Binding<TabItem>,
+        visibility: Binding<TabBarVisibility> = .constant(.visible),
         @ViewBuilder content: () -> Content
     ) {
         self.tabItemStyle = .init(itemStyle: DefaultTabItemStyle())
@@ -30,6 +32,8 @@ public struct TabBar<TabItem: Tabbable, Content: View>: View {
         self.content = content()
         
         self._items = .init(initialValue: .init())
+        self._visibility = visibility
+
     }
     
     private var tabItems: some View {
@@ -65,6 +69,7 @@ public struct TabBar<TabItem: Tabbable, Content: View>: View {
                     }
                 }
                 .edgesIgnoringSafeArea(.bottom)
+                .visibility(self.visibility)
             }
         }
         .onPreferenceChange(TabBarPreferenceKey.self) { value in

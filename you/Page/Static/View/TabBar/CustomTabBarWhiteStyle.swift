@@ -13,7 +13,7 @@ struct CustomTabBarWhiteStyle: TabBarStyle {
     public func tabBar(with geometry: GeometryProxy, itemsContainer: @escaping () -> AnyView) -> some View {
         itemsContainer()
             .background(.white)
-            .frame(height: 50.0)
+            .frame(height: 44.0)
             .padding(.bottom, geometry.safeAreaInsets.bottom)
     }
     

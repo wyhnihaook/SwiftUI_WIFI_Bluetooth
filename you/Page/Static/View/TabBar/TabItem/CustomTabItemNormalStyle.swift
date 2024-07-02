@@ -10,14 +10,14 @@ import SwiftUI
 struct CustomTabItemNormalStyle: TabItemStyle {
     
     func tabItem(icon: String, selectedIcon: String, title: String, isSelected: Bool) -> some View {
-        VStack {
+        VStack(spacing:0) {
             Image(isSelected ? selectedIcon : icon)
                 .resizable()
-                .frame(width: 32.0, height: 32.0)
+                .frame(width: 28.0, height: 28.0)
             
             Text(title)
                 .foregroundColor(isSelected ? .black : .gray)
-                .font(.system(size: 14))
+                .font(.system(size: 13))
         }
         .padding(.vertical, 8.0)
     }
