@@ -133,7 +133,7 @@ struct MineView: View {
                             FuncItem(title: "帮助和反馈", image: "icon_file_select")
                         }
                         
-                        NavigationLink(destination: WiFiView()) {
+                        NavigationLink(destination: AboutUsView()) {
                             FuncItem(title: "关于PLAUD", image: "icon_file_select", desc: "v2.0.10(109)")
                         }
                     }

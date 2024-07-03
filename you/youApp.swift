@@ -27,6 +27,7 @@ struct youApp: App {
         WindowGroup {
 //            ContentView()
               OtherView()
+//            LoginView()
                 .environmentObject(sharedData)
         }.onChange(of: scenePhase) { newValue in
             switch newValue{

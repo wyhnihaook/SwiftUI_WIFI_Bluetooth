@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C037E1A2C354AAD00EB56F5 /* AboutUsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C037E192C354AAD00EB56F5 /* AboutUsView.swift */; };
+		1C037E1D2C35552E00EB56F5 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C037E1C2C35552E00EB56F5 /* LoginView.swift */; };
 		1C11FBCA2C2A6FF40087C39F /* youApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C11FBC92C2A6FF40087C39F /* youApp.swift */; };
 		1C11FBCC2C2A6FF40087C39F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C11FBCB2C2A6FF40087C39F /* ContentView.swift */; };
 		1C11FBCE2C2A6FF60087C39F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C11FBCD2C2A6FF60087C39F /* Assets.xcassets */; };
@@ -97,6 +99,7 @@
 		1CBBADEB2C33D9720015DF46 /* NonBouncyScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBBADEA2C33D9720015DF46 /* NonBouncyScrollView.swift */; };
 		1CBBADEF2C33FE040015DF46 /* UserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBBADEE2C33FE040015DF46 /* UserInfoView.swift */; };
 		1CBBADF12C3400C90015DF46 /* TabBarVisibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBBADF02C3400C90015DF46 /* TabBarVisibility.swift */; };
+		1CBBADF42C34E6800015DF46 /* NavigationBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBBADF32C34E6800015DF46 /* NavigationBody.swift */; };
 		1CD057782C32A0A90002E58D /* MineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD057772C32A0A90002E58D /* MineView.swift */; };
 		1CD0577C2C32A1BB0002E58D /* TabBarViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD0577B2C32A1BB0002E58D /* TabBarViewModifier.swift */; };
 		1CD057802C32A5230002E58D /* Tabbable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD0577F2C32A5220002E58D /* Tabbable.swift */; };
@@ -132,6 +135,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1C037E192C354AAD00EB56F5 /* AboutUsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsView.swift; sourceTree = "<group>"; };
+		1C037E1C2C35552E00EB56F5 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		1C11FBC62C2A6FF40087C39F /* you.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = you.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C11FBC92C2A6FF40087C39F /* youApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = youApp.swift; sourceTree = "<group>"; };
 		1C11FBCB2C2A6FF40087C39F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -224,6 +229,7 @@
 		1CBBADEA2C33D9720015DF46 /* NonBouncyScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NonBouncyScrollView.swift; sourceTree = "<group>"; };
 		1CBBADEE2C33FE040015DF46 /* UserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoView.swift; sourceTree = "<group>"; };
 		1CBBADF02C3400C90015DF46 /* TabBarVisibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarVisibility.swift; sourceTree = "<group>"; };
+		1CBBADF32C34E6800015DF46 /* NavigationBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBody.swift; sourceTree = "<group>"; };
 		1CD057772C32A0A90002E58D /* MineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineView.swift; sourceTree = "<group>"; };
 		1CD0577B2C32A1BB0002E58D /* TabBarViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewModifier.swift; sourceTree = "<group>"; };
 		1CD0577F2C32A5220002E58D /* Tabbable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tabbable.swift; sourceTree = "<group>"; };
@@ -254,6 +260,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1C037E182C354A8800EB56F5 /* AboutView */ = {
+			isa = PBXGroup;
+			children = (
+				1C037E192C354AAD00EB56F5 /* AboutUsView.swift */,
+			);
+			path = AboutView;
+			sourceTree = "<group>";
+		};
+		1C037E1B2C3554E400EB56F5 /* AccountView */ = {
+			isa = PBXGroup;
+			children = (
+				1C037E1C2C35552E00EB56F5 /* LoginView.swift */,
+			);
+			path = AccountView;
+			sourceTree = "<group>";
+		};
 		1C11FBBD2C2A6FF40087C39F = {
 			isa = PBXGroup;
 			children = (
@@ -528,6 +550,8 @@
 		1C9FCBE12C2EBB9B0013163C /* Static */ = {
 			isa = PBXGroup;
 			children = (
+				1C037E1B2C3554E400EB56F5 /* AccountView */,
+				1C037E182C354A8800EB56F5 /* AboutView */,
 				1CBBADED2C33FDEA0015DF46 /* UserView */,
 				1CD057792C32A18C0002E58D /* View */,
 				1C9FCBE22C2EBBB80013163C /* FileView.swift */,
@@ -552,9 +576,18 @@
 			path = UserView;
 			sourceTree = "<group>";
 		};
+		1CBBADF22C34E6600015DF46 /* NavigationBody */ = {
+			isa = PBXGroup;
+			children = (
+				1CBBADF32C34E6800015DF46 /* NavigationBody.swift */,
+			);
+			path = NavigationBody;
+			sourceTree = "<group>";
+		};
 		1CD057792C32A18C0002E58D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1CBBADF22C34E6600015DF46 /* NavigationBody */,
 				1CBBADEC2C33D97A0015DF46 /* ScrollView */,
 				1CD0577D2C32A4F20002E58D /* TabBar */,
 			);
@@ -713,6 +746,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1CD057862C32A64B0002E58D /* TabBarStyle.swift in Sources */,
+				1CBBADF42C34E6800015DF46 /* NavigationBody.swift in Sources */,
 				1CBBADDA2C32A8410015DF46 /* TabItemStyle.swift in Sources */,
 				1C9FCBCF2C2D0A590013163C /* SharedData.swift in Sources */,
 				1CD057782C32A0A90002E58D /* MineView.swift in Sources */,
@@ -748,6 +782,8 @@
 				1C9FC9E32C2BED8E0013163C /* BluetoothView.swift in Sources */,
 				1CD057882C32A67A0002E58D /* DefaultTabBarStyle.swift in Sources */,
 				1C9FCBD62C2D42CB0013163C /* BluetoothDataManager.swift in Sources */,
+				1C037E1A2C354AAD00EB56F5 /* AboutUsView.swift in Sources */,
+				1C037E1D2C35552E00EB56F5 /* LoginView.swift in Sources */,
 				1C11FBCA2C2A6FF40087C39F /* youApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

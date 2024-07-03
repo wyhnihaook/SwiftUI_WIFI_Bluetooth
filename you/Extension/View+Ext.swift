@@ -8,12 +8,19 @@
 import Foundation
 import SwiftUI
 
-//创建顶部标题栏公用的样式
+//MARK: - 创建顶部标题栏公用的样式
 struct NavBarTextStyle : ViewModifier{
     let color:Color
   
     func body(content: Content) -> some View {
         content.font(.system(size: 14)).foregroundColor(color)
+    }
+}
+
+//MARK: - 按钮功能点击适配
+struct ButtonPressStyle:ButtonStyle{
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label.opacity(configuration.isPressed ? 0.9 : 1.0)
     }
 }
 
@@ -29,5 +36,9 @@ extension View {
         case .invisible:
             hidden().transition(.move(edge: .bottom))
         }
+    }
+    
+    func withPressStyle()->some View{
+        buttonStyle(ButtonPressStyle())
     }
 }
