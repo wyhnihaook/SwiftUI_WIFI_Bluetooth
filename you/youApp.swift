@@ -7,18 +7,31 @@
 
 import SwiftUI
 import Bluejay
+import AudioKit
+import AVFoundation
 
 @main
 struct youApp: App {
     //共享数据创建
     let sharedData = SharedData()
-    
+  
     init(){
         //这里执行全局内容信息，标识APP已经初始化
         //等同于 didFinishLaunchingWithOptions
+        do {
+            //初始化音频相关设置
+            Settings.bufferLength = .short
+            try AVAudioSession.sharedInstance().setPreferredIOBufferDuration(Settings.bufferLength.duration)
+            try AVAudioSession.sharedInstance().setCategory(.playAndRecord,
+                                                            options: [.defaultToSpeaker, .mixWithOthers, .allowBluetoothA2DP])
+            try AVAudioSession.sharedInstance().setActive(true)
+            
+            //蓝牙开启
+            SharedData.bluejay.start()
+        } catch let err {
+            print(err)
+        }
         
-        //蓝牙开启
-        SharedData.bluejay.start()
     }
     
     //14.0版本：可跟踪应用程序的状态：ScenePhase。配合WindowGroup使用【整个应用】
@@ -28,6 +41,7 @@ struct youApp: App {
 //            ContentView()
               OtherView()
 //            LoginView()
+//            MindMapView()
                 .environmentObject(sharedData)
         }.onChange(of: scenePhase) { newValue in
             switch newValue{

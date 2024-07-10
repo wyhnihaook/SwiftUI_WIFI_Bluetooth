@@ -15,6 +15,10 @@ struct WiFiView: View {
 
     var body: some View {
         List{
+            
+            Button("连接热点"){
+                NetworkUtil.connectPasswordWIFI(ssid: "iPhone",password: "love0331")
+            }
         
             Section("已连接网络") {
                 Text(connectedWifiName)

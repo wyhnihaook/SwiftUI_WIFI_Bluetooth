@@ -9,78 +9,71 @@
 import SwiftUI
 
 struct OtherView: View {
-    @State private var selection: Item = .file
-    @State private var visibility: TabBarVisibility = .visible
+    @State private var selection = HomeTabBar.file.rawValue
     
-    private enum Item: Int, Tabbable {
-        case file = 0
-        case mine
-        
-        var icon: String {
-            switch self {
-                case .file: return "icon_file_unselect"
-                case .mine: return "icon_file_unselect"
-               
-            }
-        }
-        
-        var selectedIcon: String {
-            switch self {
-                case .file: return "icon_file_select"
-                case .mine: return "icon_file_select"
-               
-            }
-        }
-        
-        
-        var title: String {
-            switch self {
-                case .file: return "文件"
-                case .mine: return "我"
-            }
-        }
-    }
+    //在初始化时需要延时，在TabView内的视图如果过快显示会导致NavigationView的顶部标题栏出现
+    @State private var delayInit = false
     
     var body: some View {
         NavigationView{
-            ZStack(alignment: .bottom){
-                TabBar(selection: $selection,visibility: $visibility) {
-                    //隐藏底部TabBar内容功能
-    //                Button {
-    //                    withAnimation {
-    //                        visibility.toggle()
-    //                    }
-    //                } label: {
-    //                    Text("Hide/Show TabBar")
-    //                }
-    //                .tabItem(for: Item.file)
+            //【TabBar自定义的控件最大的问题就是不能缓存当前的TabBar页面信息。只能通过系统的TabView结合tag标签来实现。底部自定义，TabView只是作为展示内容的容器】
+            ZStack(alignment:Alignment(horizontal: .center, vertical: .bottom)){
+               
+                //由于TabView默认自带的底部边距，所以这里就
+                TabView(selection: $selection) {
                     
-                    FileView()
-                    .tabItem(for: Item.file)
-                        
-                    MineView()
-                        .tabItem(for: Item.mine)
-                }.tabBar(style: CustomTabBarWhiteStyle())
-                .tabItem(style: CustomTabItemNormalStyle())
-                
-                //底部占位按钮信息，通过偏移量达到效果
-                ZStack {
-                    //底部TabBar的自定义高度为50.这里设置80后自动顶出位置
-                    Circle()
-                        .foregroundColor(.white)
-                        .frame(width: 54.0, height: 54.0)
-
-                    Image("icon_mic")
-                        .resizable()
-                        .frame(width: 50.0, height: 50.0)
+                    if delayInit {
+                        FileView().tag(HomeTabBar.file.rawValue)
+                        MineView().tag(HomeTabBar.mine.rawValue)
+                    }
+                    
                 }
-                .offset(x:0,y:-20)
-                .visibility(self.visibility)
+                //切换tab可能会产生闪烁，关闭动画效果
+                .animation(.none)
+                //不传入切换的指示器，设置可水平滑动
+//                .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+                
+                
+                //底部切换的布局内容
+                HStack(alignment:.bottom){
+                    HomeTabBarView(item: .file, isSelected: selection == HomeTabBar.file.rawValue)
+                        .frame(maxWidth: .infinity)
+                        .onTapGesture {
+                            selection = HomeTabBar.file.rawValue
+                        }
+                    HomeTabBarView(item: .mine, isSelected: selection == HomeTabBar.mine.rawValue)
+                        .frame(maxWidth: .infinity)
+                        .onTapGesture {
+                            selection = HomeTabBar.mine.rawValue
+                        }
+                }.overlay(
+                    //overlay在基础视图上叠加额外布局信息
+                    
+                    //底部占位按钮信息，通过偏移量达到效果
+                    ZStack {
+                        //底部TabBar的自定义高度为50.这里设置80后自动顶出位置
+                        Circle()
+                            .foregroundColor(.white)
+                            .frame(width: 54.0, height: 54.0)
+
+                        Image("icon_mic")
+                            .resizable()
+                            .frame(width: 50.0, height: 50.0)
+                    }
+                        .offset(x:0,y:-15),alignment: .top)
+                
+                
+                
+                
             }
+            
+            
         }
         .onAppear{
             //视图 完全 展示在界面上时回调【页面跳转后返回会调用】
-            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1){
+                delayInit = true
+            }
         }.onDisappear{
                 //视图 完全 隐藏时回调【在下个页面的onAppear调用后再执行】
         }
@@ -113,3 +106,5 @@ struct OtherView_Previews: PreviewProvider {
 
 //设置选中内容的颜色
 //.tint(.green)
+
+
