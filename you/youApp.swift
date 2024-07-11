@@ -10,6 +10,11 @@ import Bluejay
 import AudioKit
 import AVFoundation
 
+//声明全局静态产量
+let fileManager = FileManager.default
+let audioDirectory : String = "AudioDirectory"
+
+
 @main
 struct youApp: App {
     //共享数据创建
@@ -19,6 +24,13 @@ struct youApp: App {
         //这里执行全局内容信息，标识APP已经初始化
         //等同于 didFinishLaunchingWithOptions
         do {
+            //新建沙盒目录存储数据
+            FileUtil.createDirectory(path: audioDirectory)
+            
+            //初始化网络配置
+            var config = NetworkConfiguration(baseURL: URL(string:"https://www.baidu.com/"))
+            NetworkManager.default.configuration = config
+            
             //初始化音频相关设置
             Settings.bufferLength = .short
             try AVAudioSession.sharedInstance().setPreferredIOBufferDuration(Settings.bufferLength.duration)

@@ -20,10 +20,16 @@ struct FileView: View {
         FileData(title: "How to Learn Tell Me Thanks One Two Three Four Five", date: "2023-10-21 10:11:55", time: "1m 20s")
     ]
     
+    @StateObject var fileModel = FileModel()
+    
     var body: some View {
         ScrollView(.vertical, showsIndicators: false){
             VStack(alignment:.leading,spacing:10){
                 Spacer().frame(height:10)
+                
+                Button("下载音频文件"){
+                    AudioDownloadAPI.downloadAudio(downloadURL: "")
+                }
                 
                 //顶部文件数量描述
                 HStack{
@@ -43,7 +49,11 @@ struct FileView: View {
                     NavigationLink(destination: AudioWaveView()) {
                         FileItem(title: item.title, date: item.date, time: item.time)
                     }
-
+                }
+                
+                
+                ForEach(fileModel.fileNameList) { fileInformation in
+                    Text(fileInformation.fileName)
                 }
             }
         }
