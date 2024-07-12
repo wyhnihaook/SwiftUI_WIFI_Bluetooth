@@ -7,8 +7,7 @@
 
 
 ///文件的基本信息
-struct FileInformation:Identifiable{
-    var id = UUID()
+struct FileInformation:Codable{
     //文件名称
     var fileName: String
     //获取文件大小

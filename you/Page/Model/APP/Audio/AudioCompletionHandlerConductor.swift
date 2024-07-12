@@ -83,9 +83,11 @@ class AudioCompletionHandlerConductor: ObservableObject, HasAudioEngine {
     func getPlayerFiles() {
         let files = ["test.mp3"]
         for filename in files {
-            let url = Bundle.main.url(forResource: "test", withExtension: "mp3")!
-
-            fileURL.append(url)
+//            let url = Bundle.main.url(forResource: "test", withExtension: "mp3")!
+            var directoryPath = FileUtil.getAudioDirectory(path: audioDirectory)
+            directoryPath.append("/测试.mp3")
+            fileURL.append(URL(fileURLWithPath: directoryPath))
+//            fileURL.append(url)
         }
     }
 

@@ -142,6 +142,7 @@
 		1CD2194C2C3D3AFB00562661 /* ZoomableModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD2194B2C3D3AFB00562661 /* ZoomableModifier.swift */; };
 		1CD2194E2C3D3B3800562661 /* ZoomableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD2194D2C3D3B3800562661 /* ZoomableImageView.swift */; };
 		1CD219512C3D415B00562661 /* MindMapPathView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD219502C3D415B00562661 /* MindMapPathView.swift */; };
+		1CD402B32C40DAF2001EAD8D /* DataUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD402B22C40DAF2001EAD8D /* DataUtil.swift */; };
 		1CF297F22C3E7686002B37A7 /* TextSizeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF297F12C3E7686002B37A7 /* TextSizeView.swift */; };
 		1CF297F42C3E93DB002B37A7 /* AudioMindMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF297F32C3E93DB002B37A7 /* AudioMindMap.swift */; };
 		1CF298062C3F7B0D002B37A7 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 1CF298052C3F7B0D002B37A7 /* Alamofire */; };
@@ -317,6 +318,7 @@
 		1CD2194B2C3D3AFB00562661 /* ZoomableModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomableModifier.swift; sourceTree = "<group>"; };
 		1CD2194D2C3D3B3800562661 /* ZoomableImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomableImageView.swift; sourceTree = "<group>"; };
 		1CD219502C3D415B00562661 /* MindMapPathView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MindMapPathView.swift; sourceTree = "<group>"; };
+		1CD402B22C40DAF2001EAD8D /* DataUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataUtil.swift; sourceTree = "<group>"; };
 		1CF297F12C3E7686002B37A7 /* TextSizeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextSizeView.swift; sourceTree = "<group>"; };
 		1CF297F32C3E93DB002B37A7 /* AudioMindMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioMindMap.swift; sourceTree = "<group>"; };
 		1CF298072C3F7DF5002B37A7 /* NetworkRequestHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequestHelper.swift; sourceTree = "<group>"; };
@@ -563,6 +565,7 @@
 				1C037E8F2C36ABF400EB56F5 /* AudioUtil.swift */,
 				1CF62AEB2C3FDA67000D2CA7 /* FileUtil.swift */,
 				1C9A06382C3FE9030028DFB2 /* DateUtil.swift */,
+				1CD402B22C40DAF2001EAD8D /* DataUtil.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -1101,6 +1104,7 @@
 				1C11FBDB2C2A71B70087C39F /* PageRow.swift in Sources */,
 				1CF297F22C3E7686002B37A7 /* TextSizeView.swift in Sources */,
 				1C9A06372C3FDFE00028DFB2 /* FileModel.swift in Sources */,
+				1CD402B32C40DAF2001EAD8D /* DataUtil.swift in Sources */,
 				1C9FC9E12C2BC1D10013163C /* PersistentStorageManager.swift in Sources */,
 				1C11FBE12C2A77A70087C39F /* NetworkUtil.swift in Sources */,
 				1CF62AEC2C3FDA67000D2CA7 /* FileUtil.swift in Sources */,

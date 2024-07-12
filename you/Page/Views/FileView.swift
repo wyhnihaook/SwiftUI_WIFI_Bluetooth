@@ -52,7 +52,7 @@ struct FileView: View {
                 }
                 
                 
-                ForEach(fileModel.fileNameList) { fileInformation in
+                ForEach(fileModel.fileNameList,id:\.self.fileName) { fileInformation in
                     Text(fileInformation.fileName)
                 }
             }

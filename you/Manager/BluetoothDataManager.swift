@@ -19,6 +19,17 @@ let normalCharacteristic = CharacteristicIdentifier(
     service: ServiceIdentifier(uuid: "CED261B7-F120-41C8-9A92-A41DE69CF2A8")
 )
 
+//文件同步特征处理
+let fileCharacteristic = CharacteristicIdentifier(
+    uuid: "83B4A431-A6F1-4540-B3EE-3C14AEF71A01",
+    service: ServiceIdentifier(uuid: "CED261B7-F120-41C8-9A92-A41DE69CF2A1")
+)
+
+let fileContiuneCharacteristic = CharacteristicIdentifier(
+    uuid: "83B4A431-A6F1-4540-B3EE-3C14AEF71A02",
+    service: ServiceIdentifier(uuid: "CED261B7-F120-41C8-9A92-A41DE69CF2A2")
+)
+
 let pairingCharacteristic = CharacteristicIdentifier(
     uuid: "E4D4A76C-B9F1-422F-8BBA-18508356A145",
     service: ServiceIdentifier(uuid: "16274BFE-C539-416C-9646-CA3F991DADD6")
@@ -34,6 +45,9 @@ class BluetoothDataManager : BluetoothBaseManager {
     
     //主动获取的数据内容
     @Published var activeData : String?
+    
+    //接收的文件数据。切换数据接收时需要清空Data
+    var receivedFileData : Data = Data()
     
     
     //MARK: - 主动获取外设数据
@@ -53,6 +67,12 @@ class BluetoothDataManager : BluetoothBaseManager {
         }
     }
 
+    //MARK: - 继续获取文件信息，通过
+    func getFileData(){
+//        bluejay.write(to: fileContiuneCharacteristic, value: "continue".toBluetoothData()) { result in
+//            print("发送结果：\(result)")
+//        }
+    }
     
     func listen(to characteristic: CharacteristicIdentifier) {
         //设定自定义传输类型。这里注意ReadResult的泛型，匹配外设传递的类型
@@ -81,7 +101,56 @@ class BluetoothDataManager : BluetoothBaseManager {
                 switch result {
                 case .success(let data):
                     print("Dittojay normal.:\(data)")
+                    //这里去获取JSON格式的字符串数据后，转化为结构体后处理内容
                     weakSelf.normalData = data
+                    
+                    //获取当前的信息内容进行处理
+                    if let fileInformation:FileInformation = decodeJson(from: data) {
+                        //这里的fileSize是用来判断是否完成了Data类型数据的传输，完成之后开始保存到本地文件内容
+                        print("fileName: \(fileInformation.fileName),fileCount:\(fileInformation.fileSize)")
+                    
+                    }
+                    
+                case .failure(let error):
+                    print("Failed to listen to heart rate with error: \(error.localizedDescription)")
+                }
+            }
+        }else if characteristic == fileCharacteristic {
+            bluejay.listen(to: fileCharacteristic, multipleListenOption: .replaceable) { [weak self](result: ReadResult<Data>) in
+                guard let weakSelf = self else {
+                    return
+                }
+                switch result {
+                case .success(let data):
+                    //使用数组缓存分段到文件数据之后，达到上限再进行本地存储
+                    //使用静态的数据：次数2196 总大小为2196*20 -> 蓝牙设备侧设定的数据 来标识【后期联动时从FileInformation同步而来】
+                    
+                    
+                    //测试MTU上限比较小，例如：290.这里分段20进行处理
+                    print("weakSelf.receivedFileData:\(weakSelf.receivedFileData.count)")
+                    print("data :\(data)")
+                    weakSelf.receivedFileData.append(data)
+                    
+                    //这边接收到一次之后再次进行二次传输
+                    //避免MTU【最大传输单元】
+                    
+                    if weakSelf.receivedFileData.count >= 2196*20{
+                        //完成所有读取的内容.转存到本地对应的目录中
+                        let fileURL = FileUtil.saveFileToDirectory(path: audioDirectory, fileName: "测试.mp3")
+                        
+                        do{
+                            try weakSelf.receivedFileData.write(to: fileURL)
+                            print("保存成功")
+                        }catch{
+                            print("保存到本地文件失败")
+                        }
+                    }else{
+                        //向外设【蓝牙设备发送通知，实际上是写入数据触发回调】-> 通知继续发送文件Data数据请求
+//                        let notifyData = "continue".toBluetoothData()
+                        weakSelf.getFileData()
+                        
+                    }
+                    
                 case .failure(let error):
                     print("Failed to listen to heart rate with error: \(error.localizedDescription)")
                 }
@@ -108,6 +177,7 @@ class BluetoothDataManager : BluetoothBaseManager {
         //订阅服务，特征值变化后会实时回调到中心设备的方法中以获取服务传递的特征。获取特征的value值【实际上关心的数据】
         listen(to: heartRateCharacteristic)
         listen(to: normalCharacteristic)
+        listen(to: fileCharacteristic)
     }
     
     

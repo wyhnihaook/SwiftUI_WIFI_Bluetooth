@@ -46,4 +46,14 @@ class FileUtil{
             return nil
         }
     }
+    
+    //保存文件到对应目录
+    static func saveFileToDirectory(path: String, fileName: String) -> URL{
+        var directoryPath = FileUtil.getAudioDirectory(path: path)
+        //字符串源上直接追加
+        directoryPath.append("/\(fileName)")
+        print("fileURL:\(directoryPath)")
+        
+        return URL(fileURLWithPath: directoryPath)
+    }
 }
