@@ -25,6 +25,12 @@ struct ContentView: View {
                     }
                 }
                 
+                Section("Apple Pay") {
+                    NavigationLink(destination: ApplePayView()) {
+                        PageRow(title: "Apple Pay", subTitle: "内部支付")
+                    }
+                }
+                
                 Section("页面展示") {
                     NavigationLink(destination: OtherView()) {
                         PageRow(title: "静态页面", subTitle: "静态APP内容")

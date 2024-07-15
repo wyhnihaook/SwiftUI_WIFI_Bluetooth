@@ -136,7 +136,8 @@ class BluetoothDataManager : BluetoothBaseManager {
                     
                     if weakSelf.receivedFileData.count >= 2196*20{
                         //完成所有读取的内容.转存到本地对应的目录中
-                        let fileURL = FileUtil.saveFileToDirectory(path: audioDirectory, fileName: "测试.mp3")
+                        //转存过程没有问题，要注意外设同步过来的Data类型数据不能缺失！！！！
+                        let fileURL = FileUtil.saveFileToDirectory(path: audioDirectory, fileName: "测试Test.mp3")
                         
                         do{
                             try weakSelf.receivedFileData.write(to: fileURL)

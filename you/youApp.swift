@@ -50,8 +50,8 @@ struct youApp: App {
     @Environment(\.scenePhase) var scenePhase
     var body: some Scene {
         WindowGroup {
-//            ContentView()
-              OtherView()
+            ContentView()
+//              OtherView()
 //            LoginView()
 //            MindMapView()
                 .environmentObject(sharedData)

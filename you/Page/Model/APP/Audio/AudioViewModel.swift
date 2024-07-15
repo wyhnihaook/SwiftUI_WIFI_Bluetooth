@@ -23,7 +23,7 @@ final class AudioViewModel: ObservableObject {
 //        let url = Bundle.main.url(forResource: fileName, withExtension: fileExtension)!
         //获取本地的测试内容
         var directoryPath = FileUtil.getAudioDirectory(path: audioDirectory)
-        directoryPath.append("/测试.mp3")
+        directoryPath.append("/测试Test.mp3")
         
         return try! AVAudioFile(forReading: URL(fileURLWithPath: directoryPath))
     }

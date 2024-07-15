@@ -9,6 +9,8 @@ import Foundation
 import Alamofire
 
 class AudioDownloadAPI : NetworkRequestHelper{
+    ///class func ：属于类本身，不需要创建对象来调用
+    ///func ：属于对象，需要创建对象来进行调用
     
     ///下载音频链接，如果不设置目标目录就会选择默认的推荐目录
     class func downloadAudio(downloadURL:String){

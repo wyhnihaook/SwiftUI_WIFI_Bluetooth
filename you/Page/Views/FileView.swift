@@ -7,18 +7,7 @@
 
 import SwiftUI
 
-struct FileData{
-    let title : String
-    let date : String
-    let time : String
-}
-
 struct FileView: View {
-    
-    var fileListData = [
-        FileData(title: "How to Use", date: "2023-10-21 10:11:55", time: "1m 20s"),
-        FileData(title: "How to Learn Tell Me Thanks One Two Three Four Five", date: "2023-10-21 10:11:55", time: "1m 20s")
-    ]
     
     @StateObject var fileModel = FileModel()
     
@@ -38,23 +27,25 @@ struct FileView: View {
                         .resizable()
                         .frame(width: 30,height: 30)
                     //文本
-                    Text("全部文件(\(fileListData.count))").font(.system(size: 24))
+                    Text("全部文件(\(fileModel.fileOnCloudList.count + fileModel.fileOnLocalList.count))").font(.system(size: 24))
                         .bold()
                         .foregroundColor(.black)
                 }
                 Spacer().frame(height:2)
                 
-                //遍历数据源进行内容同步
-                ForEach(fileListData,id: \.title) { item in
+                //遍历数据源进行内容同步 【云端 + 本地】
+                ForEach(fileModel.fileOnCloudList,id: \.title) { item in
                     NavigationLink(destination: AudioWaveView()) {
-                        FileItem(title: item.title, date: item.date, time: item.time)
+                        FileItem(title: item.title, date: item.createdTime, time: item.duration, tag: item.labels)
                     }
                 }
                 
-                
-                ForEach(fileModel.fileNameList,id:\.self.fileName) { fileInformation in
-                    Text(fileInformation.fileName)
+                ForEach(fileModel.fileOnLocalList,id: \.title) { item in
+                    NavigationLink(destination: AudioWaveView()) {
+                        FileItem(title: item.title, date: item.createdTime, time: item.duration,tag: item.labels)
+                    }
                 }
+                
             }
         }
         .frame(maxWidth: .infinity)
@@ -77,6 +68,7 @@ struct FileItem : View{
     let title : String
     let date : String
     let time : String
+    let tag : [FileLabelData]
     
     var body: some View{
         VStack(alignment:.leading,spacing: 7){
@@ -109,13 +101,21 @@ struct FileItem : View{
                 }
             }
             
-            //底部标签Tag
-            Text("NOTE")
-                .frame(width: 40,height: 17)
-                .background(Color(hexString: "#E9E9E9"))
-                .cornerRadius(2)
-                .font(.system(size: 10))
-                .foregroundColor(.gray)
+            //底部标签Tag，存在时才进行赋值
+            if tag.isNotEmpty{
+                HStack{
+                    ForEach(tag,id: \.labelName) { item in
+                        Text(item.labelName)
+                            .foregroundColor(Color(hexString: item.labelColor))
+                            .frame(width: 40,height: 17)
+                            .background(Color(hexString: "#E9E9E9"))
+                            .cornerRadius(2)
+                            .font(.system(size: 10))
+                            .foregroundColor(.gray)
+                    }
+                }
+            }
+            
             
         }
         .frame(maxWidth: .infinity,alignment: .leading)

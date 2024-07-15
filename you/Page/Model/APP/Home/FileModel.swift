@@ -27,18 +27,31 @@ struct FileInformation:Codable{
 
 import Foundation
 class FileModel : ObservableObject{
-    //本地文件内容获取
-    @Published var fileNameList : [FileInformation] = []
+    //本地文件内容获取【后续用于外设数据同步过来的数据处理】- 数据格式保持和云端数据一致，创建时规整数据内容
+    @Published var fileOnLocalList : [FileOnCloudData] = []
+    
+    //云端文件列表展示
+    @Published var fileOnCloudList : [FileOnCloudData] = []
+
     
     init(){
         //初始化时获取对应的本地文件列表
         let fileURLs = self.listFilesInDirectory()
         for file in fileURLs{
-            fileNameList.append(file)
+            fileOnLocalList.append(file)
+        }
+
+        //初始化获取云端数据
+        FileListOnCloudAPI.getFileListOnCloudMock { request, responseData in
+            
+            //进行赋值
+            if responseData.data.records.isNotEmpty{
+                self.fileOnCloudList = responseData.data.records
+            }
         }
     }
     
-    func listFilesInDirectory() ->[FileInformation]{
+    func listFilesInDirectory() ->[FileOnCloudData]{
         let directoryPath = FileUtil.getAudioDirectory(path: audioDirectory)
         do {
             let fileURLs = try fileManager.contentsOfDirectory(at: URL(fileURLWithPath: directoryPath), includingPropertiesForKeys: nil)
@@ -47,14 +60,15 @@ class FileModel : ObservableObject{
             
             
             return fileURLs.map {
-                var fileInformation = FileInformation()
+                var fileInformation = FileOnCloudData(recordId: -1, title: "", createdTime: "", duration: "0m 0s", labels: [], keywords: [], transferStatus: 0)
+                
                 do {
                     // 检查文件是否存在
                     if fileManager.fileExists(atPath: $0.path) {
                         //文件名称获取
                         let url = URL(fileURLWithPath: $0.path)
                        
-                        fileInformation.fileName = url.pathComponents.last ?? ""
+                        fileInformation.title = url.pathComponents.last ?? ""
                         
                         let attributes = try fileManager.attributesOfItem(atPath: $0.path)
                         
@@ -62,22 +76,19 @@ class FileModel : ObservableObject{
                         // 获取文件大小
                         if let fileSize = attributes[FileAttributeKey.size] as? Int {
                             print("File size: \(fileSize) bytes")
-                            
-                            fileInformation.fileSize = "\(fileSize)B"
                         }
                         
                         // 获取创建日期
                         if let creationDate = attributes[FileAttributeKey.creationDate] as? Date {
                             print("Creation date: \(creationDate)")
                             
-                            fileInformation.createTime = DateUtil.convertToString(date: creationDate)
+                            fileInformation.createdTime = DateUtil.convertToString(date: creationDate)
                         }
                         
                         // 获取最后修改日期
                         if let modificationDate = attributes[FileAttributeKey.modificationDate] as? Date {
                             print("Modification date: \(modificationDate)")
-                            
-                            fileInformation.updateTime = DateUtil.convertToString(date: modificationDate)
+
                         }
                     } else {
                         print("File does not exist.")

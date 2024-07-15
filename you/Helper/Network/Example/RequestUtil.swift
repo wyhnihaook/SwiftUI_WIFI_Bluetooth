@@ -10,10 +10,37 @@ import OHHTTPStubsSwift
 import OHHTTPStubs
 
 //MARK: - URL统一管理的结构体
+enum APIRouter{
+    case getDetail(id: Int)
+    case getListOnCloud
+    
+    var path : String{
+        switch self{
+            case .getListOnCloud : return "/audiorecord/getListOnCloud"
+            case .getDetail(let id) : return "/users/\(id)"
+        }
+    }
+}
+
+
 struct URLApi {
     static let baseURL = "http://lightnetwork.com"
     static let goods = "/goods"
     static let modify = "/modify"
+
+    //结合 APIRouter进行处理 。示例：APIRouter.getDetail(id: 2).path 获取真实的path路径
+    //获取首页文件列表数据 【云端保存的数据】
+    static let getListOnCloud = APIRouter.getListOnCloud.path
+
+}
+
+//MARK: - 网络请求统一格式内容
+struct ResponseResultData<T : Codable> : Codable{
+    //返回200成功
+    let code : Int
+    
+    //返回具体的结构体信息
+    let data : T
 }
 
 

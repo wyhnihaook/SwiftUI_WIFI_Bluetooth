@@ -9,7 +9,7 @@
 import Foundation
 import Alamofire
 
-public typealias RequestSuccess = (_ request: NetworkBaseRequest, _ responseData: Any) -> Void
+public typealias RequestSuccess<T> = (_ request: NetworkBaseRequest, _ responseData: inout T) -> Void
 public typealias RequestFailure = (_ request: NetworkBaseRequest, _ error: Error) -> Void
 
 

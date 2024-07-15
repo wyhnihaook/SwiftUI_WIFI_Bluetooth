@@ -30,6 +30,8 @@
 		1C11FBDB2C2A71B70087C39F /* PageRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C11FBDA2C2A71B70087C39F /* PageRow.swift */; };
 		1C11FBDE2C2A753D0087C39F /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C11FBDD2C2A753D0087C39F /* View+Ext.swift */; };
 		1C11FBE12C2A77A70087C39F /* NetworkUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C11FBE02C2A77A70087C39F /* NetworkUtil.swift */; };
+		1C3A02052C45251C00960F0E /* ApplePayUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C3A02042C45251C00960F0E /* ApplePayUtil.swift */; };
+		1C3A02072C45271900960F0E /* ApplePayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C3A02062C45271900960F0E /* ApplePayView.swift */; };
 		1C4B6EDC2C2A9A3B0095D27D /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4B6EDB2C2A9A3B0095D27D /* LocationManager.swift */; };
 		1C4B6EDF2C2AA62B0095D27D /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C4B6EDE2C2AA62B0095D27D /* NetworkExtension.framework */; };
 		1C5FFBD82C37FB8F00C0A117 /* AudioCompletionHandlerConductor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5FFBD72C37FB8F00C0A117 /* AudioCompletionHandlerConductor.swift */; };
@@ -143,6 +145,7 @@
 		1CD2194E2C3D3B3800562661 /* ZoomableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD2194D2C3D3B3800562661 /* ZoomableImageView.swift */; };
 		1CD219512C3D415B00562661 /* MindMapPathView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD219502C3D415B00562661 /* MindMapPathView.swift */; };
 		1CD402B32C40DAF2001EAD8D /* DataUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD402B22C40DAF2001EAD8D /* DataUtil.swift */; };
+		1CE45CDC2C44BF8700017B79 /* FileListOnCloudAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE45CDB2C44BF8700017B79 /* FileListOnCloudAPI.swift */; };
 		1CF297F22C3E7686002B37A7 /* TextSizeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF297F12C3E7686002B37A7 /* TextSizeView.swift */; };
 		1CF297F42C3E93DB002B37A7 /* AudioMindMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF297F32C3E93DB002B37A7 /* AudioMindMap.swift */; };
 		1CF298062C3F7B0D002B37A7 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 1CF298052C3F7B0D002B37A7 /* Alamofire */; };
@@ -208,6 +211,8 @@
 		1C11FBDD2C2A753D0087C39F /* View+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Ext.swift"; sourceTree = "<group>"; };
 		1C11FBE02C2A77A70087C39F /* NetworkUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkUtil.swift; sourceTree = "<group>"; };
 		1C11FBE22C2A92290087C39F /* you.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = you.entitlements; sourceTree = "<group>"; };
+		1C3A02042C45251C00960F0E /* ApplePayUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplePayUtil.swift; sourceTree = "<group>"; };
+		1C3A02062C45271900960F0E /* ApplePayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplePayView.swift; sourceTree = "<group>"; };
 		1C4B6EDB2C2A9A3B0095D27D /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		1C4B6EDE2C2AA62B0095D27D /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = System/Library/Frameworks/NetworkExtension.framework; sourceTree = SDKROOT; };
 		1C4B6EE32C2ABB140095D27D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -319,6 +324,7 @@
 		1CD2194D2C3D3B3800562661 /* ZoomableImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomableImageView.swift; sourceTree = "<group>"; };
 		1CD219502C3D415B00562661 /* MindMapPathView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MindMapPathView.swift; sourceTree = "<group>"; };
 		1CD402B22C40DAF2001EAD8D /* DataUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataUtil.swift; sourceTree = "<group>"; };
+		1CE45CDB2C44BF8700017B79 /* FileListOnCloudAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileListOnCloudAPI.swift; sourceTree = "<group>"; };
 		1CF297F12C3E7686002B37A7 /* TextSizeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextSizeView.swift; sourceTree = "<group>"; };
 		1CF297F32C3E93DB002B37A7 /* AudioMindMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioMindMap.swift; sourceTree = "<group>"; };
 		1CF298072C3F7DF5002B37A7 /* NetworkRequestHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequestHelper.swift; sourceTree = "<group>"; };
@@ -541,6 +547,7 @@
 				1C037E1E2C3642C900EB56F5 /* Model */,
 				1C9FCBE12C2EBB9B0013163C /* Views */,
 				1C11FBD82C2A714F0087C39F /* WiFiView.swift */,
+				1C3A02062C45271900960F0E /* ApplePayView.swift */,
 				1C9FC9E22C2BED8E0013163C /* BluetoothView.swift */,
 				1C9FCBD32C2D413C0013163C /* BluetoothDataView.swift */,
 				1CD219412C3D16DE00562661 /* SplashView.swift */,
@@ -566,6 +573,7 @@
 				1CF62AEB2C3FDA67000D2CA7 /* FileUtil.swift */,
 				1C9A06382C3FE9030028DFB2 /* DateUtil.swift */,
 				1CD402B22C40DAF2001EAD8D /* DataUtil.swift */,
+				1C3A02042C45251C00960F0E /* ApplePayUtil.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -933,6 +941,7 @@
 			isa = PBXGroup;
 			children = (
 				1CF62AE92C3FD239000D2CA7 /* AudioDownloadAPI.swift */,
+				1CE45CDB2C44BF8700017B79 /* FileListOnCloudAPI.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -1076,6 +1085,7 @@
 				1CF298212C3FAAE3002B37A7 /* RequestUtil.swift in Sources */,
 				1CD219312C3BE89900562661 /* TransferView.swift in Sources */,
 				1C9FCBCF2C2D0A590013163C /* SharedData.swift in Sources */,
+				1C3A02072C45271900960F0E /* ApplePayView.swift in Sources */,
 				1CD057782C32A0A90002E58D /* MineView.swift in Sources */,
 				1C5FFBD82C37FB8F00C0A117 /* AudioCompletionHandlerConductor.swift in Sources */,
 				1CF2980F2C3F81B6002B37A7 /* NetworkBaseRequest.swift in Sources */,
@@ -1123,6 +1133,7 @@
 				1CD057842C32A5D40002E58D /* TabBarPreferenceKey.swift in Sources */,
 				1CBBADE92C33ACCE0015DF46 /* Color+Ext.swift in Sources */,
 				1CBBADD82C32A8200015DF46 /* DefaultTabItemStyle.swift in Sources */,
+				1C3A02052C45251C00960F0E /* ApplePayUtil.swift in Sources */,
 				1C11FBDE2C2A753D0087C39F /* View+Ext.swift in Sources */,
 				1CBBADDD2C32A8630015DF46 /* AnyTabItemStyle.swift in Sources */,
 				1CD219382C3BF4A900562661 /* AudioTransfer.swift in Sources */,
@@ -1135,6 +1146,7 @@
 				1CD0578A2C32A69F0002E58D /* AnyTabBarStyle.swift in Sources */,
 				1CF62AEA2C3FD239000D2CA7 /* AudioDownloadAPI.swift in Sources */,
 				1C037E832C36A61000EB56F5 /* AudioData.swift in Sources */,
+				1CE45CDC2C44BF8700017B79 /* FileListOnCloudAPI.swift in Sources */,
 				1C037E252C3644C100EB56F5 /* FileDetailView.swift in Sources */,
 				1C11FBD92C2A714F0087C39F /* WiFiView.swift in Sources */,
 				1CF2980D2C3F80E8002B37A7 /* NetworkManager.swift in Sources */,
@@ -1350,7 +1362,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"you/Preview Content\"";
-				DEVELOPMENT_TEAM = 36S5C989P7;
+				DEVELOPMENT_TEAM = 6RDFD4YBG4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = you/Info.plist;
@@ -1367,7 +1379,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.zai.you;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dby.wechat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1387,7 +1399,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"you/Preview Content\"";
-				DEVELOPMENT_TEAM = 36S5C989P7;
+				DEVELOPMENT_TEAM = 6RDFD4YBG4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = you/Info.plist;
@@ -1404,7 +1416,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.zai.you;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dby.wechat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
