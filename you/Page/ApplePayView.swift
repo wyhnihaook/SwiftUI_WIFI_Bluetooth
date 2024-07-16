@@ -11,26 +11,25 @@ struct ApplePayView: View {
     
     @State var supportApplePay = false
     @State var supportBank = false
+    
+    var applePayUtil = ApplePayUtil()
 
     var body: some View {
         VStack {
-            Button("判断是否支持支付:\(supportApplePay.description)"){
-                supportApplePay = ApplePayUtil.supportApplePay()
+            Button("点我获取\n是否支持支付:\(supportApplePay.description) \n 是否已经添加储蓄/信用卡:\(supportBank.description)"){
+              (supportApplePay,supportBank) = ApplePayUtil.applePayStatus()
             }
-            .frame(width:200,height: 50)
+            .frame(width:300,height: 100)
             .background(Color(hexString: "#E9E9E9")).cornerRadius(10)
             
-            Button("判断是否添加储蓄/信用卡:\(supportBank.description)"){
-                supportBank = ApplePayUtil.supportBank()
+            Button("去支付"){
+                applePayUtil.createPayRequest()
             }
-            .frame(width:200,height: 50)
+            .frame(width:300,height: 100)
             .background(Color(hexString: "#E9E9E9")).cornerRadius(10)
-            
             
         }.onAppear{
-            let subtotalAmount = NSDecimalNumber.init(mantissa: 1275, exponent: -1, isNegative: false)
-
-            print(NSDecimalNumber.init(mantissa: 200, exponent: -2, isNegative: true))
+            
         }
         
         
