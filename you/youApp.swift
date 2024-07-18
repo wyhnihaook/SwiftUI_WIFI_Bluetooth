@@ -9,6 +9,7 @@ import SwiftUI
 import Bluejay
 import AudioKit
 import AVFoundation
+import RevenueCat
 
 //声明全局静态产量
 let fileManager = FileManager.default
@@ -24,6 +25,15 @@ struct youApp: App {
         //这里执行全局内容信息，标识APP已经初始化
         //等同于 didFinishLaunchingWithOptions
         do {
+            //初始化RevenueCat 收入猫SDK，用于内购。可关联当前登录用户的信息【例如：数据库中的用户ID和支付的用户ID相同】
+            Purchases.logLevel = .debug
+//            Purchases.configure(withAPIKey: "", appUserID: "")
+            Purchases.configure(withAPIKey: "appl_LnrVvTDNsZebnErStTEPrzBivQA")
+            
+            //在登录后获取对应的用户ID更新.【注意执行在异步子线程中】
+//            updateUserId("1")
+        
+            
             //新建沙盒目录存储数据
             FileUtil.createDirectory(path: audioDirectory)
             
@@ -45,6 +55,12 @@ struct youApp: App {
         }
         
     }
+    
+    private func updateUserId(id: String) async throws  -> (customerInfo: CustomerInfo, created: Bool){
+            // 模拟从 API 获取数据
+        return  try await Purchases.shared.logIn(id)
+    }
+
     
     //14.0版本：可跟踪应用程序的状态：ScenePhase。配合WindowGroup使用【整个应用】
     @Environment(\.scenePhase) var scenePhase

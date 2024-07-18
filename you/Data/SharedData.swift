@@ -7,9 +7,13 @@
 
 import Foundation
 import Bluejay
+import SwiftUI
 
 class SharedData:ObservableObject{
     ///创建蓝牙管理类的唯一实例
     static let bluejay = Bluejay()
     
+    //引起页面刷新。必须在每一个界面中显示的声明才能关联上页面
+    @AppStorage("language") var language = String.getCurrentLanguage()
+
 }

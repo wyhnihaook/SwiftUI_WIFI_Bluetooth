@@ -10,6 +10,7 @@ import Foundation
 import PassKit
 //用户联系信息相关
 import AddressBook
+import RevenueCat
 
 
 //支付模式一：PKPaymentRequest + PKPaymentAuthorizationController 【Apple Pay】与App Store内的购买时不同的
@@ -168,4 +169,38 @@ class ApplePayUtil :NSObject, PKPaymentAuthorizationControllerDelegate{
     }
     
     
+}
+
+
+
+//MARK: - RevenueCat SDK 展示产品 + 购买
+func getOfferings(){
+    Purchases.shared.getOfferings {(offerings, error) in
+        //获取当前在【RevenueCat控制台】配置的所有产品信息。【可以通过添加identifier来指定某种类型的产品】
+        if let packages = offerings?.current?.availablePackages{
+            //存在信息的时候会执行到这里，【如果RevenueCat控制台未配置Offerings就不会执行到这里，提示错误配置信息】
+            for package in packages{
+                //具体配置到产品内容展示
+                print(package.storeProduct.price)
+                print(package.storeProduct.currencyCode!)
+                //订阅中配置的本地化显示的文案名称 + 当前地区支付的金额
+                //参考示例源码：
+                print(package.storeProduct.localizedTitle)
+                print(package.storeProduct.localizedPriceString)
+
+                paymentRevenueCat(package: package)
+            }
+        }
+    }
+}
+
+
+func paymentRevenueCat(package: Package){
+    Purchases.shared.purchase(package: package) { (transaction, customerInfo, error, userCancelled) in
+        print("---:\(String(describing: customerInfo))")
+        //这里处理的是RevenueCat控制台【Entitlements】配置的内容，用于匹配购买内容解锁的情况
+        if customerInfo?.entitlements["pro"]?.isActive == true{
+            //购买成功返回用户信息相关，让用户进行某些高级功能的解锁
+        }
+    }
 }

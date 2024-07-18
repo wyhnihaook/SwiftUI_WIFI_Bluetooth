@@ -22,6 +22,7 @@
 		1C037E8E2C36AA3900EB56F5 /* BarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C037E8D2C36AA3900EB56F5 /* BarChartView.swift */; };
 		1C037E902C36ABF400EB56F5 /* AudioUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C037E8F2C36ABF400EB56F5 /* AudioUtil.swift */; };
 		1C037E922C36B06D00EB56F5 /* test.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1C037E912C36B06C00EB56F5 /* test.mp3 */; };
+		1C04B6842C48E13B001223BC /* AudioKitUI in Frameworks */ = {isa = PBXBuildFile; productRef = 1C04B6832C48E13B001223BC /* AudioKitUI */; };
 		1C11FBCA2C2A6FF40087C39F /* youApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C11FBC92C2A6FF40087C39F /* youApp.swift */; };
 		1C11FBCC2C2A6FF40087C39F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C11FBCB2C2A6FF40087C39F /* ContentView.swift */; };
 		1C11FBCE2C2A6FF60087C39F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C11FBCD2C2A6FF60087C39F /* Assets.xcassets */; };
@@ -35,6 +36,9 @@
 		1C4B6EDC2C2A9A3B0095D27D /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4B6EDB2C2A9A3B0095D27D /* LocationManager.swift */; };
 		1C4B6EDF2C2AA62B0095D27D /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C4B6EDE2C2AA62B0095D27D /* NetworkExtension.framework */; };
 		1C5FFBD82C37FB8F00C0A117 /* AudioCompletionHandlerConductor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5FFBD72C37FB8F00C0A117 /* AudioCompletionHandlerConductor.swift */; };
+		1C74F0A02C48E61400D10FE0 /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = 1C74F09F2C48E61400D10FE0 /* RevenueCat */; };
+		1C74F0A22C48E61400D10FE0 /* RevenueCatUI in Frameworks */ = {isa = PBXBuildFile; productRef = 1C74F0A12C48E61400D10FE0 /* RevenueCatUI */; };
+		1C74F0AE2C490CA300D10FE0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1C74F0B02C490CA300D10FE0 /* Localizable.strings */; };
 		1C9A06372C3FDFE00028DFB2 /* FileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9A06362C3FDFE00028DFB2 /* FileModel.swift */; };
 		1C9A06392C3FE9030028DFB2 /* DateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9A06382C3FE9030028DFB2 /* DateUtil.swift */; };
 		1C9FC9E12C2BC1D10013163C /* PersistentStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9FC9E02C2BC1D10013163C /* PersistentStorageManager.swift */; };
@@ -120,7 +124,6 @@
 		1CBBADF42C34E6800015DF46 /* NavigationBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBBADF32C34E6800015DF46 /* NavigationBody.swift */; };
 		1CC8FDF62C37E35A00C35F7C /* AudioWaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC8FDF52C37E35A00C35F7C /* AudioWaveView.swift */; };
 		1CC8FE092C37E8AE00C35F7C /* Waveform in Frameworks */ = {isa = PBXBuildFile; productRef = 1CC8FE082C37E8AE00C35F7C /* Waveform */; };
-		1CC8FE0C2C37E91E00C35F7C /* AudioKitUI in Frameworks */ = {isa = PBXBuildFile; productRef = 1CC8FE0B2C37E91E00C35F7C /* AudioKitUI */; };
 		1CC8FE0E2C37EE1900C35F7C /* MinimapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC8FE0D2C37EE1900C35F7C /* MinimapView.swift */; };
 		1CD057782C32A0A90002E58D /* MineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD057772C32A0A90002E58D /* MineView.swift */; };
 		1CD0577C2C32A1BB0002E58D /* TabBarViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD0577B2C32A1BB0002E58D /* TabBarViewModifier.swift */; };
@@ -217,6 +220,8 @@
 		1C4B6EDE2C2AA62B0095D27D /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = System/Library/Frameworks/NetworkExtension.framework; sourceTree = SDKROOT; };
 		1C4B6EE32C2ABB140095D27D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		1C5FFBD72C37FB8F00C0A117 /* AudioCompletionHandlerConductor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioCompletionHandlerConductor.swift; sourceTree = "<group>"; };
+		1C74F0AF2C490CA300D10FE0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		1C74F0B12C490CA500D10FE0 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		1C9A06362C3FDFE00028DFB2 /* FileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileModel.swift; sourceTree = "<group>"; };
 		1C9A06382C3FE9030028DFB2 /* DateUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtil.swift; sourceTree = "<group>"; };
 		1C9FC9E02C2BC1D10013163C /* PersistentStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentStorageManager.swift; sourceTree = "<group>"; };
@@ -346,9 +351,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C037E2B2C3650E200EB56F5 /* SwiftUIIntrospect in Frameworks */,
-				1CC8FE0C2C37E91E00C35F7C /* AudioKitUI in Frameworks */,
+				1C04B6842C48E13B001223BC /* AudioKitUI in Frameworks */,
 				1C4B6EDF2C2AA62B0095D27D /* NetworkExtension.framework in Frameworks */,
 				1CF2981F2C3FAA51002B37A7 /* OHHTTPStubsSwift in Frameworks */,
+				1C74F0A02C48E61400D10FE0 /* RevenueCat in Frameworks */,
+				1C74F0A22C48E61400D10FE0 /* RevenueCatUI in Frameworks */,
 				1CF298062C3F7B0D002B37A7 /* Alamofire in Frameworks */,
 				1C9FC9F12C2BF04D0013163C /* Bluejay.framework in Frameworks */,
 				1CC8FE092C37E8AE00C35F7C /* Waveform in Frameworks */,
@@ -517,6 +524,7 @@
 			children = (
 				1C4B6EE32C2ABB140095D27D /* Info.plist */,
 				1C11FBE22C2A92290087C39F /* you.entitlements */,
+				1C74F0A92C4905DC00D10FE0 /* Resource */,
 				1C9FCBCD2C2D0A390013163C /* Data */,
 				1C4B6EDA2C2A9A2F0095D27D /* Manager */,
 				1C9FCBD02C2D19540013163C /* Helper */,
@@ -597,6 +605,14 @@
 				1C4B6EDE2C2AA62B0095D27D /* NetworkExtension.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1C74F0A92C4905DC00D10FE0 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				1C74F0B02C490CA300D10FE0 /* Localizable.strings */,
+			);
+			path = Resource;
 			sourceTree = "<group>";
 		};
 		1C9FC9EA2C2BF04D0013163C /* Bluejay */ = {
@@ -978,9 +994,11 @@
 			packageProductDependencies = (
 				1C037E2A2C3650E200EB56F5 /* SwiftUIIntrospect */,
 				1CC8FE082C37E8AE00C35F7C /* Waveform */,
-				1CC8FE0B2C37E91E00C35F7C /* AudioKitUI */,
 				1CF298052C3F7B0D002B37A7 /* Alamofire */,
 				1CF2981E2C3FAA51002B37A7 /* OHHTTPStubsSwift */,
+				1C04B6832C48E13B001223BC /* AudioKitUI */,
+				1C74F09F2C48E61400D10FE0 /* RevenueCat */,
+				1C74F0A12C48E61400D10FE0 /* RevenueCatUI */,
 			);
 			productName = you;
 			productReference = 1C11FBC62C2A6FF40087C39F /* you.app */;
@@ -1029,16 +1047,18 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = 1C11FBBD2C2A6FF40087C39F;
 			packageReferences = (
 				1C037E292C3650E200EB56F5 /* XCRemoteSwiftPackageReference "swiftui-introspect" */,
 				1CC8FE072C37E8AE00C35F7C /* XCRemoteSwiftPackageReference "Waveform" */,
-				1CC8FE0A2C37E91E00C35F7C /* XCRemoteSwiftPackageReference "AudioKitUI" */,
 				1CF298042C3F7B0D002B37A7 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				1CF298172C3FA9E7002B37A7 /* XCRemoteSwiftPackageReference "Quick" */,
 				1CF2981A2C3FAA14002B37A7 /* XCRemoteSwiftPackageReference "Nimble" */,
 				1CF2981D2C3FAA51002B37A7 /* XCRemoteSwiftPackageReference "OHHTTPStubs" */,
+				1C04B6822C48E13B001223BC /* XCRemoteSwiftPackageReference "AudioKitUI" */,
+				1C74F09E2C48E61400D10FE0 /* XCRemoteSwiftPackageReference "purchases-ios-spm" */,
 			);
 			productRefGroup = 1C11FBC72C2A6FF40087C39F /* Products */;
 			projectDirPath = "";
@@ -1056,6 +1076,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C11FBD12C2A6FF60087C39F /* Preview Assets.xcassets in Resources */,
+				1C74F0AE2C490CA300D10FE0 /* Localizable.strings in Resources */,
 				1C11FBCE2C2A6FF60087C39F /* Assets.xcassets in Resources */,
 				1C037E922C36B06D00EB56F5 /* test.mp3 in Resources */,
 			);
@@ -1235,6 +1256,18 @@
 			targetProxy = 1C9FC9EF2C2BF04D0013163C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		1C74F0B02C490CA300D10FE0 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1C74F0AF2C490CA300D10FE0 /* en */,
+				1C74F0B12C490CA500D10FE0 /* zh-Hans */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		1C11FBD22C2A6FF60087C39F /* Debug */ = {
@@ -1536,20 +1569,28 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		1C04B6822C48E13B001223BC /* XCRemoteSwiftPackageReference "AudioKitUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AudioKit/AudioKitUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.3.7;
+			};
+		};
+		1C74F09E2C48E61400D10FE0 /* XCRemoteSwiftPackageReference "purchases-ios-spm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RevenueCat/purchases-ios-spm.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		1CC8FE072C37E8AE00C35F7C /* XCRemoteSwiftPackageReference "Waveform" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/AudioKit/Waveform.git";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 1.0.0;
-			};
-		};
-		1CC8FE0A2C37E91E00C35F7C /* XCRemoteSwiftPackageReference "AudioKitUI" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/AudioKit/AudioKitUI.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.3.7;
 			};
 		};
 		1CF298042C3F7B0D002B37A7 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
@@ -1592,15 +1633,25 @@
 			package = 1C037E292C3650E200EB56F5 /* XCRemoteSwiftPackageReference "swiftui-introspect" */;
 			productName = SwiftUIIntrospect;
 		};
+		1C04B6832C48E13B001223BC /* AudioKitUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1C04B6822C48E13B001223BC /* XCRemoteSwiftPackageReference "AudioKitUI" */;
+			productName = AudioKitUI;
+		};
+		1C74F09F2C48E61400D10FE0 /* RevenueCat */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1C74F09E2C48E61400D10FE0 /* XCRemoteSwiftPackageReference "purchases-ios-spm" */;
+			productName = RevenueCat;
+		};
+		1C74F0A12C48E61400D10FE0 /* RevenueCatUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1C74F09E2C48E61400D10FE0 /* XCRemoteSwiftPackageReference "purchases-ios-spm" */;
+			productName = RevenueCatUI;
+		};
 		1CC8FE082C37E8AE00C35F7C /* Waveform */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 1CC8FE072C37E8AE00C35F7C /* XCRemoteSwiftPackageReference "Waveform" */;
 			productName = Waveform;
-		};
-		1CC8FE0B2C37E91E00C35F7C /* AudioKitUI */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 1CC8FE0A2C37E91E00C35F7C /* XCRemoteSwiftPackageReference "AudioKitUI" */;
-			productName = AudioKitUI;
 		};
 		1CF298052C3F7B0D002B37A7 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;

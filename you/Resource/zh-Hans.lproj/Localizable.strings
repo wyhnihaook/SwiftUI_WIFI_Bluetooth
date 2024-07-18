@@ -1,0 +1,10 @@
+/* 
+  Localizable.strings
+  you
+  中文简体
+  Created by 翁益亨 on 2024/7/18.
+  
+*/
+
+"hello world" = "你好 世界";
+"result" = "结果";

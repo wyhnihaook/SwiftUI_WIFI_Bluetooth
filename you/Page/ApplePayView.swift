@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct ApplePayView: View {
-    
+    @EnvironmentObject var sharedData : SharedData
+
     @State var supportApplePay = false
     @State var supportBank = false
     
@@ -28,8 +29,26 @@ struct ApplePayView: View {
             .frame(width:300,height: 100)
             .background(Color(hexString: "#E9E9E9")).cornerRadius(10)
             
-        }.onAppear{
             
+            Button("获取产品并去购买"){
+                getOfferings()
+            }
+            .frame(width:300,height: 100)
+            .background(Color(hexString: "#E9E9E9")).cornerRadius(10)
+            
+            Text("hello world".localized())
+
+            Text("系统语言：\(String.getCurrentLanguage())")
+            Text("应用内语言：\(sharedData.language)")
+
+            HStack{
+                Button("应用内切换成英文"){
+                    sharedData.language = "en"
+                }
+                Button("应用内切换成中文"){
+                    sharedData.language = "zh-Hans"
+                }
+            }
         }
         
         
