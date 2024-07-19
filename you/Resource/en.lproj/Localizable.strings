@@ -8,3 +8,4 @@
 
 "hello world" = "hello world";
 "result" = "result";
+"with params:%@" = "with params:%@";

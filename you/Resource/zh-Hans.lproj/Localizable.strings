@@ -8,3 +8,4 @@
 
 "hello world" = "你好 世界";
 "result" = "结果";
+"with params:%@" = "参数携带:%@";

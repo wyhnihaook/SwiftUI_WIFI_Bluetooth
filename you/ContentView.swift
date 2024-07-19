@@ -18,7 +18,7 @@ struct ContentView: View {
                 //这里要实践，应用内切后语言的效果
                 Text("result".localized())
                 //全局任何地方修改都会引起引用到视图变化
-//                Text(baseModel.language)
+                Text("with params:%@".localizedWithParam(args: ["result".localized()]))
 
                 //设置分节内容
                 Section("WIFI功能") {
@@ -36,6 +36,12 @@ struct ContentView: View {
                 Section("Apple Pay") {
                     NavigationLink(destination: ApplePayView()) {
                         PageRow(title: "Apple Pay", subTitle: "内部支付")
+                    }
+                }
+                
+                Section("LeanCloud") {
+                    NavigationLink(destination: LeanCloudView()) {
+                        PageRow(title: "云服务", subTitle: "功能测试")
                     }
                 }
                 
@@ -75,11 +81,11 @@ extension String{
                 return ""
         }
     }
-    static private let languageUserDefaultKey: String = "languageUserDefaultKey"
 
-    //应用内设置语言显示
-    static func setLanguage(_ language: String) {
-       
+    //国际化携带参数添加【这里的参数直接添加，不做其他操作，如果也需要兼容国际化就在参数设置时就进行转化】
+    //主要是通过占位符进行设置。其中comment是给翻译者的注释，描述上下文
+    func localizedWithParam(args: [String]) -> String{
+        return String(format: self.localized(), arguments: args)
     }
     
     func localized() -> String {
@@ -90,14 +96,17 @@ extension String{
     func localized(using tableName: String?) -> String {
         //传递的是语言
         //当前项目文件夹查看：zh-Hans/中文 en/英文
+        
+        //从当前的缓存数据中获取需要展示的语言类型
         var currentLanguage = UserDefaults.standard.object(forKey: "language") as? String
         
-        //默认首先获取对应的语言
+        //默认首先获取对应的语言。如果不存在就默认跟随系统
         if currentLanguage == nil{
             currentLanguage = "en"
         }
-        print("currentLanguage:\(currentLanguage)")
+        print("currentLanguage:\(String(describing: currentLanguage))")
         
+        //这里要额外判断是否存在对应的语言，如果不存在兜底语言内容
         let path = Bundle.main.path(forResource: currentLanguage, ofType: "lproj")
         let bundle = Bundle(path: path!)
         

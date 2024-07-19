@@ -10,6 +10,7 @@ import Bluejay
 import AudioKit
 import AVFoundation
 import RevenueCat
+import LeanCloud
 
 //声明全局静态产量
 let fileManager = FileManager.default
@@ -25,6 +26,12 @@ struct youApp: App {
         //这里执行全局内容信息，标识APP已经初始化
         //等同于 didFinishLaunchingWithOptions
         do {
+            //初始化LeanCloud的网络配置。可能需要时间，在限定的时间内发起网络请求会提示
+            //LCError(code: 1, reason: "应用初始化失败，请两分钟后重试。")
+            try LCApplication.default.set( id: "3bZWAMygwKEmyMt14w2JXgpU-gzGzoHsz",
+               key: "3BntWK7Y24faYDAaJ5Lnx9Pe",
+               serverURL: "https://api-leancloud.calamari.cn")
+            
             //初始化RevenueCat 收入猫SDK，用于内购。可关联当前登录用户的信息【例如：数据库中的用户ID和支付的用户ID相同】
             Purchases.logLevel = .debug
 //            Purchases.configure(withAPIKey: "", appUserID: "")
