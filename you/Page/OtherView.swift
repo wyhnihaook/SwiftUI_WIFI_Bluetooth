@@ -15,7 +15,6 @@ struct OtherView: View {
     @State private var delayInit = false
     
     var body: some View {
-        NavigationView{
             //【TabBar自定义的控件最大的问题就是不能缓存当前的TabBar页面信息。只能通过系统的TabView结合tag标签来实现。底部自定义，TabView只是作为展示内容的容器】
             ZStack(alignment:Alignment(horizontal: .center, vertical: .bottom)){
                
@@ -67,8 +66,6 @@ struct OtherView: View {
                 
             }
             
-            
-        }
         .onAppear{
             //视图 完全 展示在界面上时回调【页面跳转后返回会调用】
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1){

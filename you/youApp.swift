@@ -73,9 +73,9 @@ struct youApp: App {
     @Environment(\.scenePhase) var scenePhase
     var body: some Scene {
         WindowGroup {
-            ContentView()
+//            ContentView()
 //              OtherView()
-//            LoginView()
+            SplashView()
 //            MindMapView()
                 .environmentObject(sharedData)
         }.onChange(of: scenePhase) { newValue in

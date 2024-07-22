@@ -54,6 +54,7 @@ struct NavigationBody<TrailingView : View, Content: View> : View{
             
             content
                 .frame(maxWidth: .infinity)
+                .frame(maxHeight: .infinity)
         }
         //隐藏导航配置顶部信息
         .navigationBarHidden(true)
