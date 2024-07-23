@@ -155,6 +155,7 @@
 		1CEC86E52C4E436600E5554B /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEC86E42C4E436600E5554B /* LoginModel.swift */; };
 		1CEC86E92C4E5E2200E5554B /* AccountOperationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEC86E82C4E5E2200E5554B /* AccountOperationView.swift */; };
 		1CEC86EB2C4E5F3F00E5554B /* AccountOperationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEC86EA2C4E5F3F00E5554B /* AccountOperationModel.swift */; };
+		1CEC86EE2C4F5A3E00E5554B /* OverlayWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEC86ED2C4F5A3E00E5554B /* OverlayWidget.swift */; };
 		1CF297F22C3E7686002B37A7 /* TextSizeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF297F12C3E7686002B37A7 /* TextSizeView.swift */; };
 		1CF297F42C3E93DB002B37A7 /* AudioMindMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF297F32C3E93DB002B37A7 /* AudioMindMap.swift */; };
 		1CF298062C3F7B0D002B37A7 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 1CF298052C3F7B0D002B37A7 /* Alamofire */; };
@@ -341,6 +342,7 @@
 		1CEC86E42C4E436600E5554B /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		1CEC86E82C4E5E2200E5554B /* AccountOperationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountOperationView.swift; sourceTree = "<group>"; };
 		1CEC86EA2C4E5F3F00E5554B /* AccountOperationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountOperationModel.swift; sourceTree = "<group>"; };
+		1CEC86ED2C4F5A3E00E5554B /* OverlayWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayWidget.swift; sourceTree = "<group>"; };
 		1CF297F12C3E7686002B37A7 /* TextSizeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextSizeView.swift; sourceTree = "<group>"; };
 		1CF297F32C3E93DB002B37A7 /* AudioMindMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioMindMap.swift; sourceTree = "<group>"; };
 		1CF298072C3F7DF5002B37A7 /* NetworkRequestHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequestHelper.swift; sourceTree = "<group>"; };
@@ -810,6 +812,7 @@
 		1C9FCBE12C2EBB9B0013163C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1CEC86EC2C4F59BE00E5554B /* Widget */,
 				1C037E232C3644A800EB56F5 /* FileDetailView */,
 				1C037E1B2C3554E400EB56F5 /* AccountView */,
 				1C037E182C354A8800EB56F5 /* AboutView */,
@@ -960,6 +963,14 @@
 				1CEC86EA2C4E5F3F00E5554B /* AccountOperationModel.swift */,
 			);
 			path = Account;
+			sourceTree = "<group>";
+		};
+		1CEC86EC2C4F59BE00E5554B /* Widget */ = {
+			isa = PBXGroup;
+			children = (
+				1CEC86ED2C4F5A3E00E5554B /* OverlayWidget.swift */,
+			);
+			path = Widget;
 			sourceTree = "<group>";
 		};
 		1CF298092C3F8085002B37A7 /* Network */ = {
@@ -1151,6 +1162,7 @@
 				1CD219422C3D16DE00562661 /* SplashView.swift in Sources */,
 				1C037E8E2C36AA3900EB56F5 /* BarChartView.swift in Sources */,
 				1CD219332C3BE8BE00562661 /* SummarizeView.swift in Sources */,
+				1CEC86EE2C4F5A3E00E5554B /* OverlayWidget.swift in Sources */,
 				1C9FCBDA2C2D5D190013163C /* BluetoothBaseManager.swift in Sources */,
 				1CC8FDF62C37E35A00C35F7C /* AudioWaveView.swift in Sources */,
 				1C9FCBD82C2D44B70013163C /* BluetoothInfoData.swift in Sources */,

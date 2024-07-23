@@ -22,17 +22,17 @@ struct LoginView: View {
                 Rectangle().foregroundColor(.white)
                     .frame(maxWidth: .infinity,maxHeight: 100)
                 
-                VStack(spacing:20){
+                VStack(spacing:0){
                     Spacer().frame(height: 30)
                     
                     
                     //直接设置border结合cornerRadius会出现border圆角适配不了的情况，所以要结合overlay实现
                     
                     //设置尺寸再设置圆角
-                    TextField("输入用户名",text:$loginModel.username,
-                              prompt: Text("输入用户名").font(.system(size: 16).bold()))
+                    TextField("邮箱地址",text:$loginModel.username,
+                              prompt: Text("邮箱地址").font(.system(size: 16).bold()))
                     .frame(height: 50)
-                    .padding(.horizontal,15)
+                    .padding(EdgeInsets(top: 0, leading: 15, bottom: 0, trailing: 40))
                     .background(Color(hexString: "#F6F7F9"))
                     .cornerRadius(10)
                     .frame(maxWidth: .infinity)
@@ -40,14 +40,32 @@ struct LoginView: View {
                         //创建一个视图容器显示在页面上
                         //视图尺寸遵循调用者的尺寸，简单理解为一个便捷的ZStack
                         RoundedRectangle(cornerRadius: 10).stroke(Color(hexString: "#E9E9E9")!, lineWidth: 1)
+                        
+                        if loginModel.username.isNotEmpty{
+                            let imageInfo = ImageInfo(imageUrl: "circle_delete", width: 14, height: 14)
+                            
+                            RightImageWidget(imageInfo: imageInfo) {
+                                loginModel.username = ""
+                            }
+                         
+                        }
                     })
                     
+                    Spacer().frame(height: 20)
 
                     //密码要结合显示隐藏功能处理
-                    TextField("输入密码",text:$loginModel.password,
-                              prompt: Text("输入密码").font(.system(size: 16)).bold())
+                    ZStack{
+                        if !loginModel.hiddenPassword{
+                            TextField("输入密码",text:$loginModel.password,
+                                      prompt: Text("输入密码").font(.system(size: 16)).bold())
+                        }else {
+                            SecureField("输入密码",text:$loginModel.password,
+                                      prompt: Text("输入密码").font(.system(size: 16)).bold())
+                        }
+                        
+                    }
                     .frame(height: 50)
-                    .padding(.horizontal,15)
+                    .padding(EdgeInsets(top: 0, leading: 15, bottom: 0, trailing: 80))
                     .background(Color(hexString: "#F6F7F9"))
                     .cornerRadius(10)
                     .frame(maxWidth: .infinity)
@@ -55,10 +73,25 @@ struct LoginView: View {
                         //创建一个视图容器显示在页面上
                         //视图尺寸遵循调用者的尺寸，简单理解为一个便捷的ZStack
                         RoundedRectangle(cornerRadius: 10).stroke(Color(hexString: "#E9E9E9")!, lineWidth: 1)
+                        
+                        if loginModel.password.isNotEmpty{
+                            
+                            let imageInfo = ImageInfo(imageUrl: loginModel.hiddenPassword ? "hidden_password" : "show_password", width: 28, height: 14)
+                            
+                            RightImageWidget(imageInfo: imageInfo) {
+                                loginModel.hiddenPassword = !loginModel.hiddenPassword
+                            }
+
+                        }
+                        
                     })
                       
-                      
-                    Spacer().frame(height: 20)
+                
+                    Text(loginModel.errorDesc).font(.system(size: 12)).foregroundColor(.red)
+                        .frame(maxWidth:.infinity,alignment:.leading)
+                        .frame(height: 30)
+                    
+                    Spacer().frame(height: 30)
                     
                     //如果Button的尺寸由Text撑开，那么软键盘弹出时，高度会收缩到包裹Text内容的高度，所以最好直接设置Button的尺寸属性
                     //注意这里Button点击区域是Text尺寸决定的
@@ -83,6 +116,9 @@ struct LoginView: View {
                             .disabled(!loginModel.isLight)
                     }
                     
+                    Spacer().frame(height: 20)
+
+                    
                     HStack{
                         NavigationLink(destination: AccountOperationView(type:0)) {
                             Text("立即注册").foregroundColor(.gray)
@@ -98,19 +134,22 @@ struct LoginView: View {
                     }
 
 
-                    Spacer()
+                    Group{
+                        Spacer()
+                        
+                        HStack(spacing:0){
+                            Text("继续操作即表示您已阅读并同意《")
+                            Text("用户协议").foregroundColor(.blue)
+                            Text("》和《")
+                            Text("隐私政策").foregroundColor(.blue)
+                            Text("》。")
+                        }.font(.system(size: 11))
+                            .padding(0)
+                        
+                        
+                        Spacer().frame(height: 40)
+                    }
                     
-                    HStack(spacing:0){
-                        Text("继续操作即表示您已阅读并同意《")
-                        Text("用户协议").foregroundColor(.blue)
-                        Text("》和《")
-                        Text("隐私政策").foregroundColor(.blue)
-                        Text("》。")
-                    }.font(.system(size: 11))
-                        .padding(0)
-                    
-                    
-                    Spacer().frame(height: 40)
                 }.padding(.horizontal,30).background(.white)
                 //默认不支持设置单个方向上的圆角
                 .cornerRadius(20)

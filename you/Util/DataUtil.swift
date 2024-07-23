@@ -37,3 +37,9 @@ func encodeToJson<T: Encodable>(_ object: T) -> String? {
     }
     return nil
 }
+
+//MARK: - 验证邮箱可用性
+func validateEmail(_ email: String) -> Bool {
+       let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+       return NSPredicate(format: "SELF MATCHES %@", emailRegEx).evaluate(with: email)
+   }

@@ -15,6 +15,9 @@ struct SplashView: View {
     var body: some View {
         NavigationView{
             VStack{
+                
+                Text("欢迎页面")
+                
                 NavigationLink(destination: OtherView(),isActive: $isLoginActive) {
                 }
                 

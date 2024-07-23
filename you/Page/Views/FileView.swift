@@ -20,6 +20,10 @@ struct FileView: View {
                     AudioDownloadAPI.downloadAudio(downloadURL: "")
                 }
                 
+                Button("上传文件到LeanCloud"){
+                    AudioDownloadAPI.uploadCloud()
+                }
+                
                 //顶部文件数量描述
                 HStack{
                     //图片
