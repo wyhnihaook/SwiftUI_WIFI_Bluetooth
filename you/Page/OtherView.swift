@@ -28,7 +28,6 @@ struct OtherView: View {
                     
                 }
                 //切换tab可能会产生闪烁，关闭动画效果
-                .animation(.none)
                 //不传入切换的指示器，设置可水平滑动
 //                .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
                 

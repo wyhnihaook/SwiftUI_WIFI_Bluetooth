@@ -12,10 +12,15 @@ struct NavigationBody<TrailingView : View, Content: View> : View{
     
     //获取全局环境中的导航器功能。让当前的View获取了presentationMode属性的绑定数据。用于返回上级页面
     //【全局环境配置的变量，可以直接到获取】
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+//    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    //结合了自定义导航使用
+    @EnvironmentObject private var navigationStack: NavigationStackCompat
     
     //标题信息
     private let title : String
+    
+    //点击返回到回调信息
+    private let backCallback : (()->Void)?
     
     //右侧功能块，数组获取外部同步而来，因为右侧的按钮信息根据页面不同而做不同操作
     private var items: TrailingView
@@ -23,7 +28,8 @@ struct NavigationBody<TrailingView : View, Content: View> : View{
     //核心展示的内容
     private let content: Content
 
-    public init(title: String, @ViewBuilder item: () -> TrailingView, @ViewBuilder content: () -> Content) {
+    public init(title: String,  @ViewBuilder item: () -> TrailingView, @ViewBuilder content: () -> Content, backCallback: (()->Void)? = nil) {
+        self.backCallback = backCallback
         self.title = title
         self.content = content()
         self.items = item()
@@ -34,7 +40,17 @@ struct NavigationBody<TrailingView : View, Content: View> : View{
         VStack(spacing:0){
             HStack {
                 Button{
-                    presentationMode.wrappedValue.dismiss()
+                    //当前是返回一级。如果要返回多级就需要for循环次数来返回。这里可以让用户来控制返回层级
+                    //【返回视觉效果较差。一级一级返回】
+//                    presentationMode.wrappedValue.dismiss()
+                    
+                    //默认不需要自定义返回方法，只往上回退一步
+                    if backCallback != nil{
+                        backCallback!()
+                    }else{
+                        navigationStack.pop()
+                    }
+                    
                 }label: {
                     Image(systemName: "chevron.backward")
                         .foregroundColor(.black)

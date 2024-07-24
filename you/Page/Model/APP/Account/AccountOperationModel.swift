@@ -22,8 +22,9 @@ class AccountOperationModel : BaseModel{
     @Published var confirmPassword : String = ""
     
     //标识是否注册/修改成功，成功后自动登录,默认：false，由接口返回用户信息后设置为true
-    @Published var isLoginSuccess : Bool = false
-    
+    @Published var isRegisterSuccess : Bool = false
+    @Published var isForgetSuccess : Bool = false
+
     //显示密码控制，默认隐藏密码的显示
     @Published var hiddenPassword : Bool = true
     @Published var hiddenConfirmPassword : Bool = true
@@ -40,12 +41,18 @@ class AccountOperationModel : BaseModel{
     @Published var lockVerificationCode : Bool = false
 
     //当前是否高亮状态设置
-    var isLight : Bool {
+    var isRegisterLight : Bool {
         get{
             return username.isNotEmpty && verificationCode.isNotEmpty && password.isNotEmpty && confirmPassword.isNotEmpty
         }
     }
     
+    
+    var isForgetLight : Bool {
+        get{
+            return username.isNotEmpty
+        }
+    }
     
     //校验2次密码一致性
     func verificationPassword() -> Bool{
@@ -119,8 +126,18 @@ class AccountOperationModel : BaseModel{
     
     //MARK: - 忘记密码【让用户在邮箱中的邮件进行操作修改密码】
     func forgetPassword(){
-        if !verificationPassword(){
+        if !validateEmail(self.username){
+            self.errorDesc = "邮箱格式错误"
             return
+        }
+        ///发送邮件成功就跳转页面
+        LCUser.requestPasswordReset(email: self.username) { (result) in
+            switch result {
+            case .success:
+                self.isForgetSuccess.toggle()
+            case .failure(error: let error):
+                self.errorDesc = error.reason ?? ""
+            }
         }
     }
     

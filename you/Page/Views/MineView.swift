@@ -69,12 +69,13 @@ struct MineView: View {
                     
                     //水平可滚动的Grid信息，对页面负载过大，可能导致切换重影
                     ScrollView(.horizontal,showsIndicators: false){
-                        LazyHGrid(rows: rows,spacing: 2){
-                        //遍历所有数据源内容，从左侧竖直方向从上到下开始填充，超过行数之后另起一列进行排序
-                        //0 2 4
-                        //1 3 5
-                            ForEach(colum,id: \.self){ item in Rectangle().cornerRadius(1).frame(width: rectSize).foregroundColor(Color(hexString: "#F6F7F8"))}
-                        }
+                        //LazyHGrid太重导致界面重绘.即使内部不进行渲染也会导致问题。CPU占用40%
+//                        LazyHGrid(rows: rows,spacing: 2){
+//                        //遍历所有数据源内容，从左侧竖直方向从上到下开始填充，超过行数之后另起一列进行排序
+//                        //0 2 4
+//                        //1 3 5
+//                            ForEach(colum,id: \.self){ item in Rectangle().cornerRadius(1).frame(width: rectSize).foregroundColor(Color(hexString: "#F6F7F8"))}
+//                        }
                     }
                     
                 }.frame(maxWidth: .infinity).padding(10)
