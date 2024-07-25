@@ -98,7 +98,7 @@ struct LoginView: View {
                     
                     //使用注意：NavigationLink中的视图触摸的点击事件被迁移到自身了，和内部的Button无关，点击后直接触发跳转【和isActive无关，点击视为设置为true】
                     Group{
-                        PushView(destination: OtherView(),isActive: $loginModel.isLoginSuccess){}
+                        NavigationLink(destination: OtherView(),isActive: $loginModel.isLoginSuccess){}
                         
                         Button{
     //                        点击登录
@@ -120,14 +120,14 @@ struct LoginView: View {
 
                     
                     HStack{
-                        PushView(destination: AccountOperationView(type:0)) {
+                        NavigationLink(destination: AccountOperationView(type:0)) {
                             Text("立即注册").foregroundColor(.gray)
                                 .font(.system(size: 12))
                         }
                         
                         Rectangle().frame(width: 1,height: 15).foregroundColor(.gray)
                         
-                        PushView(destination: AccountOperationView(type: 1)) {
+                        NavigationLink(destination: AccountOperationView(type: 1)) {
                             Text("忘记密码").foregroundColor(.gray)
                                 .font(.system(size: 12))
                         }

@@ -12,9 +12,9 @@ struct NavigationBody<TrailingView : View, Content: View> : View{
     
     //获取全局环境中的导航器功能。让当前的View获取了presentationMode属性的绑定数据。用于返回上级页面
     //【全局环境配置的变量，可以直接到获取】
-//    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     //结合了自定义导航使用
-    @EnvironmentObject private var navigationStack: NavigationStackCompat
+//    @EnvironmentObject private var navigationStack: NavigationStackCompat
     
     //标题信息
     private let title : String
@@ -48,7 +48,8 @@ struct NavigationBody<TrailingView : View, Content: View> : View{
                     if backCallback != nil{
                         backCallback!()
                     }else{
-                        navigationStack.pop()
+//                        navigationStack.pop()
+                        presentationMode.wrappedValue.dismiss()
                     }
                     
                 }label: {

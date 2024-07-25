@@ -15,29 +15,27 @@ struct SplashView: View {
 
 
     var body: some View {
-        NavigationStackView{
+        NavigationView{
             VStack{
                 
                 Text("欢迎页面")
                 
-                PushView(destination: OtherView(),isActive: $isLoginActive) {}
+                NavigationLink(destination: OtherView(),isActive: $isLoginActive) {}
                 
-                PushView(destination: LoginView(),destinationId: PageID.loginID,isActive: $isNeedLoginActive) {
+                NavigationLink(destination: LoginView(),isActive: $isNeedLoginActive) {
                     //不设置显示内容，直接由页面逻辑处理跳转激活状态
                 }
-            }
-        }.onAppear{
+            }.navigationBarTitle("", displayMode: .inline)
+        }.navigationViewStyle(.stack).onAppear{
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0){
                 
                 //判断是否存在本地缓存的登录信息
                 //对应激活active属性进行自动跳转
                 if LCApplication.default.currentUser != nil{
                     //存在的情况
-                    print("111")
                     isLoginActive = true
                 }else{
                     //不存在的情况
-                    print("222")
                     isNeedLoginActive = true
                 }
             }

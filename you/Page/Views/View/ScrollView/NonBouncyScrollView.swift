@@ -1,7 +1,7 @@
 //
 //  NonBouncyScrollView.swift
 //  you
-//  没有弹性的滚动组件
+//  没有弹性的滚动组件【嵌套后会产生问题，CPU占用过高，内部View重绘资源占用导致卡顿、重影问题】 - 废弃
 //  Created by 翁益亨 on 2024/7/2.
 //
 

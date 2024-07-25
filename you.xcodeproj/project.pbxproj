@@ -162,6 +162,12 @@
 		1CEC86F92C50F15500E5554B /* PushView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEC86F82C50F15500E5554B /* PushView.swift */; };
 		1CEC86FB2C50F3FB00E5554B /* PageID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEC86FA2C50F3FB00E5554B /* PageID.swift */; };
 		1CEC86FD2C50FE1B00E5554B /* PopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEC86FC2C50FE1B00E5554B /* PopView.swift */; };
+		1CEC86FF2C52462B00E5554B /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEC86FE2C52462A00E5554B /* UserModel.swift */; };
+		1CEC87012C524D1100E5554B /* ImageCameraPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEC87002C524D1100E5554B /* ImageCameraPicker.swift */; };
+		1CEC87032C52521000E5554B /* ImagePhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEC87022C52521000E5554B /* ImagePhotoPicker.swift */; };
+		1CEC87052C525A4400E5554B /* MineModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEC87042C525A4400E5554B /* MineModel.swift */; };
+		1CEC87072C525B7700E5554B /* EditUsernameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEC87062C525B7700E5554B /* EditUsernameView.swift */; };
+		1CEC87092C525BD800E5554B /* EditModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEC87082C525BD800E5554B /* EditModel.swift */; };
 		1CF297F22C3E7686002B37A7 /* TextSizeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF297F12C3E7686002B37A7 /* TextSizeView.swift */; };
 		1CF297F42C3E93DB002B37A7 /* AudioMindMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF297F32C3E93DB002B37A7 /* AudioMindMap.swift */; };
 		1CF298062C3F7B0D002B37A7 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 1CF298052C3F7B0D002B37A7 /* Alamofire */; };
@@ -355,6 +361,12 @@
 		1CEC86F82C50F15500E5554B /* PushView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushView.swift; sourceTree = "<group>"; };
 		1CEC86FA2C50F3FB00E5554B /* PageID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageID.swift; sourceTree = "<group>"; };
 		1CEC86FC2C50FE1B00E5554B /* PopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopView.swift; sourceTree = "<group>"; };
+		1CEC86FE2C52462A00E5554B /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		1CEC87002C524D1100E5554B /* ImageCameraPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCameraPicker.swift; sourceTree = "<group>"; };
+		1CEC87022C52521000E5554B /* ImagePhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePhotoPicker.swift; sourceTree = "<group>"; };
+		1CEC87042C525A4400E5554B /* MineModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineModel.swift; sourceTree = "<group>"; };
+		1CEC87062C525B7700E5554B /* EditUsernameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUsernameView.swift; sourceTree = "<group>"; };
+		1CEC87082C525BD800E5554B /* EditModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditModel.swift; sourceTree = "<group>"; };
 		1CF297F12C3E7686002B37A7 /* TextSizeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextSizeView.swift; sourceTree = "<group>"; };
 		1CF297F32C3E93DB002B37A7 /* AudioMindMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioMindMap.swift; sourceTree = "<group>"; };
 		1CF298072C3F7DF5002B37A7 /* NetworkRequestHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequestHelper.swift; sourceTree = "<group>"; };
@@ -850,6 +862,7 @@
 			isa = PBXGroup;
 			children = (
 				1CBBADEE2C33FE040015DF46 /* UserInfoView.swift */,
+				1CEC87062C525B7700E5554B /* EditUsernameView.swift */,
 			);
 			path = UserView;
 			sourceTree = "<group>";
@@ -930,6 +943,7 @@
 			children = (
 				1CD2193F2C3D05E200562661 /* HomeTabBar.swift */,
 				1C9A06362C3FDFE00028DFB2 /* FileModel.swift */,
+				1CEC87042C525A4400E5554B /* MineModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -975,6 +989,8 @@
 			children = (
 				1CEC86E42C4E436600E5554B /* LoginModel.swift */,
 				1CEC86EA2C4E5F3F00E5554B /* AccountOperationModel.swift */,
+				1CEC86FE2C52462A00E5554B /* UserModel.swift */,
+				1CEC87082C525BD800E5554B /* EditModel.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -983,6 +999,8 @@
 			isa = PBXGroup;
 			children = (
 				1CEC86ED2C4F5A3E00E5554B /* OverlayWidget.swift */,
+				1CEC87002C524D1100E5554B /* ImageCameraPicker.swift */,
+				1CEC87022C52521000E5554B /* ImagePhotoPicker.swift */,
 			);
 			path = Widget;
 			sourceTree = "<group>";
@@ -1182,6 +1200,7 @@
 				1CEC86FB2C50F3FB00E5554B /* PageID.swift in Sources */,
 				1CD057782C32A0A90002E58D /* MineView.swift in Sources */,
 				1C5FFBD82C37FB8F00C0A117 /* AudioCompletionHandlerConductor.swift in Sources */,
+				1CEC87072C525B7700E5554B /* EditUsernameView.swift in Sources */,
 				1CF2980F2C3F81B6002B37A7 /* NetworkBaseRequest.swift in Sources */,
 				1CD057802C32A5230002E58D /* Tabbable.swift in Sources */,
 				1C037E902C36ABF400EB56F5 /* AudioUtil.swift in Sources */,
@@ -1192,6 +1211,7 @@
 				1CEC86EE2C4F5A3E00E5554B /* OverlayWidget.swift in Sources */,
 				1C9FCBDA2C2D5D190013163C /* BluetoothBaseManager.swift in Sources */,
 				1CC8FDF62C37E35A00C35F7C /* AudioWaveView.swift in Sources */,
+				1CEC87092C525BD800E5554B /* EditModel.swift in Sources */,
 				1C9FCBD82C2D44B70013163C /* BluetoothInfoData.swift in Sources */,
 				1CD0577C2C32A1BB0002E58D /* TabBarViewModifier.swift in Sources */,
 				1CD219352C3BE8D300562661 /* MindMapView.swift in Sources */,
@@ -1211,6 +1231,8 @@
 				1C11FBDB2C2A71B70087C39F /* PageRow.swift in Sources */,
 				1CEC86F92C50F15500E5554B /* PushView.swift in Sources */,
 				1CF297F22C3E7686002B37A7 /* TextSizeView.swift in Sources */,
+				1CEC86FF2C52462B00E5554B /* UserModel.swift in Sources */,
+				1CEC87032C52521000E5554B /* ImagePhotoPicker.swift in Sources */,
 				1C9A06372C3FDFE00028DFB2 /* FileModel.swift in Sources */,
 				1CD402B32C40DAF2001EAD8D /* DataUtil.swift in Sources */,
 				1C9FC9E12C2BC1D10013163C /* PersistentStorageManager.swift in Sources */,
@@ -1234,6 +1256,7 @@
 				1CBBADE92C33ACCE0015DF46 /* Color+Ext.swift in Sources */,
 				1CBBADD82C32A8200015DF46 /* DefaultTabItemStyle.swift in Sources */,
 				1C74F0B82C4A467C00D10FE0 /* LeanCloudView.swift in Sources */,
+				1CEC87052C525A4400E5554B /* MineModel.swift in Sources */,
 				1CEC86EB2C4E5F3F00E5554B /* AccountOperationModel.swift in Sources */,
 				1C3A02052C45251C00960F0E /* ApplePayUtil.swift in Sources */,
 				1C11FBDE2C2A753D0087C39F /* View+Ext.swift in Sources */,
@@ -1244,6 +1267,7 @@
 				1CBBADEF2C33FE040015DF46 /* UserInfoView.swift in Sources */,
 				1CEC86FD2C50FE1B00E5554B /* PopView.swift in Sources */,
 				1C9FCBCC2C2C10660013163C /* BluetoothManager.swift in Sources */,
+				1CEC87012C524D1100E5554B /* ImageCameraPicker.swift in Sources */,
 				1CF298142C3FA7F7002B37A7 /* ExampleInterceptor.swift in Sources */,
 				1CBBADE12C32AA390015DF46 /* CustomTabItemStyle.swift in Sources */,
 				1CD0578A2C32A69F0002E58D /* AnyTabBarStyle.swift in Sources */,
@@ -1486,7 +1510,9 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = you/Info.plist;
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "连接蓝牙设备";
+				INFOPLIST_KEY_NSCameraUsageDescription = "APP需要使用相机";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "APP可能需要使用您的定位";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "APP需要使用图库";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -1525,7 +1551,9 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = you/Info.plist;
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "连接蓝牙设备";
+				INFOPLIST_KEY_NSCameraUsageDescription = "APP需要使用相机";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "APP可能需要使用您的定位";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "APP需要使用图库";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

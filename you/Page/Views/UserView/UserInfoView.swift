@@ -12,6 +12,12 @@ struct UserInfoView: View {
     //激活登录状态
     @State private var isLinkLoginActive = false
     
+    //操作图片操作的弹窗
+    @State private var isImagePickerPresented = false
+    @State private var selectedImage: UIImage?
+    
+    @StateObject var userModel = UserModel()
+    
     var body: some View {
         //外部NavigationLink跳转到一个新的导航器，内容全部自定义
         NavigationBody(title: "账号和资料") {
@@ -25,23 +31,37 @@ struct UserInfoView: View {
                    
                 //头像更换
                 ZStack(alignment:.bottomTrailing){
-                    Image("icon_head_default")
-                        .resizable()
-                        .frame(width: 80, height: 80)
+
+                    AsyncImage(url: URL(string: userModel.headerImage)){
+                        image in
+                        image.resizable().aspectRatio(contentMode: .fit).frame(width: 80, height: 80)
+                            .cornerRadius(40)
+                    } placeholder: {
+                        //默认占位
+                        Image("icon_head_default")
+                            .resizable()
+                            .frame(width: 80, height: 80)
+                    }
                     
                     Image("icon_camera")
                         .resizable()
                         .frame(width: 22, height: 22)
-                }.frame(height: 100)
+                }.frame(height: 100).onTapGesture {
+                    //弹出弹窗选择相册或者拍照上传头像
+                    isImagePickerPresented.toggle()
+                }
                 
                 Spacer().frame(height: 10)
                 
                 //基本信息
                 Group{
-                    AccountLabel(title: "昵称", desc: "nihao"){
-                        print("跳转昵称")
+                    NavigationLink(destination: EditUsernameView(username: userModel.user?.username?.value ?? ""),isActive: $userModel.isToEdit) {}
+                    
+                    AccountLabel(title: "昵称", desc: userModel.user?.username?.value ?? ""){
+                        userModel.isToEdit.toggle()
                     }
-                    AccountLabel(title: "邮箱", desc: "www.baidu.com",canOperate: false)
+                   
+                    AccountLabel(title: "邮箱", desc: userModel.user?.email?.value ?? "",canOperate: false)
                     AccountLabel(title: "更改密码"){
                         print("更改密码")
                     }
@@ -97,6 +117,20 @@ struct UserInfoView: View {
             .padding(15)
             .background(.white)
             
+        }.onAppear{
+            //每次页面显示都尝试获取最新的用户信息数据
+            userModel.getUserInfo()
+            
+        }.fullScreenCover(isPresented: $isImagePickerPresented, content: {
+            ImagePhotoPicker(selectedImage: $selectedImage)
+        }).onChange(of: selectedImage) { newValue in
+            //监听图片变化，变化后上传完成后重新获取用户信息
+            
+            if let data = selectedImage?.pngData(){
+                userModel.saveHeaderImage(data: data)
+            }else{
+                print("数据错误")
+            }
         }
 
      
@@ -125,6 +159,7 @@ struct AccountLabel : View{
     init(title: String, desc: String = "", canOperate:Bool = true, clickCallBack: @escaping () -> Void = {}) {
         self.title = title
         self.desc = desc
+        
         self.canOperate = canOperate
         self.clickCallBack = clickCallBack
     }
@@ -159,13 +194,13 @@ struct AccountLabel : View{
                 
             }.frame(height: 50)
             
-            Divider().background(Color(hexString: "#E9E9E9"))
+//            Divider().background(Color(hexString: "#E9E9E9"))
             
             //自定义分割线高度.发现粗细显示不一。所以最低还是支持1和Divider一样
-//            RoundedRectangle(cornerRadius: 0)
-//                .frame(maxWidth: .infinity)
-//                .frame(height: 1)
-//                .foregroundColor(Color(hexString: "#E9E9E9"))
+            RoundedRectangle(cornerRadius: 0)
+                .frame(maxWidth: .infinity)
+                .frame(height: 1)
+                .foregroundColor(Color(hexString: "#f4f4f4"))
         }.padding(.horizontal, 2)
             .background(Color(hexString: "#FFFFFF"))
             .onTapGesture {

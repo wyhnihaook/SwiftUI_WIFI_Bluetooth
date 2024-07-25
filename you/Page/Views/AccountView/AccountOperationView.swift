@@ -1,7 +1,7 @@
 //
 //  AccountOperationView.swift
 //  you
-//  账号操作【包括：注册、修改密码】
+//  账号操作【包括：注册、修改密码】关联页面关闭使用页面显示的状态
 //  Created by 翁益亨 on 2024/7/22.
 //
 
@@ -13,181 +13,196 @@ struct AccountOperationView: View {
     //初始化页面功能类型，默认是0/注册 1/修改密码
     private var type : Int = 0
     
+    private var title : String{
+        get{
+            if type == 0{
+                if model.isRegisterSuccess{
+                    return "注册结果"
+                }
+                return "注册"
+            }else{
+                if model.isForgetSuccess{
+                    return "密码修改结果"
+                }
+                return "忘记密码"
+            }
+            
+        }
+    }
+    
     init(type: Int) {
         self.type = type
     }
     
     var body: some View {
-        NavigationBody(title: type == 0 ? "注册" : "忘记密码"){
+        NavigationBody(title: title){
             //右侧的额外功能
         }content: {
-            VStack(alignment:.leading){
-                //输入功能
-                Spacer().frame(height: 20)
-                
-                VStack{
-                    TextField("邮箱地址",text:$model.username,
-                              prompt: Text("邮箱地址").font(.system(size: 16).bold()))
-                    .frame(height: 50)
-                    .frame(maxWidth: .infinity)
-                    .padding(EdgeInsets(top: 0, leading: 15, bottom: 0, trailing: 40))
-                    .overlay {
-                        if model.username.isNotEmpty{
-                            let imageInfo = ImageInfo(imageUrl: "circle_delete", width: 14, height: 14)
-                            
-                            RightImageWidget(imageInfo: imageInfo) {
-                                model.username = ""
-                            }
-                        }
-                    }
+            if model.isRegisterSuccess{
+                ResultView(pageType: .Account(data: ResultData("注册结果",desc:"请到邮箱激活后登录",image: "completed",confirm:"去登录")))
+            }else if model.isForgetSuccess{
+                ResultView(pageType: .Account(data: ResultData("注册结果",desc:"请到邮箱修改密码后登录",image: "completed",confirm:"去登录")))
+            }else{
+                VStack(alignment:.leading){
+                    //输入功能
+                    Spacer().frame(height: 20)
                     
-//                    TextField("验证码",text:$model.verificationCode,
-//                              prompt: Text("验证码").font(.system(size: 16).bold()))
-//                    .frame(height: 50)
-//                    .frame(maxWidth: .infinity)
-//                    .padding(EdgeInsets(top: 0, leading: 15, bottom: 0, trailing: 150))
-//                    .overlay {
-//                        HStack{
-//                            Spacer()
-//
-//                            Button{
-//                                //点击倒计时处理
-//                                model.getVerificationCode {
-//                                    //发送完成之后才会进行倒计时处理
-//                                    if !model.isCountingDown{
-//                                        model.startCountdown()
-//                                    }
-//                                }
-//
-//                            }label: {
-//                                Text(model.isCountingDown ? "重发(\(model.countdown)s）" : "获取验证码").font(.system(size:13)).foregroundColor(.white).frame(width: 100,height: 30)
-//                                    .background(model.isCountingDown || model.lockVerificationCode ? .gray : .black).cornerRadius(15)
-//                            }
-//                            //在倒计时或者锁定中无法点击
-//                            .disabled(model.isCountingDown || model.lockVerificationCode)
-//                                .onReceive(model.countdownTimer) { _ in
-//                                    if model.isCountingDown{
-//                                        if model.countdown > 0{
-//                                            model.countdown -= 1
-//                                        }else{
-//                                            model.stopCountdown()
-//                                        }
-//                                    }
-//                                }
-//
-//                            Spacer().frame(width: 15)
-//                        }
-//                    }
-                    
-                    
-                    //只有在注册才显示密码输入。如果是修改密码提示去邮件修改
-                    if type == 0{
-                        ZStack{
-                            if !model.hiddenPassword{
-                                TextField("密码",text:$model.password,
-                                          prompt: Text("密码").font(.system(size: 16).bold()))
-                            }else {
-                                SecureField("密码",text:$model.password,
-                                          prompt: Text("密码").font(.system(size: 16)).bold())
-                            }
-                        }
+                    VStack{
+                        TextField("邮箱地址",text:$model.username,
+                                  prompt: Text("邮箱地址").font(.system(size: 16).bold()))
                         .frame(height: 50)
                         .frame(maxWidth: .infinity)
-                        .padding(EdgeInsets(top: 0, leading: 15, bottom: 0, trailing: 80))        .overlay(content: {
-                            //创建一个视图容器显示在页面上
-                            //视图尺寸遵循调用者的尺寸，简单理解为一个便捷的ZStack
-                            
-                            if model.password.isNotEmpty{
-                                
-                                let imageInfo = ImageInfo(imageUrl: model.hiddenPassword ? "hidden_password" : "show_password", width: 28, height: 14)
+                        .padding(EdgeInsets(top: 0, leading: 15, bottom: 0, trailing: 40))
+                        .overlay {
+                            if model.username.isNotEmpty{
+                                let imageInfo = ImageInfo(imageUrl: "circle_delete", width: 14, height: 14)
                                 
                                 RightImageWidget(imageInfo: imageInfo) {
-                                    model.hiddenPassword.toggle()
+                                    model.username = ""
                                 }
-
-                            }
-                            
-                        })
-                        
-                        
-                        ZStack{
-                            if !model.hiddenConfirmPassword{
-                                TextField("确认密码",text:$model.confirmPassword,
-                                          prompt: Text("确认密码").font(.system(size: 16).bold()))
-                            }else {
-                                SecureField("确认密码",text:$model.confirmPassword,
-                                          prompt: Text("确认密码").font(.system(size: 16)).bold())
                             }
                         }
-                        .frame(height: 50)
-                        .frame(maxWidth: .infinity)
-                        .padding(EdgeInsets(top: 0, leading: 15, bottom: 0, trailing: 80))
-                        .overlay(content: {
-                            //创建一个视图容器显示在页面上
-                            //视图尺寸遵循调用者的尺寸，简单理解为一个便捷的ZStack
-                            
-                            if model.confirmPassword.isNotEmpty{
-                                
-                                let imageInfo = ImageInfo(imageUrl: model.hiddenConfirmPassword ? "hidden_password" : "show_password", width: 28, height: 14)
-                                
-                                RightImageWidget(imageInfo: imageInfo) {
-                                    model.hiddenConfirmPassword.toggle()
-                                }
-
-                            }
-                            
-                        })
-                    }
-                    
-                    
-                    
-                }.background(.white)
-                .cornerRadius(10)
-                
-                Text(model.errorDesc).font(.system(size: 12)).foregroundColor(.red)
-                    .frame(maxWidth:.infinity,alignment:.leading)
-                    .frame(height: 30)
-                
-                Spacer().frame(height: 50)
-                
-                //确认按钮
-                Group{
-                    //跳转到邮箱注册结果页面
-                    PushView(destination: ResultView(pageType: .Account(data: ResultData("注册结果",desc:"请到邮箱激活后登录",image: "completed",confirm:"去登录")), callback: {
-                        //点击去验证的回调操作
                         
-                    }),isActive: $model.isRegisterSuccess) {}
-                    
-                    PushView(destination: ResultView(pageType: .Account(data: ResultData("忘记密码",desc:"请到邮箱修改密码后登录",image: "completed",confirm:"去登录")), callback: {
-                        //点击去验证的回调操作
+    //                    TextField("验证码",text:$model.verificationCode,
+    //                              prompt: Text("验证码").font(.system(size: 16).bold()))
+    //                    .frame(height: 50)
+    //                    .frame(maxWidth: .infinity)
+    //                    .padding(EdgeInsets(top: 0, leading: 15, bottom: 0, trailing: 150))
+    //                    .overlay {
+    //                        HStack{
+    //                            Spacer()
+    //
+    //                            Button{
+    //                                //点击倒计时处理
+    //                                model.getVerificationCode {
+    //                                    //发送完成之后才会进行倒计时处理
+    //                                    if !model.isCountingDown{
+    //                                        model.startCountdown()
+    //                                    }
+    //                                }
+    //
+    //                            }label: {
+    //                                Text(model.isCountingDown ? "重发(\(model.countdown)s）" : "获取验证码").font(.system(size:13)).foregroundColor(.white).frame(width: 100,height: 30)
+    //                                    .background(model.isCountingDown || model.lockVerificationCode ? .gray : .black).cornerRadius(15)
+    //                            }
+    //                            //在倒计时或者锁定中无法点击
+    //                            .disabled(model.isCountingDown || model.lockVerificationCode)
+    //                                .onReceive(model.countdownTimer) { _ in
+    //                                    if model.isCountingDown{
+    //                                        if model.countdown > 0{
+    //                                            model.countdown -= 1
+    //                                        }else{
+    //                                            model.stopCountdown()
+    //                                        }
+    //                                    }
+    //                                }
+    //
+    //                            Spacer().frame(width: 15)
+    //                        }
+    //                    }
                         
-                    }),isActive: $model.isForgetSuccess) {}
-                    
-                    Button{
+                        
+                        //只有在注册才显示密码输入。如果是修改密码提示去邮件修改
                         if type == 0{
-                            model.register{
-                                model.isRegisterSuccess.toggle()
+                            ZStack{
+                                if !model.hiddenPassword{
+                                    TextField("密码",text:$model.password,
+                                              prompt: Text("密码").font(.system(size: 16).bold()))
+                                }else {
+                                    SecureField("密码",text:$model.password,
+                                              prompt: Text("密码").font(.system(size: 16)).bold())
+                                }
                             }
-                        }else if type == 1{
-                            model.forgetPassword()
+                            .frame(height: 50)
+                            .frame(maxWidth: .infinity)
+                            .padding(EdgeInsets(top: 0, leading: 15, bottom: 0, trailing: 80))        .overlay(content: {
+                                //创建一个视图容器显示在页面上
+                                //视图尺寸遵循调用者的尺寸，简单理解为一个便捷的ZStack
+                                
+                                if model.password.isNotEmpty{
+                                    
+                                    let imageInfo = ImageInfo(imageUrl: model.hiddenPassword ? "hidden_password" : "show_password", width: 28, height: 14)
+                                    
+                                    RightImageWidget(imageInfo: imageInfo) {
+                                        model.hiddenPassword.toggle()
+                                    }
+
+                                }
+                                
+                            })
+                            
+                            
+                            ZStack{
+                                if !model.hiddenConfirmPassword{
+                                    TextField("确认密码",text:$model.confirmPassword,
+                                              prompt: Text("确认密码").font(.system(size: 16).bold()))
+                                }else {
+                                    SecureField("确认密码",text:$model.confirmPassword,
+                                              prompt: Text("确认密码").font(.system(size: 16)).bold())
+                                }
+                            }
+                            .frame(height: 50)
+                            .frame(maxWidth: .infinity)
+                            .padding(EdgeInsets(top: 0, leading: 15, bottom: 0, trailing: 80))
+                            .overlay(content: {
+                                //创建一个视图容器显示在页面上
+                                //视图尺寸遵循调用者的尺寸，简单理解为一个便捷的ZStack
+                                
+                                if model.confirmPassword.isNotEmpty{
+                                    
+                                    let imageInfo = ImageInfo(imageUrl: model.hiddenConfirmPassword ? "hidden_password" : "show_password", width: 28, height: 14)
+                                    
+                                    RightImageWidget(imageInfo: imageInfo) {
+                                        model.hiddenConfirmPassword.toggle()
+                                    }
+
+                                }
+                                
+                            })
                         }
-                    }label: {
-                        Text("确定").foregroundColor(.white)
-                            .font(.system(size: 18)).bold()
-                            .frame(maxWidth: .infinity,alignment: .center)
-                    }
-                        .frame(maxWidth: .infinity,alignment: .center)
-                        .padding(.vertical,15)
-                        .background((type == 0 ? model.isRegisterLight : model.isForgetLight) ? .blue : .gray)
-                        .cornerRadius(10)
-                        //数据没有填写完毕之前不允许点击
-                        .disabled(type == 0 ? (!model.isRegisterLight) : (!model.isForgetLight))
+                        
+                        
+                        
+                    }.background(.white)
+                    .cornerRadius(10)
                     
-                }
-                
-                Spacer()
-            }.padding(.horizontal, 15)
-            .background(Color(hexString: "#F6F7F9"))
+                    Text(model.errorDesc).font(.system(size: 12)).foregroundColor(.red)
+                        .frame(maxWidth:.infinity,alignment:.leading)
+                        .frame(height: 30)
+                    
+                    Spacer().frame(height: 50)
+                    
+                    //确认按钮
+                    Group{
+                        
+                        Button{
+                            if type == 0{
+                                model.register{
+                                    model.isRegisterSuccess.toggle()
+                                }
+                            }else if type == 1{
+                                model.forgetPassword()
+                            }
+                        }label: {
+                            Text("确定").foregroundColor(.white)
+                                .font(.system(size: 18)).bold()
+                                .frame(maxWidth: .infinity,alignment: .center)
+                        }
+                            .frame(maxWidth: .infinity,alignment: .center)
+                            .padding(.vertical,15)
+                            .background((type == 0 ? model.isRegisterLight : model.isForgetLight) ? .blue : .gray)
+                            .cornerRadius(10)
+                            //数据没有填写完毕之前不允许点击
+                            .disabled(type == 0 ? (!model.isRegisterLight) : (!model.isForgetLight))
+                        
+                    }
+                    
+                    Spacer()
+                }.padding(.horizontal, 15)
+                .background(Color(hexString: "#F6F7F9"))
+            }
+            
+            
         }
     }
 }

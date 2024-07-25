@@ -10,6 +10,10 @@ import SwiftUI
 var rectSize = 6.0
 
 struct MineView: View {
+    
+    @StateObject var mineModel = MineModel()
+    
+    
     //设置可滚动的GridItem内容。最大行数设定 7行
     let rows :[GridItem] = [
         GridItem(.fixed(rectSize),spacing:2),
@@ -25,26 +29,34 @@ struct MineView: View {
 
     
     var body: some View {
-        NonBouncyScrollView{
+        ScrollView(showsIndicators: false){
             //设置每个布局的间距
             VStack(spacing:12){
                 Spacer().frame(height: 20)
                 //用户基本信息
                 NavigationLink(destination: UserInfoView()) {
                     HStack{
-                        Image("icon_head_default")
-                            .resizable()
-                            .frame(width: 50, height: 50)
-                            .clipShape(Circle())
+                        AsyncImage(url: URL(string: mineModel.headerImage)){
+                            image in
+                            image.resizable().aspectRatio(contentMode: .fit).frame(width: 50, height: 50)
+                                .clipShape(Circle())
+                        } placeholder: {
+                            //默认占位
+                            Image("icon_head_default")
+                                .resizable()
+                                .frame(width: 50, height: 50)
+                                .clipShape(Circle())
+                        }
+                       
                         Spacer().frame(width: 10)
                         VStack(alignment:.leading){
-                            Text("nihao")
+                            Text(mineModel.user?.username?.value ?? "")
                                 .font(.system(size: 18))
                                 .foregroundColor(.black)
                                 .bold()
                             Spacer().frame(height: 2)
                             
-                            Text(verbatim:"www.baidu.com").foregroundColor(.gray)
+                            Text(verbatim:mineModel.user?.email?.value ?? "").foregroundColor(.gray)
                                 .font(.system(size: 13))
                                 
                         }
@@ -70,12 +82,12 @@ struct MineView: View {
                     //水平可滚动的Grid信息，对页面负载过大，可能导致切换重影
                     ScrollView(.horizontal,showsIndicators: false){
                         //LazyHGrid太重导致界面重绘.即使内部不进行渲染也会导致问题。CPU占用40%
-//                        LazyHGrid(rows: rows,spacing: 2){
-//                        //遍历所有数据源内容，从左侧竖直方向从上到下开始填充，超过行数之后另起一列进行排序
-//                        //0 2 4
-//                        //1 3 5
-//                            ForEach(colum,id: \.self){ item in Rectangle().cornerRadius(1).frame(width: rectSize).foregroundColor(Color(hexString: "#F6F7F8"))}
-//                        }
+                        LazyHGrid(rows: rows,spacing: 2){
+                        //遍历所有数据源内容，从左侧竖直方向从上到下开始填充，超过行数之后另起一列进行排序
+                        //0 2 4
+                        //1 3 5
+                            ForEach(colum,id: \.self){ item in Rectangle().cornerRadius(1).frame(width: rectSize).foregroundColor(Color(hexString: "#F6F7F8"))}
+                        }
                     }
                     
                 }.frame(maxWidth: .infinity).padding(10)
@@ -145,6 +157,10 @@ struct MineView: View {
                 }
             }
             
+        }.onAppear{
+            //每次页面显示都尝试获取最新的用户信息数据
+            mineModel.getUserInfo()
+            
         }
         //设置底部边距，由于是TabView的底部高度也要计算在内，所以这边设置80
         .padding(EdgeInsets(top: 0, leading: 15, bottom: 15, trailing: 15))
@@ -153,6 +169,7 @@ struct MineView: View {
             .navigationBarTitle("", displayMode: .inline)
             .navigationBarHidden(true)
             .navigationBarBackButtonHidden()
+            
         
     }
 }

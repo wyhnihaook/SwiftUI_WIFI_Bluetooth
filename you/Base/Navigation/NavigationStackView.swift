@@ -1,7 +1,9 @@
 //
 //  NavigationStackView.swift
 //  you
-//
+//对于NavigationStackView，这是一个问题，因为当我返回到上一个视图（使用弹出操作）时，我希望所有视图控件都与我之前离开时一样。必须@ObservableObject在需要使某些状态在推送/弹出操作之间保持时使用
+//示例： @ObservedObject var loginModel = LoginModel() 要脱离当前的生命周期
+//【系统API：NavigationView/NavigationLink默认会保留状态信息】
 //  Created by 翁益亨 on 2024/7/24.
 //
 

@@ -11,22 +11,19 @@ import SwiftUI
 struct OtherView: View {
     @State private var selection = HomeTabBar.file.rawValue
     
-    //在初始化时需要延时，在TabView内的视图如果过快显示会导致NavigationView的顶部标题栏出现
-    @State private var delayInit = false
-    
     var body: some View {
             //【TabBar自定义的控件最大的问题就是不能缓存当前的TabBar页面信息。只能通过系统的TabView结合tag标签来实现。底部自定义，TabView只是作为展示内容的容器】
             ZStack(alignment:Alignment(horizontal: .center, vertical: .bottom)){
                
-                //由于TabView默认自带的底部边距，所以这里就
+                //由于TabView默认自带的底部边距
+                //这里要关注NavigationView跳转到当前页面可能会出现顶部标题栏占位的问题。请按照本文.navigationxx设置。可以解决页面切换后才使得标题栏占位消失的问题！！！！！！！！
+                //最后一个tab的.navigationBarTitle("", displayMode: .inline)属性设置至关重要！！！！
                 TabView(selection: $selection) {
                     
-                    if delayInit {
-                        FileView().tag(HomeTabBar.file.rawValue)
-                        MineView().tag(HomeTabBar.mine.rawValue)
-                    }
+                    FileView().tag(HomeTabBar.file.rawValue)
+                    MineView().tag(HomeTabBar.mine.rawValue)
                     
-                }
+                }.navigationBarHidden(true)
                 //切换tab可能会产生闪烁，关闭动画效果
                 //不传入切换的指示器，设置可水平滑动
 //                .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
@@ -63,16 +60,14 @@ struct OtherView: View {
                 
                 
                 
-            }
-            
-        .onAppear{
-            //视图 完全 展示在界面上时回调【页面跳转后返回会调用】
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1){
-                delayInit = true
-            }
-        }.onDisappear{
-                //视图 完全 隐藏时回调【在下个页面的onAppear调用后再执行】
-        }
+            }.navigationBarHidden(true)
+           
+//        .onAppear{
+//            //视图 完全 展示在界面上时回调【页面跳转后返回会调用】
+//
+//        }.onDisappear{
+//                //视图 完全 隐藏时回调【在下个页面的onAppear调用后再执行】
+//        }
     
     }
 }

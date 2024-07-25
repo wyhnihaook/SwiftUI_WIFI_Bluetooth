@@ -55,9 +55,9 @@ struct FileView: View {
         .frame(maxWidth: .infinity)
         .padding(EdgeInsets(top: 0, leading: 15, bottom: 15, trailing: 15))
         .background(Color(hexString: "#F6F7F8"))
-        .navigationBarTitle("", displayMode: .inline)
         .navigationBarHidden(true)
         .navigationBarBackButtonHidden()
+        
     }
 }
 

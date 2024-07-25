@@ -45,58 +45,43 @@ enum PageType{
 }
 
 struct ResultView: View {
-    @EnvironmentObject private var navigationStack: NavigationStackCompat
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
 
     //展示类型
     var pageType : PageType
     
-    //添加跳转页面的会调
-    var callback : ()->Void
-    
-    init(pageType: PageType,  callback: @escaping ()->Void){
+    init(pageType: PageType){
         self.pageType = pageType
-        self.callback = callback
     }
     
     
     var body: some View {
 
-        NavigationBody(title: pageType.data.title) {
+        VStack{
             
-        } content: {
-            VStack{
-                
-                //图片占位
-                Image(pageType.data.image).resizable().frame(width: pageType.data.width, height: pageType.data.height)
-                
-                Spacer().frame(height: 40)
+            //图片占位
+            Image(pageType.data.image).resizable().frame(width: pageType.data.width, height: pageType.data.height)
             
-                Text(pageType.data.desc).foregroundColor(.black).font(.system(size: 16))
-                
-                Spacer().frame(height: 80)
+            Spacer().frame(height: 40)
+        
+            Text(pageType.data.desc).foregroundColor(.black).font(.system(size: 16))
+            
+            Spacer().frame(height: 80)
 
-                Button{
-                    navigationStack.pop(to:.view(withId: PageID.loginID))
-
-                }label: {
-                    Text(pageType.data.confirm).foregroundColor(.white).frame(width: 250,height: 50)
-                        .background(.blue).cornerRadius(25)
-                }
+            Button{
+                presentationMode.wrappedValue.dismiss()
                 
+            }label: {
+                Text(pageType.data.confirm).foregroundColor(.white).frame(width: 250,height: 50)
+                    .background(.blue).cornerRadius(25)
             }
-        } backCallback: {
-            navigationStack.pop(to:.view(withId: PageID.loginID))
+            
         }
-
-        
-        
     }
 }
 
 struct ResultView_Previews: PreviewProvider {
     static var previews: some View {
-        ResultView(pageType: .Account(data: ResultData("",desc: "",image: "completed"))) {
-            
-        }
+        ResultView(pageType: .Account(data: ResultData("",desc: "",image: "completed")))
     }
 }
