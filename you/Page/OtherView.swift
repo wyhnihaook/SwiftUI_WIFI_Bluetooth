@@ -10,7 +10,8 @@ import SwiftUI
 
 struct OtherView: View {
     @State private var selection = HomeTabBar.file.rawValue
-    
+    @State private var showToast = false
+
     var body: some View {
             //【TabBar自定义的控件最大的问题就是不能缓存当前的TabBar页面信息。只能通过系统的TabView结合tag标签来实现。底部自定义，TabView只是作为展示内容的容器】
             ZStack(alignment:Alignment(horizontal: .center, vertical: .bottom)){
@@ -61,13 +62,30 @@ struct OtherView: View {
                 
                 
             }.navigationBarHidden(true)
+            .toast(isPresenting: $showToast, duration: 2.0, tapToDismiss:false){
+                AlertToast(type: .regular,title: "保存完成",style: .style(backgroundColor:Color(r: 0, g: 0, b: 0,a: 0.75),titleColor: .white))
+
+
+                // `.alert` is the default displayMode【没有背景内容】
+    //            AlertToast(type: .regular, title: "Message Sent!")
+                
+                //Choose .hud to toast alert from the top of the screen【从顶部弹出到标题栏位置】
+    //            AlertToast(displayMode: .hud, type: .regular, title: "Message Sent!")
+                
+                //Choose .banner to slide/pop alert from the bottom of the screen【动画效果滑入滑出】
+    //            AlertToast(displayMode: .banner(.slide), type: .regular, title: "Message Sent!")
+            } 
            
-//        .onAppear{
-//            //视图 完全 展示在界面上时回调【页面跳转后返回会调用】
-//
-//        }.onDisappear{
-//                //视图 完全 隐藏时回调【在下个页面的onAppear调用后再执行】
-//        }
+        .onAppear{
+            //视图 完全 展示在界面上时回调【页面跳转后返回会调用】
+            
+            //注意：toast不能在初始化就设置显示true，会导致定时器无法执行到消失
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0){
+//                showToast = true
+//            }
+        }.onDisappear{
+                //视图 完全 隐藏时回调【在下个页面的onAppear调用后再执行】
+        }
     
     }
 }

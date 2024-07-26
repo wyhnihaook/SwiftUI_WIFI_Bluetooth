@@ -152,9 +152,9 @@ struct MineView: View {
                     }
                 }
                 
-                ForEach(0...10,id:\.self){
-                   item in Text("测试占位，滚动效果")
-                }
+//                ForEach(0...10,id:\.self){
+//                   item in Text("测试占位，滚动效果")
+//                }
             }
             
         }.onAppear{

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import LeanCloud
 
 //文件标签信息
 struct FileLabelData : Codable{
@@ -80,4 +81,11 @@ class FileListOnCloudAPI : NetworkRequestHelper{
         success(NetworkRequestHelper.init(), &responseResultData)
     }
     
+    
+    class func getFileLabel() -> [FileLabelData]{
+        let fileLabelData1 = FileLabelData(labelId: 1, labelName: "标题1", labelColor: "#FF0000")
+        let fileLabelData2 = FileLabelData(labelId: 2, labelName: "标题2", labelColor: "#00FF00")
+        
+        return [fileLabelData1,fileLabelData2]
+    }
 }

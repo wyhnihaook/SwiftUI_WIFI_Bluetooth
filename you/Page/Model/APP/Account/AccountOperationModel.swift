@@ -97,7 +97,7 @@ class AccountOperationModel : BaseModel{
 //            user.mobilePhoneNumber = LCString("+8619201680101")
 
             // 设置其他属性的方法跟 LCObject 一样，添加头像属性
-            try user.set("headerImage", value: "")
+            try user.set(headerImage, value: "")
 
 
             //注册用户信息

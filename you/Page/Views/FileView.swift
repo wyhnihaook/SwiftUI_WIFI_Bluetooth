@@ -12,52 +12,77 @@ struct FileView: View {
     @StateObject var fileModel = FileModel()
     
     var body: some View {
-        ScrollView(.vertical, showsIndicators: false){
-            VStack(alignment:.leading,spacing:10){
-                Spacer().frame(height:10)
+        
+        VStack(spacing:10){
+            Spacer().frame(height:10)
+            
+            HStack{
                 
-                Button("下载音频文件"){
-                    AudioDownloadAPI.downloadAudio(downloadURL: "")
+                Text("+连接蓝牙").foregroundColor(.black).bold().frame(width: 100,height: 30).background(.white).cornerRadius(5).onTapGesture {
+                    
                 }
                 
-                Button("上传文件到LeanCloud"){
-                    AudioDownloadAPI.uploadCloud()
-                }
+                Spacer()
                 
-                //顶部文件数量描述
-                HStack{
-                    //图片
-                    Image("icon_menu")
-                        .resizable()
-                        .frame(width: 30,height: 30)
-                    //文本
-                    Text("全部文件(\(fileModel.fileOnCloudList.count + fileModel.fileOnLocalList.count))").font(.system(size: 24))
-                        .bold()
-                        .foregroundColor(.black)
+                Text("联系客服").foregroundColor(.black).frame(width: 100,height: 30).background(.white).cornerRadius(5).onTapGesture {
+                    
                 }
-                Spacer().frame(height:2)
-                
-                //遍历数据源进行内容同步 【云端 + 本地】
-                ForEach(fileModel.fileOnCloudList,id: \.title) { item in
-                    NavigationLink(destination: AudioWaveView()) {
-                        FileItem(title: item.title, date: item.createdTime, time: item.duration, tag: item.labels)
-                    }
-                }
-                
-                ForEach(fileModel.fileOnLocalList,id: \.title) { item in
-                    NavigationLink(destination: AudioWaveView()) {
-                        FileItem(title: item.title, date: item.createdTime, time: item.duration,tag: item.labels)
-                    }
-                }
-                
             }
+            ScrollView(.vertical, showsIndicators: false){
+                VStack(alignment:.leading,spacing:10){
+                    
+                    
+    //                Button("下载音频文件"){
+    //                    AudioDownloadAPI.downloadAudio(downloadURL: "")
+    //                }
+    //
+    //                Button("上传文件到LeanCloud"){
+    //                    AudioDownloadAPI.uploadCloud()
+    //                }
+                    
+                    //顶部文件数量描述
+                    HStack{
+                        //图片
+                        Image("icon_menu")
+                            .resizable()
+                            .frame(width: 30,height: 30)
+                        //文本
+                        Text("全部文件(\(fileModel.fileOnCloudList.count + fileModel.fileOnLocalList.count))").font(.system(size: 24))
+                            .bold()
+                            .foregroundColor(.black)
+                    }
+                    Spacer().frame(height:2)
+                    
+                    //遍历数据源进行内容同步 【云端 + 本地】
+                    ForEach(fileModel.fileOnCloudList,id: \.title) { item in
+                        NavigationLink(destination: AudioWaveView()) {
+                            FileItem(title: item.title, date: item.createdTime, time: item.duration, tag: item.labels)
+                        }
+                    }
+                    
+                    ForEach(fileModel.fileOnLocalList,id: \.title) { item in
+                        NavigationLink(destination: AudioWaveView()) {
+                            FileItem(title: item.title, date: item.createdTime, time: item.duration,tag: item.labels)
+                        }
+                    }
+                    
+                }
+            }
+            .frame(maxWidth: .infinity)
+            
+            
+            
         }
-        .frame(maxWidth: .infinity)
         .padding(EdgeInsets(top: 0, leading: 15, bottom: 15, trailing: 15))
         .background(Color(hexString: "#F6F7F8"))
         .navigationBarHidden(true)
         .navigationBarBackButtonHidden()
-        
+        .onAppear{
+            //获取云端文件列表
+            fileModel.getFileDatabase()
+            
+            
+        }
     }
 }
 

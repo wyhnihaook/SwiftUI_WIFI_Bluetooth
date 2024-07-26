@@ -168,6 +168,13 @@
 		1CEC87052C525A4400E5554B /* MineModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEC87042C525A4400E5554B /* MineModel.swift */; };
 		1CEC87072C525B7700E5554B /* EditUsernameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEC87062C525B7700E5554B /* EditUsernameView.swift */; };
 		1CEC87092C525BD800E5554B /* EditModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEC87082C525BD800E5554B /* EditModel.swift */; };
+		1CEC870E2C534D7C00E5554B /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEC870D2C534D7C00E5554B /* ActivityIndicator.swift */; };
+		1CEC87102C534DAD00E5554B /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEC870F2C534DAD00E5554B /* BlurView.swift */; };
+		1CEC87122C534DFA00E5554B /* AlertToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEC87112C534DFA00E5554B /* AlertToast.swift */; };
+		1CEC87142C53859000E5554B /* ModifyPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEC87132C53859000E5554B /* ModifyPasswordView.swift */; };
+		1CEC87162C53876800E5554B /* ModifyPasswordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEC87152C53876800E5554B /* ModifyPasswordModel.swift */; };
+		1CEC87192C538E5400E5554B /* OutLoginDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEC87182C538E5400E5554B /* OutLoginDialog.swift */; };
+		1CEC871B2C53A2F200E5554B /* LeanCloudUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEC871A2C53A2F200E5554B /* LeanCloudUtil.swift */; };
 		1CF297F22C3E7686002B37A7 /* TextSizeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF297F12C3E7686002B37A7 /* TextSizeView.swift */; };
 		1CF297F42C3E93DB002B37A7 /* AudioMindMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF297F32C3E93DB002B37A7 /* AudioMindMap.swift */; };
 		1CF298062C3F7B0D002B37A7 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 1CF298052C3F7B0D002B37A7 /* Alamofire */; };
@@ -367,6 +374,13 @@
 		1CEC87042C525A4400E5554B /* MineModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineModel.swift; sourceTree = "<group>"; };
 		1CEC87062C525B7700E5554B /* EditUsernameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUsernameView.swift; sourceTree = "<group>"; };
 		1CEC87082C525BD800E5554B /* EditModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditModel.swift; sourceTree = "<group>"; };
+		1CEC870D2C534D7C00E5554B /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
+		1CEC870F2C534DAD00E5554B /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
+		1CEC87112C534DFA00E5554B /* AlertToast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertToast.swift; sourceTree = "<group>"; };
+		1CEC87132C53859000E5554B /* ModifyPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifyPasswordView.swift; sourceTree = "<group>"; };
+		1CEC87152C53876800E5554B /* ModifyPasswordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifyPasswordModel.swift; sourceTree = "<group>"; };
+		1CEC87182C538E5400E5554B /* OutLoginDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutLoginDialog.swift; sourceTree = "<group>"; };
+		1CEC871A2C53A2F200E5554B /* LeanCloudUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeanCloudUtil.swift; sourceTree = "<group>"; };
 		1CF297F12C3E7686002B37A7 /* TextSizeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextSizeView.swift; sourceTree = "<group>"; };
 		1CF297F32C3E93DB002B37A7 /* AudioMindMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioMindMap.swift; sourceTree = "<group>"; };
 		1CF298072C3F7DF5002B37A7 /* NetworkRequestHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequestHelper.swift; sourceTree = "<group>"; };
@@ -625,6 +639,7 @@
 				1C9A06382C3FE9030028DFB2 /* DateUtil.swift */,
 				1CD402B22C40DAF2001EAD8D /* DataUtil.swift */,
 				1C3A02042C45251C00960F0E /* ApplePayUtil.swift */,
+				1CEC871A2C53A2F200E5554B /* LeanCloudUtil.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -837,6 +852,7 @@
 		1C9FCBE12C2EBB9B0013163C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1CEC87172C538E3800E5554B /* Dialog */,
 				1CEC86EC2C4F59BE00E5554B /* Widget */,
 				1C037E232C3644A800EB56F5 /* FileDetailView */,
 				1C037E1B2C3554E400EB56F5 /* AccountView */,
@@ -863,6 +879,7 @@
 			children = (
 				1CBBADEE2C33FE040015DF46 /* UserInfoView.swift */,
 				1CEC87062C525B7700E5554B /* EditUsernameView.swift */,
+				1CEC87132C53859000E5554B /* ModifyPasswordView.swift */,
 			);
 			path = UserView;
 			sourceTree = "<group>";
@@ -991,6 +1008,7 @@
 				1CEC86EA2C4E5F3F00E5554B /* AccountOperationModel.swift */,
 				1CEC86FE2C52462A00E5554B /* UserModel.swift */,
 				1CEC87082C525BD800E5554B /* EditModel.swift */,
+				1CEC87152C53876800E5554B /* ModifyPasswordModel.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -998,6 +1016,7 @@
 		1CEC86EC2C4F59BE00E5554B /* Widget */ = {
 			isa = PBXGroup;
 			children = (
+				1CEC870C2C534D6600E5554B /* AlertToast */,
 				1CEC86ED2C4F5A3E00E5554B /* OverlayWidget.swift */,
 				1CEC87002C524D1100E5554B /* ImageCameraPicker.swift */,
 				1CEC87022C52521000E5554B /* ImagePhotoPicker.swift */,
@@ -1015,6 +1034,24 @@
 				1CEC86FA2C50F3FB00E5554B /* PageID.swift */,
 			);
 			path = Navigation;
+			sourceTree = "<group>";
+		};
+		1CEC870C2C534D6600E5554B /* AlertToast */ = {
+			isa = PBXGroup;
+			children = (
+				1CEC870D2C534D7C00E5554B /* ActivityIndicator.swift */,
+				1CEC870F2C534DAD00E5554B /* BlurView.swift */,
+				1CEC87112C534DFA00E5554B /* AlertToast.swift */,
+			);
+			path = AlertToast;
+			sourceTree = "<group>";
+		};
+		1CEC87172C538E3800E5554B /* Dialog */ = {
+			isa = PBXGroup;
+			children = (
+				1CEC87182C538E5400E5554B /* OutLoginDialog.swift */,
+			);
+			path = Dialog;
 			sourceTree = "<group>";
 		};
 		1CF298092C3F8085002B37A7 /* Network */ = {
@@ -1192,6 +1229,7 @@
 				1CF297F42C3E93DB002B37A7 /* AudioMindMap.swift in Sources */,
 				1CBBADDA2C32A8410015DF46 /* TabItemStyle.swift in Sources */,
 				1CD2192E2C3BE6FC00562661 /* CustomTopTabItemStyle.swift in Sources */,
+				1CEC87192C538E5400E5554B /* OutLoginDialog.swift in Sources */,
 				1CD2194E2C3D3B3800562661 /* ZoomableImageView.swift in Sources */,
 				1CF298212C3FAAE3002B37A7 /* RequestUtil.swift in Sources */,
 				1CD219312C3BE89900562661 /* TransferView.swift in Sources */,
@@ -1203,6 +1241,7 @@
 				1CEC87072C525B7700E5554B /* EditUsernameView.swift in Sources */,
 				1CF2980F2C3F81B6002B37A7 /* NetworkBaseRequest.swift in Sources */,
 				1CD057802C32A5230002E58D /* Tabbable.swift in Sources */,
+				1CEC87102C534DAD00E5554B /* BlurView.swift in Sources */,
 				1C037E902C36ABF400EB56F5 /* AudioUtil.swift in Sources */,
 				1CBBADF12C3400C90015DF46 /* TabBarVisibility.swift in Sources */,
 				1CD219422C3D16DE00562661 /* SplashView.swift in Sources */,
@@ -1213,6 +1252,7 @@
 				1CC8FDF62C37E35A00C35F7C /* AudioWaveView.swift in Sources */,
 				1CEC87092C525BD800E5554B /* EditModel.swift in Sources */,
 				1C9FCBD82C2D44B70013163C /* BluetoothInfoData.swift in Sources */,
+				1CEC87122C534DFA00E5554B /* AlertToast.swift in Sources */,
 				1CD0577C2C32A1BB0002E58D /* TabBarViewModifier.swift in Sources */,
 				1CD219352C3BE8D300562661 /* MindMapView.swift in Sources */,
 				1CD057822C32A5B00002E58D /* TabBarSelection.swift in Sources */,
@@ -1232,6 +1272,7 @@
 				1CEC86F92C50F15500E5554B /* PushView.swift in Sources */,
 				1CF297F22C3E7686002B37A7 /* TextSizeView.swift in Sources */,
 				1CEC86FF2C52462B00E5554B /* UserModel.swift in Sources */,
+				1CEC870E2C534D7C00E5554B /* ActivityIndicator.swift in Sources */,
 				1CEC87032C52521000E5554B /* ImagePhotoPicker.swift in Sources */,
 				1C9A06372C3FDFE00028DFB2 /* FileModel.swift in Sources */,
 				1CD402B32C40DAF2001EAD8D /* DataUtil.swift in Sources */,
@@ -1252,9 +1293,11 @@
 				1C4B6EDC2C2A9A3B0095D27D /* LocationManager.swift in Sources */,
 				1CF2980B2C3F809A002B37A7 /* NetworkInterceptor.swift in Sources */,
 				1C9FCBDE2C2E4D910013163C /* OtherView.swift in Sources */,
+				1CEC87142C53859000E5554B /* ModifyPasswordView.swift in Sources */,
 				1CD057842C32A5D40002E58D /* TabBarPreferenceKey.swift in Sources */,
 				1CBBADE92C33ACCE0015DF46 /* Color+Ext.swift in Sources */,
 				1CBBADD82C32A8200015DF46 /* DefaultTabItemStyle.swift in Sources */,
+				1CEC87162C53876800E5554B /* ModifyPasswordModel.swift in Sources */,
 				1C74F0B82C4A467C00D10FE0 /* LeanCloudView.swift in Sources */,
 				1CEC87052C525A4400E5554B /* MineModel.swift in Sources */,
 				1CEC86EB2C4E5F3F00E5554B /* AccountOperationModel.swift in Sources */,
@@ -1276,6 +1319,7 @@
 				1CE45CDC2C44BF8700017B79 /* FileListOnCloudAPI.swift in Sources */,
 				1C037E252C3644C100EB56F5 /* FileDetailView.swift in Sources */,
 				1C11FBD92C2A714F0087C39F /* WiFiView.swift in Sources */,
+				1CEC871B2C53A2F200E5554B /* LeanCloudUtil.swift in Sources */,
 				1CF2980D2C3F80E8002B37A7 /* NetworkManager.swift in Sources */,
 				1C037E282C3644E300EB56F5 /* FileData.swift in Sources */,
 				1CD219402C3D05E200562661 /* HomeTabBar.swift in Sources */,

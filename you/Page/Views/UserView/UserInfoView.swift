@@ -14,7 +14,16 @@ struct UserInfoView: View {
     
     //操作图片操作的弹窗
     @State private var isImagePickerPresented = false
+    @State private var isImageCameraPickerPresented = false
+    @State private var isImagePhotoPickerPresented = false
     @State private var selectedImage: UIImage?
+    
+    //控制toast显示
+    @State private var showToast = false
+    
+    //退出登录弹窗控制
+    @State private var isShowOutLoginDialog = false
+
     
     @StateObject var userModel = UserModel()
     
@@ -46,16 +55,34 @@ struct UserInfoView: View {
                     Image("icon_camera")
                         .resizable()
                         .frame(width: 22, height: 22)
-                }.frame(height: 100).onTapGesture {
-                    //弹出弹窗选择相册或者拍照上传头像
+                }.frame(height: 100).onTapGesture(perform: {
                     isImagePickerPresented.toggle()
+                }).actionSheet(isPresented: $isImagePickerPresented) {
+                    //弹出弹窗选择相册或者拍照上传头像。title固定占位，如果不需要头部的占位信息就需要自定义实现页面结合sheet实现
+                    ActionSheet(title: Text("请选择图片获取方式"),buttons: [
+                        //选择项添加
+                        .default(Text("拍照")){
+                            isImageCameraPickerPresented.toggle()
+                        },
+                        
+                        .default(Text("从照片中选择")){
+                            isImagePhotoPickerPresented.toggle()
+                        },
+                        
+                        //取消按钮添加
+                        .cancel()
+                    ])
                 }
                 
                 Spacer().frame(height: 10)
                 
                 //基本信息
                 Group{
-                    NavigationLink(destination: EditUsernameView(username: userModel.user?.username?.value ?? ""),isActive: $userModel.isToEdit) {}
+                    NavigationLink(destination: EditUsernameView(username: userModel.user?.username?.value ?? ""){
+                        showToast.toggle()
+                    },isActive: $userModel.isToEdit) {}
+                    
+                    NavigationLink(destination: ModifyPasswordView(),isActive: $userModel.isToModifyPassword) {}
                     
                     AccountLabel(title: "昵称", desc: userModel.user?.username?.value ?? ""){
                         userModel.isToEdit.toggle()
@@ -63,7 +90,7 @@ struct UserInfoView: View {
                    
                     AccountLabel(title: "邮箱", desc: userModel.user?.email?.value ?? "",canOperate: false)
                     AccountLabel(title: "更改密码"){
-                        print("更改密码")
+                        userModel.isToModifyPassword.toggle()
                     }
                     AccountLabel(title: "设备"){
                         print("设备")
@@ -76,9 +103,12 @@ struct UserInfoView: View {
                 NavigationLink(
                     destination: LoginView(),isActive: $isLinkLoginActive) {
                     Button{
-                        print("退出登录")
+                        //添加展示动画效果
+                        withAnimation {
+                            isShowOutLoginDialog.toggle()
+                        }
                         //跳转完成之后会被重置成false未激活
-                        isLinkLoginActive = true
+//                        isLinkLoginActive = true
                     }label: {
                         Text("退出登录").font(.system(size: 16))
                             .foregroundColor(.black)
@@ -121,7 +151,28 @@ struct UserInfoView: View {
             //每次页面显示都尝试获取最新的用户信息数据
             userModel.getUserInfo()
             
-        }.fullScreenCover(isPresented: $isImagePickerPresented, content: {
+        }.overlay(content: {
+            //覆盖在界面上的弹窗信息
+            if isShowOutLoginDialog{
+                OutLoginDialog(showDialog: $isShowOutLoginDialog){
+                    //退出登录跳转到登录页面
+                    isLinkLoginActive.toggle()
+                }
+            }
+        }).toast(isPresenting: $showToast, duration: 1.0, tapToDismiss:false){
+            AlertToast(type: .regular,title: "保存完成",style: .style(backgroundColor:Color(r: 0, g: 0, b: 0,a: 0.75),titleColor: .white))
+            
+            // `.alert` is the default displayMode【没有背景内容】
+//            AlertToast(type: .regular,title: "保存成功",style: .style(backgroundColor:.gray))
+            
+            //Choose .hud to toast alert from the top of the screen【从顶部弹出到标题栏位置】
+//            AlertToast(displayMode: .hud, type: .regular, title: "Message Sent!")
+            
+            //Choose .banner to slide/pop alert from the bottom of the screen【动画效果滑入滑出】
+//            AlertToast(displayMode: .banner(.slide), type: .regular, title: "Message Sent!")
+        }.fullScreenCover(isPresented: $isImageCameraPickerPresented, content: {
+            ImageCameraPicker(selectedImage: $selectedImage)
+        }).fullScreenCover(isPresented: $isImagePhotoPickerPresented, content: {
             ImagePhotoPicker(selectedImage: $selectedImage)
         }).onChange(of: selectedImage) { newValue in
             //监听图片变化，变化后上传完成后重新获取用户信息

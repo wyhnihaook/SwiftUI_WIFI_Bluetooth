@@ -16,7 +16,8 @@ class UserModel : BaseModel{
     @Published var headerImage : String = ""
     
     @Published var isToEdit : Bool = false
-    
+    @Published var isToModifyPassword : Bool = false
+
     //MARK: - 页面显示时重新获取一次数据
     func getUserInfo(){
         ///一般情况下获取用户信息必须存在，这里兼容异常情况
@@ -53,7 +54,7 @@ class UserModel : BaseModel{
     //MARK: - 更新对象
     func updateImage(imageURL: String){
         do {
-            try self.user!.set("headerImage", value: imageURL)
+            try self.user!.set(headerImage, value: imageURL)
             self.user!.save { (result) in
                 switch result {
                 case .success:
