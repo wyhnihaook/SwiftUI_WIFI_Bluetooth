@@ -22,7 +22,7 @@ struct FileDetailView : View {
     
     var body: some View{
         VStack{
-            AudioWaveView()
+//            AudioWaveView(recordId: 1)
             
             //TabBar显示标签内容
         }

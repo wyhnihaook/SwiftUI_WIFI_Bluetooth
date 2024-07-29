@@ -55,14 +55,14 @@ struct FileView: View {
                     
                     //遍历数据源进行内容同步 【云端 + 本地】
                     ForEach(fileModel.fileOnCloudList,id: \.title) { item in
-                        NavigationLink(destination: AudioWaveView()) {
-                            FileItem(title: item.title, date: item.createdTime, time: item.duration, tag: item.labels)
+                        NavigationLink(destination: AudioWaveView(recordId: item.recordId)) {
+                            FileItem(title: item.title, date: item.createdTime, time: item.duration, tag: item.labels  ?? [])
                         }
                     }
                     
                     ForEach(fileModel.fileOnLocalList,id: \.title) { item in
-                        NavigationLink(destination: AudioWaveView()) {
-                            FileItem(title: item.title, date: item.createdTime, time: item.duration,tag: item.labels)
+                        NavigationLink(destination: AudioWaveView(recordId: item.recordId)) {
+                            FileItem(title: item.title, date: item.createdTime, time: item.duration,tag: item.labels ?? [])
                         }
                     }
                     
@@ -79,8 +79,9 @@ struct FileView: View {
         .navigationBarBackButtonHidden()
         .onAppear{
             //获取云端文件列表
-            fileModel.getFileDatabase()
-            
+//            if fileModel.fileOnCloudList.isEmpty{
+                fileModel.getFileDatabase()
+//            }
             
         }
     }

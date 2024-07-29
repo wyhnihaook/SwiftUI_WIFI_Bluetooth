@@ -27,6 +27,11 @@ final class AudioViewModel: ObservableObject {
         
         return try! AVAudioFile(forReading: URL(fileURLWithPath: directoryPath))
     }
-
+    
+    //注意⚠️：无法获取网络文件 - 只能通过本地的音频扫描才能一次性加载全部的轨迹
+    static func getLocalFile(localUrl: URL) -> AVAudioFile {
+        return try! AVAudioFile(forReading:localUrl)
+    }
+    
 }
 

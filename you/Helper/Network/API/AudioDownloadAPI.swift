@@ -14,18 +14,30 @@ class AudioDownloadAPI : NetworkRequestHelper{
     ///func ：属于对象，需要创建对象来进行调用
     
     ///下载音频链接，如果不设置目标目录就会选择默认的推荐目录
-    class func downloadAudio(downloadURL:String){
+    ///回调内容响应用于当前音频下载完毕后的处理，传递的是当前的路径信息
+    class func downloadAudio(downloadURL:String, fileName: String, completion:@escaping (URL?)->Void){
         
         // 创建一个 destination 闭包，它将文件下载到 Documents 目录
+        let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        //添加完整存储路径信息
+        let fileURL = documentsURL.appendingPathComponent("/\(audioDirectory)/\(fileName).mp3")
+        
+        //先从本地查询是否存在该文件
+        if FileUtil.fileExists(at: fileURL) {
+            print("File exists at path: \(fileURL)")
+            completion(fileURL)
+            return
+        }else{
+            print("去下载咯")
+        }
+        
         let destination: DownloadRequest.Destination = { _, _ in
-            let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-            //添加完整存储路径信息
-            let fileURL = documentsURL.appendingPathComponent("/\(audioDirectory)/downloadedAduio.mp3")
-            
             return (fileURL, [.removePreviousFile, .createIntermediateDirectories])
         }
         
-        let path = "https://api-wx-painting-question-ai.calamari.cn/static/articleAudio/1-1710385035.mp3"
+//        let path = "https://api-wx-painting-question-ai.calamari.cn/static/articleAudio/1-1710385035.mp3"
+        
+        let path = downloadURL
         
         AF.download(path, to: destination)
             .downloadProgress { progress in
@@ -33,8 +45,10 @@ class AudioDownloadAPI : NetworkRequestHelper{
             }
             .response { response in
                 if let error = response.error {
+                    completion(nil)
                     print("Download failed with error: \(error)")
                 } else {
+                    completion(fileURL)
                     print("Download completed successfully")
                 }
             }

@@ -56,4 +56,15 @@ class FileUtil{
         
         return URL(fileURLWithPath: directoryPath)
     }
+    
+    //判断文件是否存在
+   static func fileExists(at url: URL) -> Bool {
+        do {
+            let fileAttributes = try FileManager.default.attributesOfItem(atPath: url.path)
+            return fileAttributes != nil
+        } catch {
+            print("Error checking file existence: \(error)")
+            return false
+        }
+    }
 }

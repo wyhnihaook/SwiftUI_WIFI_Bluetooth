@@ -6,6 +6,19 @@
 //
 
 import Foundation
+import LeanCloud
+
+//MARK: - 集合转化为结构体
+func decodeMap<T: Decodable>(from mapData: [String : Any]) -> T?{
+    do{
+        let jsonData = try JSONSerialization.data(withJSONObject: mapData)
+        let data = try JSONDecoder().decode(T.self, from: jsonData)
+        return data
+    }catch{
+        print("Error decoding JSON map: \(error)")
+        return nil
+    }
+}
 
 //MARK: - 字符串转结构体
 func decodeJson<T: Decodable>(from jsonString: String) -> T? {
@@ -42,4 +55,9 @@ func encodeToJson<T: Encodable>(_ object: T) -> String? {
 func validateEmail(_ email: String) -> Bool {
        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
        return NSPredicate(format: "SELF MATCHES %@", emailRegEx).evaluate(with: email)
-   }
+}
+
+
+//MARK: - LeanCloud数据转化
+
+//MARK: - FileInfo【首页的文件列表】

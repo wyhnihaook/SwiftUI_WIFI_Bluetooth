@@ -8,8 +8,12 @@
 import AudioKit
 import AVFoundation
 import SwiftUI
+import LeanCloud
 
 class AudioCompletionHandlerConductor: ObservableObject, HasAudioEngine {
+    //初始化时同步的数据
+    var fileUrl : URL?
+    
     let engine = AudioEngine()
     var player = AudioPlayer()
     var fileURL = [URL]()
@@ -83,11 +87,9 @@ class AudioCompletionHandlerConductor: ObservableObject, HasAudioEngine {
     func getPlayerFiles() {
         let files = ["test.mp3"]
         for filename in files {
-//            let url = Bundle.main.url(forResource: "test", withExtension: "mp3")!
             var directoryPath = FileUtil.getAudioDirectory(path: audioDirectory)
             directoryPath.append("/测试Test.mp3")
             fileURL.append(URL(fileURLWithPath: directoryPath))
-//            fileURL.append(url)
         }
     }
 
@@ -96,12 +98,15 @@ class AudioCompletionHandlerConductor: ObservableObject, HasAudioEngine {
         //播放结束不做任何处理内部状态会流转
     }
 
-    init() {
-        
+    init(localUrl: URL) {
+        fileUrl = localUrl
+        fileURL.append(fileUrl!)
+
         variSpeed = VariSpeed(player)
         variSpeed.rate = rate
         
-        getPlayerFiles()
+//        getPlayerFiles()
+
         engine.output = variSpeed
 //        engine.output = player
 
@@ -137,7 +142,7 @@ class AudioCompletionHandlerConductor: ObservableObject, HasAudioEngine {
         try? player.load(url: fileURL[currentFileIndex])
         //初始化当前的结束时间。用来同步百分比数据。必须在播放器加载了具体的url之后才能去
         endTime = player.duration
-        
+                
         player.play()
         
         if let duration = player.file?.duration {
@@ -145,7 +150,7 @@ class AudioCompletionHandlerConductor: ObservableObject, HasAudioEngine {
         }
         
     }
-
+    
 }
 
 func customClamp<T: Comparable>(_ value: T, in range: ClosedRange<T>) -> T {

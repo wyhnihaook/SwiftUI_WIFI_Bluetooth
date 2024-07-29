@@ -8,17 +8,8 @@
 import Foundation
 import LeanCloud
 
-//文件标签信息
-struct FileLabelData : Codable{
-    ///标签的类型
-    let labelId : Int
-    ///标签展示内容
-    let labelName : String
-    ///标签展示的文本颜色
-    let labelColor : String
-}
 
-//文件列表信息
+//MARK: -文件列表信息
 struct FileOnCloudData : Codable{
     ///录音文件Id信息
     let recordId : Int
@@ -33,7 +24,7 @@ struct FileOnCloudData : Codable{
     var duration : String
     
     ///标签
-    var labels : [FileLabelData]
+    var labels : [FileLabelData]?
     
     ///关键字列表
     var keywords : [String]
@@ -42,6 +33,65 @@ struct FileOnCloudData : Codable{
     var transferStatus : Int
     
 }
+
+//文件标签信息
+struct FileLabelData : Codable{
+    ///标签的类型
+    let labelId : Int
+    ///标签展示内容
+    let labelName : String
+    ///标签展示的文本颜色
+    let labelColor : String
+}
+
+
+
+//MARK: -文件详情信息
+struct FileOnCloudDetailData : Codable{
+    ///录音文件Id信息 - 查询标记
+    let recordId : Int
+    
+    ///展示标题
+    var title : String
+    
+    ///记录时间
+    var createdTime : String
+    
+    ///音频文件时长
+    var duration : String
+    
+    ///标签
+    var labels : [FileLabelData]?
+    
+    ///关键字列表
+    var keywords : [String]
+    
+    ///音频地址
+    var fileUrl : String
+    
+    ///转写记录
+    var transferList : [FileTransferData]?
+    
+    ///总结 - 待定todo
+    var conclusion : String
+    
+    ///思维导图 - 待定todo
+    var mindMap : String
+    
+    
+}
+
+struct FileTransferData : Codable{
+    ///转译时间节点
+    var pointTime : String
+    ///具体音频的内容
+    var content : String
+    
+    ///ID编号
+    var transferId : Int
+}
+
+//转写记录
 
 //网络请求返回的数据源
 struct FileOnCloudResultData : Codable{
