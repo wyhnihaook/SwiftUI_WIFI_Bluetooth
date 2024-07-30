@@ -77,11 +77,14 @@ struct FileView: View {
         .background(Color(hexString: "#F6F7F8"))
         .navigationBarHidden(true)
         .navigationBarBackButtonHidden()
+        
         .onAppear{
             //获取云端文件列表
-//            if fileModel.fileOnCloudList.isEmpty{
+            print("fileModel.fileOnCloudList.isEmpty:\(fileModel.fileOnCloudList.isEmpty)")
+            print(fileModel.fileOnCloudList)
+            if fileModel.fileOnCloudList.isEmpty{
                 fileModel.getFileDatabase()
-//            }
+            }
             
         }
     }

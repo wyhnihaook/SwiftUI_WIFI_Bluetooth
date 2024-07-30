@@ -8,13 +8,21 @@
 import SwiftUI
 
 struct TransferView: View {
-    @State private var audioTransfers: [AudioTransfer] = []
+//    @State private var audioTransfers: [AudioTransfer] = []
+    
+    var transferList : [FileTransferData]
+    
+    init(transferList : [FileTransferData]?) {
+        self.transferList = transferList ?? []
+    }
     
     var body: some View {
         ScrollView{
             LazyVStack(spacing:20){
-                ForEach(audioTransfers) { audioTransfer in
-                    TransferDataView(audioTransfer: audioTransfer)
+                ForEach(transferList,id:\.transferId) { transfer in
+                    TransferDataView(fileTransferData: transfer)
+                    
+//                    TransferDataView(audioTransfer: audioTransfer)
                 }
             }
         }
@@ -22,17 +30,20 @@ struct TransferView: View {
         .background(.white)
         .padding(0)
         .frame(maxWidth: .infinity)
+//        .navigationBarTitle("", displayMode: .inline)
+        .navigationBarHidden(true)
+        .navigationBarBackButtonHidden()
         .onAppear(perform: load)
     }
     
     func load() {
-        guard audioTransfers.isEmpty else { return }
-        audioTransfers = AudioTransfer.all
+//        guard audioTransfers.isEmpty else { return }
+//        audioTransfers = AudioTransfer.all
     }
 }
 
 struct TransferView_Previews: PreviewProvider {
     static var previews: some View {
-        TransferView()
+        TransferView(transferList: [])
     }
 }

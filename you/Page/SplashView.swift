@@ -25,8 +25,11 @@ struct SplashView: View {
                 NavigationLink(destination: LoginView(),isActive: $isNeedLoginActive) {
                     //不设置显示内容，直接由页面逻辑处理跳转激活状态
                 }
-            }.navigationBarTitle("", displayMode: .inline)
-        }.navigationViewStyle(.stack).onAppear{
+            }
+//            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarTitle("", displayMode: .inline)
+        }
+        .navigationViewStyle(.stack).onAppear{
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0){
                 
                 //判断是否存在本地缓存的登录信息

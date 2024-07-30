@@ -10,6 +10,8 @@ import SwiftUI
 struct AudioConvertTextView: View {
     @State private var selection = FileDetailTabBar.transfer.rawValue
 
+    //加载完毕后内容就不会变化，直接传递对应的数据源
+    @Binding var fileOnCloudDetailData : FileOnCloudDetailData?
     
     var body: some View {
         GeometryReader{ gp in
@@ -35,36 +37,42 @@ struct AudioConvertTextView: View {
                                 selection = FileDetailTabBar.mindMap.rawValue
                             }
                     }
-                    .background(.gray)
+                    .background(Color(hexString:"#F6F7F9"))
                     .cornerRadius(6)
                 }.padding(.horizontal,10)
                 
                 
                 TabView(selection: $selection) {
                     
-                    TransferView()
+                    TransferView(transferList: fileOnCloudDetailData?.transferList)
                         .tag(FileDetailTabBar.transfer.rawValue)
-                        
-                    SummarizeView()
+
+                    SummarizeView(fileOnCloudDetailData: fileOnCloudDetailData!)
                         .tag(FileDetailTabBar.summarize.rawValue)
-                    
+
                     MindMapView()
                         .tag(FileDetailTabBar.mindMap.rawValue)
                     
                 }.background(Color.clear)
+                    .navigationBarTitle("", displayMode: .inline)
+                    .navigationBarBackButtonHidden()
+                    .navigationBarHidden(true)
+
                 
                 
             }
             
            
           
+        }.onAppear{
+
         }
     }
 }
 
-struct AudioConvertTextView_Previews: PreviewProvider {
-    static var previews: some View {
-        AudioConvertTextView()
-    }
-}
+//struct AudioConvertTextView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        AudioConvertTextView()
+//    }
+//}
 

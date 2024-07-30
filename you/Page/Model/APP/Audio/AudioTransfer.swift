@@ -18,7 +18,8 @@ struct AudioTransfer: Codable, Identifiable {
 //转写Item。显示的是时间+对应的文本内容
 struct TransferDataView:View{
     
-    let audioTransfer : AudioTransfer
+//    let audioTransfer : AudioTransfer
+    let fileTransferData : FileTransferData
     
     var body: some View{
         HStack(alignment:.top){
@@ -28,14 +29,14 @@ struct TransferDataView:View{
                 .offset(x:0,y:4)
             
             VStack(alignment:.leading){
-                Text(audioTransfer.time)
+                Text(fileTransferData.pointTime)
                     .font(.system(size: 13))
                     .foregroundColor(.gray)
                     .frame(maxWidth: .infinity,alignment: .leading)
                 
                 Spacer().frame(height:10)
                 
-                Text(audioTransfer.desc).font(.system(size: 14))
+                Text(fileTransferData.content).font(.system(size: 14))
                     .foregroundColor(.black)
                 
 

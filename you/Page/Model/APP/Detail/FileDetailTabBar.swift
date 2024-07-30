@@ -28,11 +28,11 @@ enum FileDetailTabBar : String, FileDetailTabbable{
     case mindMap = "mindMap"
 
     var color: Color {
-        return Color(hexString: "#00FF00")!
+        return Color(hexString: "#bfbfbf")!
     }
 
     var selectedColor: Color {
-       return Color(hexString: "#FF0000")!
+       return Color(hexString: "#b871b2")!
     }
 
 
@@ -59,13 +59,13 @@ struct FileDetailTabBarView : View{
             if isSelected {
                 RoundedRectangle(cornerRadius: 4)
                     .foregroundColor(.white)
-                    .frame(width: 90.0, height: 40.0)
+                    .frame(width: 90.0, height: 30.0)
             }
             
             Text(item.title)
                 .foregroundColor(isSelected ? item.selectedColor : item.color)
                 .font(.system(size: 13))
-                .frame(width: 90.0, height: 40.0,alignment: .center)
+                .frame(width: 90.0, height: 30.0,alignment: .center)
         }
         .padding(.vertical, 4.0)
     }

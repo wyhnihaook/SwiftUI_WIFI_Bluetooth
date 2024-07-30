@@ -72,7 +72,7 @@ struct FileOnCloudDetailData : Codable{
     ///转写记录
     var transferList : [FileTransferData]?
     
-    ///总结 - 待定todo
+    ///总结 - 使用关键字来进行分隔段落
     var conclusion : String
     
     ///思维导图 - 待定todo
@@ -87,7 +87,7 @@ struct FileTransferData : Codable{
     ///具体音频的内容
     var content : String
     
-    ///ID编号
+    ///ID编号。自增唯一内容【数据库自增限定】，用作遍历标识 ⚠️
     var transferId : Int
 }
 

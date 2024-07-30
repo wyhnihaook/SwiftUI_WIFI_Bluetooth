@@ -39,8 +39,11 @@ struct MindMapView: View {
             
         }.frame(maxWidth: .infinity)
             .frame(maxHeight: .infinity)
-            .background(.yellow)
+            .background(.white)
             .padding(0)
+            .navigationBarTitle("", displayMode: .inline)
+            .navigationBarHidden(true)
+            .navigationBarBackButtonHidden()
             .onChange(of: audioMindMapModel.textSizeList.count) { newValue in
                 audioMindMapModel.sortTextSizeList()
             }

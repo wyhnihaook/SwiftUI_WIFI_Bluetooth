@@ -47,7 +47,7 @@ class FileModel : ObservableObject{
             
             //进行赋值
             if responseData.data.records.isNotEmpty{
-                self.fileOnCloudList = responseData.data.records
+//                self.fileOnCloudList = responseData.data.records
             }
         }
     }
@@ -260,8 +260,8 @@ class FileModel : ObservableObject{
 //            }
             
             //直接通过标签库关联内容【已经存在的数据直接关联】
-            let label1 = LCObject(className: fileLabel, objectId: "66a7328102f9fb5ea932d056")
-            let label2 = LCObject(className: fileLabel, objectId: "66a7328102f9fb5ea932d055")
+            let label1 = LCObject(className: fileLabel, objectId: "66a85c6ff092fd15e6934049")
+            let label2 = LCObject(className: fileLabel, objectId: "66a85c6ff092fd15e6934048")
 
             labels = [label1, label2]
             
@@ -342,8 +342,8 @@ class FileModel : ObservableObject{
             var labels:[LCObject] = []
 
             //直接通过标签库关联内容【已经存在的数据直接关联】
-            let label1 = LCObject(className: fileLabel, objectId: "66a7328102f9fb5ea932d056")
-            let label2 = LCObject(className: fileLabel, objectId: "66a7328102f9fb5ea932d055")
+            let label1 = LCObject(className: fileLabel, objectId: "66a85c6ff092fd15e6934049")
+            let label2 = LCObject(className: fileLabel, objectId: "66a85c6ff092fd15e6934048")
 
             labels = [label1, label2]
             
@@ -369,8 +369,10 @@ class FileModel : ObservableObject{
             }
             try fileDetail.set("transferList", value: transferCloudList)
 
-            ///总结 + 思维导图待定 todo
-            try fileDetail.set("conclusion",  value:"总结内容")
+            ///总结 如果要存储字符串数组的情况，就要用指针Pointer指向表中的另外一条数据
+            ///["总结内容1","总结内容2","总结内容3","总结内容4","总结内容5","总结内容6","总结内容7","总结内容8"]
+            try fileDetail.set("conclusion",  value:"总结内容1\n总结内容2\n总结内容3\n总结内容4\n总结内容5\n总结内容6\n总结内容7")
+            ///思维导图待定
             try fileDetail.set("mindMap",  value:"思维导图")
             
             ///音频文件地址
