@@ -124,10 +124,10 @@ struct SummarizeView: View {
             
         } .background(.white)
             .padding(0)
-            .frame(maxWidth: .infinity)
+            .frame(maxWidth: .infinity,maxHeight: .infinity)
 //            .navigationBarTitle("", displayMode: .inline)
-            .navigationBarHidden(true)
-            .navigationBarBackButtonHidden()
+//            .navigationBarBackButtonHidden()
+//            .navigationBarHidden(true)
             .onAppear(perform: load)
     }
     

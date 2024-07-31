@@ -29,10 +29,10 @@ struct TransferView: View {
         //TabView的页面都需要单独设置背景颜色，不然底部会出现默认的TabView底部样式
         .background(.white)
         .padding(0)
-        .frame(maxWidth: .infinity)
+        .frame(maxWidth: .infinity,maxHeight: .infinity)
 //        .navigationBarTitle("", displayMode: .inline)
-        .navigationBarHidden(true)
-        .navigationBarBackButtonHidden()
+//        .navigationBarBackButtonHidden()
+//        .navigationBarHidden(true)
         .onAppear(perform: load)
     }
     

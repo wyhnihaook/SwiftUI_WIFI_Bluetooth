@@ -152,6 +152,7 @@
 		1CD402B32C40DAF2001EAD8D /* DataUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD402B22C40DAF2001EAD8D /* DataUtil.swift */; };
 		1CE45CDC2C44BF8700017B79 /* FileListOnCloudAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE45CDB2C44BF8700017B79 /* FileListOnCloudAPI.swift */; };
 		1CEA0D622C5789DD00B68446 /* FileDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEA0D612C5789DD00B68446 /* FileDetailModel.swift */; };
+		1CEA0DF12C5A38C000B68446 /* ConnectBluetoothView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEA0DF02C5A38C000B68446 /* ConnectBluetoothView.swift */; };
 		1CEC86E22C4E42D800E5554B /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEC86E12C4E42D800E5554B /* BaseModel.swift */; };
 		1CEC86E52C4E436600E5554B /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEC86E42C4E436600E5554B /* LoginModel.swift */; };
 		1CEC86E92C4E5E2200E5554B /* AccountOperationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEC86E82C4E5E2200E5554B /* AccountOperationView.swift */; };
@@ -359,6 +360,7 @@
 		1CD402B22C40DAF2001EAD8D /* DataUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataUtil.swift; sourceTree = "<group>"; };
 		1CE45CDB2C44BF8700017B79 /* FileListOnCloudAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileListOnCloudAPI.swift; sourceTree = "<group>"; };
 		1CEA0D612C5789DD00B68446 /* FileDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileDetailModel.swift; sourceTree = "<group>"; };
+		1CEA0DF02C5A38C000B68446 /* ConnectBluetoothView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectBluetoothView.swift; sourceTree = "<group>"; };
 		1CEC86E12C4E42D800E5554B /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
 		1CEC86E42C4E436600E5554B /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		1CEC86E82C4E5E2200E5554B /* AccountOperationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountOperationView.swift; sourceTree = "<group>"; };
@@ -854,6 +856,7 @@
 		1C9FCBE12C2EBB9B0013163C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1CEA0DEF2C5A388600B68446 /* ConnectBluetooth */,
 				1CEC87172C538E3800E5554B /* Dialog */,
 				1CEC86EC2C4F59BE00E5554B /* Widget */,
 				1C037E232C3644A800EB56F5 /* FileDetailView */,
@@ -993,6 +996,14 @@
 				1CF297F12C3E7686002B37A7 /* TextSizeView.swift */,
 			);
 			path = MindMap;
+			sourceTree = "<group>";
+		};
+		1CEA0DEF2C5A388600B68446 /* ConnectBluetooth */ = {
+			isa = PBXGroup;
+			children = (
+				1CEA0DF02C5A38C000B68446 /* ConnectBluetoothView.swift */,
+			);
+			path = ConnectBluetooth;
 			sourceTree = "<group>";
 		};
 		1CEC86DA2C4E3D4E00E5554B /* Base */ = {
@@ -1282,6 +1293,7 @@
 				1C9FC9E12C2BC1D10013163C /* PersistentStorageManager.swift in Sources */,
 				1C11FBE12C2A77A70087C39F /* NetworkUtil.swift in Sources */,
 				1CF62AEC2C3FDA67000D2CA7 /* FileUtil.swift in Sources */,
+				1CEA0DF12C5A38C000B68446 /* ConnectBluetoothView.swift in Sources */,
 				1CBBADDF2C32A8E40015DF46 /* TabBar.swift in Sources */,
 				1CD219472C3D263600562661 /* AudioSummarize.swift in Sources */,
 				1CBBADE72C32AE120015DF46 /* CustomTabItemNormalStyle.swift in Sources */,

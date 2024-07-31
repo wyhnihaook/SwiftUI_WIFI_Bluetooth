@@ -77,6 +77,7 @@ struct youApp: App {
 //              OtherView()
             SplashView()
 //            MindMapView()
+//            AppNavBarView()
                 .environmentObject(sharedData)
         }.onChange(of: scenePhase) { newValue in
             switch newValue{

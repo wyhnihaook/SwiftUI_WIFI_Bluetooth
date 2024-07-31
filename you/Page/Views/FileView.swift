@@ -17,10 +17,10 @@ struct FileView: View {
             Spacer().frame(height:10)
             
             HStack{
-                
-                Text("+连接蓝牙").foregroundColor(.black).bold().frame(width: 100,height: 30).background(.white).cornerRadius(5).onTapGesture {
-                    
+                NavigationLink(destination: ConnectBluetoothView()) {
+                    Text("+连接蓝牙").foregroundColor(.black).bold().frame(width: 100,height: 30).background(.white).cornerRadius(5)
                 }
+                
                 
                 Spacer()
                 
@@ -45,7 +45,9 @@ struct FileView: View {
                         //图片
                         Image("icon_menu")
                             .resizable()
-                            .frame(width: 30,height: 30)
+                            .frame(width: 30,height: 30).onTapGesture {
+                               
+                            }
                         //文本
                         Text("全部文件(\(fileModel.fileOnCloudList.count + fileModel.fileOnLocalList.count))").font(.system(size: 24))
                             .bold()
