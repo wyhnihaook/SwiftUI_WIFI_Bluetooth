@@ -25,6 +25,20 @@ struct ButtonPressStyle:ButtonStyle{
 }
 
 extension View {
+    @ViewBuilder func active(_ condition: Bool) -> some View {
+        if condition { self }
+    }
+    
+    func frame(_ size: CGFloat) -> some View { frame(width: size, height: size, alignment: .center) }
+    
+    func alignHorizontally(_ alignment: HorizontalAlignment, _ value: CGFloat = 0) -> some View {
+        HStack(spacing: 0) {
+            Spacer.width(alignment == .leading ? value : nil)
+            self
+            Spacer.width(alignment == .trailing ? value : nil)
+        }
+    }
+    
     func navBarTextStyle(color:Color = .red) -> some View{
         modifier(NavBarTextStyle(color: color))
     }

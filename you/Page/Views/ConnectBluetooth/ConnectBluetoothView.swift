@@ -9,9 +9,13 @@ import SwiftUI
 
 struct ConnectBluetoothView: View {
     
+    //扩散水波纹数据记录
+    @State private var beatAnimation: Bool = false
+    @State private var showPulses: Bool = false
+    @State private var pulsedHearts: [HeartParticle] = []
+    
     //蓝牙扫描是否超时
     @State var isTimeout : Bool = false
-    @State private var animateCircle = false
 
     
     var body: some View {
@@ -20,7 +24,7 @@ struct ConnectBluetoothView: View {
         } content: {
             VStack(spacing:0){
                 Spacer().frame(height: 40)
-
+                
                 if !isTimeout{
                     Text("正在搜索附近的蓝牙设备...").foregroundColor(.black).font(.system(size: 14))
                     Spacer().frame(height: 30)
@@ -28,30 +32,24 @@ struct ConnectBluetoothView: View {
                     Spacer().frame(height: 80)
                     
                     ///动画效果展示波纹
-                    ZStack {
-                        Circle()
-                            .stroke()
-                            .frame(width:200,height: 200)
-                            .foregroundColor(.blue)
-                            .scaleEffect(animateCircle ? 1.0 : 0.3)
-                            .opacity(animateCircle ? 0 : 1)
+                    ZStack{
+                        ///根据设定的时间间隔不停的进行内容的调度
+                        if showPulses {
+                            TimelineView(.animation(minimumInterval: 0.7, paused: false)) {  timeLine in
+                                addView(timeLine.date)
+                            }
+                        }
+                       
                         
-                        Circle()
-                            .stroke()
-                            .frame(width:100,height: 100)
-                            .foregroundColor(.blue)
-                            .scaleEffect(animateCircle ? 1.0 : 0.3)
-                            .opacity(animateCircle ? 0 : 1)
-                        
-                        Circle()
-                            .stroke()
-                            .frame(width:50,height: 50)
-                            .foregroundColor(.blue)
-                            .scaleEffect(animateCircle ? 1.0 : 0.3)
-                            .opacity(animateCircle ? 0 : 1)
-                    }.frame(width: 300,height: 300)
-
+                        ///可以进行额外内容绘制
+//                        Image(systemName: "suit.heart.fill")
+//                            .font(.system(size: 100))
+//                            .foregroundStyle(.red.gradient)
                   
+                        
+                    } .frame(maxWidth: 350, maxHeight: 350)
+
+                  Spacer()
                     
                 }else{
                     Text("附近未搜索到蓝牙设备").foregroundColor(.black).font(.system(size: 14))
@@ -79,14 +77,91 @@ struct ConnectBluetoothView: View {
                 
             }.padding(.horizontal,20)
                 .onAppear{
-                    withAnimation(.easeIn(duration: 3).repeatForever(autoreverses: false)){
-                        animateCircle.toggle()
-                    }
+                    ///开启动画标识
+                    beatAnimation.toggle()
+                    ///页面控制标识
+                    showPulses.toggle()
+                    ///添加内容标识
+                    addPulsedHeart()
                 }
 
             
         }
     }
+    
+    //MARK: - 模拟心跳波纹扩散
+    
+    struct HeartParticle: Identifiable {
+        var id: UUID = .init()
+    }
+     
+    func addPulsedHeart() {
+        let pulsedHeart = HeartParticle()
+        pulsedHearts.append(pulsedHeart)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            pulsedHearts.removeAll(where: { $0.id == pulsedHeart.id })
+            if pulsedHearts.isEmpty {
+                showPulses = false
+            }
+        }
+    }
+    
+    @ViewBuilder
+    func addView(_ date: Date) -> some View {
+        ZStack {
+            ForEach(pulsedHearts) { heart in
+                PulseHeartView()
+            }
+        }.onChange(of: date) { newValue in
+                if beatAnimation {
+                    addPulsedHeart()
+                }
+            }
+
+    }
+    
+    struct PulseHeartView: View {
+        @State private var startAnimation: Bool = false
+        
+        var body: some View {
+            
+            //波纹扩散
+            Circle()
+                   .stroke()
+                   .frame(width: 10, height: 10)
+                   .foregroundColor(.blue)
+                    ///等比例缩放当前的最大尺寸
+                   .scaleEffect(startAnimation ? 30 : 1)
+                   .opacity(startAnimation ? 0 : 1)
+                   .onAppear(perform: {
+                       withAnimation(.linear(duration: 3)) {
+                            startAnimation = true
+                       }
+                   })
+            
+//            Image(systemName: "suit.heart.fill")
+//                .font(.system(size: 100))
+//                .foregroundStyle(.red.gradient)
+//                .background() {
+//                    Image(systemName: "suit.heart.fill")
+//                        .font(.system(size: 100))
+//                        .foregroundStyle(.black.gradient)
+//                        .blur(radius: 5, opaque: false)
+//                        .scaleEffect(startAnimation ? 1.1 : 0)
+//                        .animation(.linear(duration: 1.5), value: startAnimation)
+//                }
+//                .scaleEffect(startAnimation ? 4 : 1)
+//                .opacity(startAnimation ? 0 : 1)
+//                .onAppear(perform: {
+//                    withAnimation(.linear(duration: 3)) {
+//                         startAnimation = true
+//                    }
+//                })
+        }
+    }
+    
+    
 }
 
 struct ConnectBluetoothView_Previews: PreviewProvider {

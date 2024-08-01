@@ -75,7 +75,7 @@ struct youApp: App {
         WindowGroup {
 //            ContentView()
 //              OtherView()
-            SplashView()
+            SplashView().implementPopupView(config: configurePopup)
 //            MindMapView()
 //            AppNavBarView()
                 .environmentObject(sharedData)
@@ -96,3 +96,26 @@ struct youApp: App {
     }
 }
 
+
+//MARK: - 创建Popup的配置内容
+private extension youApp {
+    func configurePopup(_ config: GlobalConfig) -> GlobalConfig { config
+        ///以下配置的是顶部、中间、底部的操作行为
+        .top { $0
+            ///顶部圆角设置
+            .cornerRadius(24)
+            ///是否允许拖拽隐藏
+            .dragGestureEnabled(true)
+        }
+        .centre { $0
+            ///是否允许点击外部隐藏
+            .tapOutsideToDismiss(false)
+        }
+        .bottom { $0
+            .cornerRadius(10)
+            .dragGestureEnabled(false)
+            .tapOutsideToDismiss(true)
+            .stackLimit(4)
+        }
+    }
+}

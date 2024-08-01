@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import LeanCloud
 
 struct UserInfoView: View {
     
@@ -101,22 +102,24 @@ struct UserInfoView: View {
                 
                 //退出功能按钮
                 NavigationLink(
-                    destination: LoginView(),isActive: $isLinkLoginActive) {
-                    Button{
-                        //添加展示动画效果
-                        withAnimation {
-                            isShowOutLoginDialog.toggle()
-                        }
+                    destination: LoginView(),isActive: $isLinkLoginActive) {}
+                
+                Button{
+                    OutLoginPopup(){
+                        //涉及弹窗和页面的跳转，所以这里要额外操作
+                        LCUser.logOut()
                         //跳转完成之后会被重置成false未激活
-//                        isLinkLoginActive = true
-                    }label: {
-                        Text("退出登录").font(.system(size: 16))
-                            .foregroundColor(.black)
-                            .frame(maxWidth: .infinity)
-                            .frame(height:50)
-                            .background(Color(hexString: "#E9E9E9"))
-                            .cornerRadius(12)
-                    }
+                        isLinkLoginActive = true
+                    }.showAndStack()
+
+                    
+                }label: {
+                    Text("退出登录").font(.system(size: 16))
+                        .foregroundColor(.black)
+                        .frame(maxWidth: .infinity)
+                        .frame(height:50)
+                        .background(Color(hexString: "#E9E9E9"))
+                        .cornerRadius(12)
                 }
                 
                 
@@ -153,12 +156,12 @@ struct UserInfoView: View {
             
         }.overlay(content: {
             //覆盖在界面上的弹窗信息
-            if isShowOutLoginDialog{
-                OutLoginDialog(showDialog: $isShowOutLoginDialog){
-                    //退出登录跳转到登录页面
-                    isLinkLoginActive.toggle()
-                }
-            }
+//            if isShowOutLoginDialog{
+//                OutLoginDialog(showDialog: $isShowOutLoginDialog){
+//                    //退出登录跳转到登录页面
+//                    isLinkLoginActive.toggle()
+//                }
+//            }
         }).toast(isPresenting: $showToast, duration: 1.0, tapToDismiss:false){
             AlertToast(type: .regular,title: "保存完成",style: .style(backgroundColor:Color(r: 0, g: 0, b: 0,a: 0.75),titleColor: .white))
             
