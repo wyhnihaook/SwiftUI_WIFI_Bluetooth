@@ -75,7 +75,8 @@ struct youApp: App {
         WindowGroup {
 //            ContentView()
 //              OtherView()
-            SplashView().implementPopupView(config: configurePopup)
+            SplashView()
+                .implementPopupView(config: configurePopup)
 //            MindMapView()
 //            AppNavBarView()
                 .environmentObject(sharedData)

@@ -8,8 +8,16 @@
 import SwiftUI
 
 struct FileView: View {
-    
+    @AppStorage("userScheme") var userTheme: Theme = .systemDefault
+
     @StateObject var fileModel = FileModel()
+    
+    //用来控制菜单栏的展示
+    @Binding var isSidebarVisible : Bool
+    
+    //显示文件列表的来源信息【互相关联同步】
+    @Binding var fileSource : FileSource
+    
     
     var body: some View {
         
@@ -24,7 +32,7 @@ struct FileView: View {
                 
                 Spacer()
                 
-                Text("联系客服").foregroundColor(.black).frame(width: 100,height: 30).background(.white).cornerRadius(5).onTapGesture {
+                Text("联系客服").frame(width: 100,height: 30).cornerRadius(5).onTapGesture {
                     
                 }
             }
@@ -46,10 +54,17 @@ struct FileView: View {
                         Image("icon_menu")
                             .resizable()
                             .frame(width: 30,height: 30).onTapGesture {
-                               
+                                
+                                isSidebarVisible.toggle()
+//                                修改全局的主题色
+//                                if userTheme == .dark{
+//                                    userTheme = .light
+//                                }else{
+//                                    userTheme = .dark
+//                                }
                             }
                         //文本
-                        Text("全部文件(\(fileModel.fileOnCloudList.count + fileModel.fileOnLocalList.count))").font(.system(size: 24))
+                        Text(fileSource.title).font(.system(size: 24))
                             .bold()
                             .foregroundColor(.black)
                     }
@@ -74,12 +89,22 @@ struct FileView: View {
             
             
             
-        }
+        }.onChange(of: fileSource, perform: { newValue in
+            //通过获取变化结果来驱动页面文件检索结果业务
+            self.modifyFileCount(currentFileSource: newValue)
+        })
+        .onChange(of: fileModel.fileOnCloudList.count, perform: { newValue in
+            print("newValue onCloud:\(newValue)")
+            self.modifyFileCount(currentFileSource: fileSource)
+        })
+        .onChange(of: fileModel.fileOnLocalList.count, perform: { newValue in
+            print("newValue onLocal:\(newValue)")
+            self.modifyFileCount(currentFileSource: fileSource)
+        })
         .padding(EdgeInsets(top: 0, leading: 15, bottom: 15, trailing: 15))
-        .background(Color(hexString: "#F6F7F8"))
+//        .background(Color(hexString: "#F6F7F8"))
         .navigationBarHidden(true)
         .navigationBarBackButtonHidden()
-        
         .onAppear{
             //获取云端文件列表
             print("fileModel.fileOnCloudList.isEmpty:\(fileModel.fileOnCloudList.isEmpty)")
@@ -90,13 +115,25 @@ struct FileView: View {
             
         }
     }
+    
+    
+    //MARK: - 监听数据源赋值
+    private func modifyFileCount(currentFileSource: FileSource){
+        print("-----:\(fileModel.fileOnCloudList.count+fileModel.fileOnLocalList.count)")
+        if currentFileSource.type == 1 {
+            fileSource = .ALLFILES(count: fileModel.fileOnCloudList.count + fileModel.fileOnLocalList.count)
+        }else if currentFileSource.type == 2{
+            fileSource = .UNCLASSIFIED(count: fileModel.fileOnCloudList.count + fileModel.fileOnLocalList.count)
+        }
+    }
+    
 }
 
-struct FileView_Previews: PreviewProvider {
-    static var previews: some View {
-        FileView()
-    }
-}
+//struct FileView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        FileView()
+//    }
+//}
 
 //MARK: - 列表中显示的文件信息
 struct FileItem : View{

@@ -151,6 +151,7 @@
 		1CD219512C3D415B00562661 /* MindMapPathView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD219502C3D415B00562661 /* MindMapPathView.swift */; };
 		1CD402B32C40DAF2001EAD8D /* DataUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD402B22C40DAF2001EAD8D /* DataUtil.swift */; };
 		1CE45CDC2C44BF8700017B79 /* FileListOnCloudAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE45CDB2C44BF8700017B79 /* FileListOnCloudAPI.swift */; };
+		1CE469172C5CB79900FB5381 /* SideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE469162C5CB79900FB5381 /* SideMenu.swift */; };
 		1CEA0D622C5789DD00B68446 /* FileDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEA0D612C5789DD00B68446 /* FileDetailModel.swift */; };
 		1CEA0DF12C5A38C000B68446 /* ConnectBluetoothView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEA0DF02C5A38C000B68446 /* ConnectBluetoothView.swift */; };
 		1CEA0DF42C5B622C00B68446 /* SwiftProtobuf in Frameworks */ = {isa = PBXBuildFile; productRef = 1CEA0DF32C5B622C00B68446 /* SwiftProtobuf */; };
@@ -409,6 +410,7 @@
 		1CD219502C3D415B00562661 /* MindMapPathView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MindMapPathView.swift; sourceTree = "<group>"; };
 		1CD402B22C40DAF2001EAD8D /* DataUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataUtil.swift; sourceTree = "<group>"; };
 		1CE45CDB2C44BF8700017B79 /* FileListOnCloudAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileListOnCloudAPI.swift; sourceTree = "<group>"; };
+		1CE469162C5CB79900FB5381 /* SideMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenu.swift; sourceTree = "<group>"; };
 		1CEA0D612C5789DD00B68446 /* FileDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileDetailModel.swift; sourceTree = "<group>"; };
 		1CEA0DF02C5A38C000B68446 /* ConnectBluetoothView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectBluetoothView.swift; sourceTree = "<group>"; };
 		1CEA0DFA2C5B665200B68446 /* Public+View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Public+View.swift"; sourceTree = "<group>"; };
@@ -1301,6 +1303,7 @@
 			isa = PBXGroup;
 			children = (
 				1CEA0E682C5B876800B68446 /* AnimatedSideBar.swift */,
+				1CE469162C5CB79900FB5381 /* SideMenu.swift */,
 			);
 			path = Menu;
 			sourceTree = "<group>";
@@ -1556,6 +1559,7 @@
 				1CBBADDA2C32A8410015DF46 /* TabItemStyle.swift in Sources */,
 				1CD2192E2C3BE6FC00562661 /* CustomTopTabItemStyle.swift in Sources */,
 				1CEC87192C538E5400E5554B /* OutLoginDialog.swift in Sources */,
+				1CE469172C5CB79900FB5381 /* SideMenu.swift in Sources */,
 				1CEA0E2C2C5B665300B68446 /* GlobalConfig.Top.swift in Sources */,
 				1CD2194E2C3D3B3800562661 /* ZoomableImageView.swift in Sources */,
 				1CF298212C3FAAE3002B37A7 /* RequestUtil.swift in Sources */,

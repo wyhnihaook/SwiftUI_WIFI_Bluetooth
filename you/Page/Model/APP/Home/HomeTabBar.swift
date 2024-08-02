@@ -65,7 +65,7 @@ struct HomeTabBarView : View{
                 .frame(width: 28.0, height: 28.0)
             
             Text(item.title)
-                .foregroundColor(isSelected ? .black : .gray)
+//                .foregroundColor(isSelected ? .black : .gray)
                 .font(.system(size: 13))
         }
         .padding(.vertical, 4.0)

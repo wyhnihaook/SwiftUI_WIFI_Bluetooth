@@ -20,6 +20,11 @@ extension Color {
     static let onBackgroundSecondary: Color = .init(hex: 0x6F7278)
     static let onBackgroundTertiary: Color = .init(hex: 0xEEF1F7)
     
+    //主题色
+    static let moon: Color = .init(hex: 0x000000)
+    static let sun: Color = .init(hex: 0xFFFFFF)
+
+    
     var gradient: AngularGradient {
         return AngularGradient(gradient: Gradient(colors: [self]),center: .center)
     }

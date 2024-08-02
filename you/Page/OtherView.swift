@@ -11,7 +11,14 @@ import SwiftUI
 struct OtherView: View {
     @State private var selection = HomeTabBar.file.rawValue
     @State private var showToast = false
-
+    @AppStorage("userScheme") var userTheme: Theme = .systemDefault
+    
+    //抽屉菜单栏显示控制，同步给FileView页面来控制
+    @State private var isSidebarVisible = false
+    
+    //抽屉菜单栏中选中的展示内容【个数通过网络请求后重新赋值】- 内部同步
+    @State private var fileSource : FileSource = .ALLFILES(count: 0)
+    
     var body: some View {
             //【TabBar自定义的控件最大的问题就是不能缓存当前的TabBar页面信息。只能通过系统的TabView结合tag标签来实现。底部自定义，TabView只是作为展示内容的容器】
             ZStack(alignment:Alignment(horizontal: .center, vertical: .bottom)){
@@ -21,7 +28,7 @@ struct OtherView: View {
                 //最后一个tab的.navigationBarTitle("", displayMode: .inline)属性设置至关重要！！！！
                 TabView(selection: $selection) {
                     
-                    FileView().tag(HomeTabBar.file.rawValue)
+                    FileView(isSidebarVisible:$isSidebarVisible, fileSource: $fileSource).tag(HomeTabBar.file.rawValue)
                     MineView().tag(HomeTabBar.mine.rawValue)
                     
                 }.navigationBarHidden(true)
@@ -42,14 +49,16 @@ struct OtherView: View {
                         .onTapGesture {
                             selection = HomeTabBar.mine.rawValue
                         }
-                }.overlay(
+                }
+                //通过主题类型来展示对应的颜色
+                .background(userTheme.tabBgColor).overlay(
                     //overlay在基础视图上叠加额外布局信息
                     
                     //底部占位按钮信息，通过偏移量达到效果
                     ZStack {
                         //底部TabBar的自定义高度为50.这里设置80后自动顶出位置
                         Circle()
-                            .foregroundColor(.white)
+//                            .foregroundColor(.white)
                             .frame(width: 54.0, height: 54.0)
 
                         Image("icon_mic")
@@ -59,9 +68,11 @@ struct OtherView: View {
                         .offset(x:0,y:-15),alignment: .top)
                 
                 
-                
+                SideMenu(isSidebarVisible: $isSidebarVisible, fileSource:$fileSource)
                 
             }.navigationBarHidden(true)
+        //应用的主题色设置，脱离系统控制
+        .preferredColorScheme(userTheme.colorCheme)
             .toast(isPresenting: $showToast, duration: 2.0, tapToDismiss:false){
                 AlertToast(type: .regular,title: "保存完成",style: .style(backgroundColor:Color(r: 0, g: 0, b: 0,a: 0.75),titleColor: .white))
 
