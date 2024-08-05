@@ -16,7 +16,7 @@ struct OtherView: View {
     //抽屉菜单栏显示控制，同步给FileView页面来控制
     @State private var isSidebarVisible = false
     
-    //抽屉菜单栏中选中的展示内容【个数通过网络请求后重新赋值】- 内部同步
+    //抽屉菜单栏中选中的展示内容【个数通过网络请求后重新赋值】- 内部同步【实际上要在这里同步全部文件个数 + 未分类个数】内部创建对应的文件夹进行存放
     @State private var fileSource : FileSource = .ALLFILES(count: 0)
     
     var body: some View {

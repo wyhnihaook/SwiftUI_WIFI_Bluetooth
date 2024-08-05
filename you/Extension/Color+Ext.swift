@@ -23,6 +23,12 @@ extension Color {
     //主题色
     static let moon: Color = .init(hex: 0x000000)
     static let sun: Color = .init(hex: 0xFFFFFF)
+    
+    //颜色内容
+    static let color_f6f7f9: Color = .init(hex: 0xF6F7F9)
+    static let color_d7e8f0: Color = .init(hex: 0xd7e8f0)
+
+    
 
     
     var gradient: AngularGradient {

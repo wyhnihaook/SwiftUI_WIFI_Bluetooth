@@ -113,6 +113,7 @@ struct FileView: View {
                 fileModel.getFileDatabase()
             }
             
+            FastTransmitPopup().showAndStack()
         }
     }
     

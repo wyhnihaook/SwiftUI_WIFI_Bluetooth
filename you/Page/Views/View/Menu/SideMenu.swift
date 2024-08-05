@@ -104,7 +104,9 @@ struct SideMenu: View {
                    isSidebarVisible.toggle()
                }
             
+            
                 content
+
            }
             //忽略安全距离，撑满全屏。设置后，内部的子视图无法通过GeometryReader来获取安全距离
            .edgesIgnoringSafeArea(.all)
@@ -209,10 +211,10 @@ struct FileSourceView : View{
         Group{
             //直接在if else 结尾处添加共有属性会提示不存在，所以使用Group包裹一层处理
             if fileSource.icon.isEmpty{
-                Text(fileSource.title).font(.system(size:14)).frame(maxWidth:.infinity,alignment: .leading)
+                Text(fileSource.type == checkFileSource.type ? checkFileSource.title : fileSource.title).font(.system(size:14)).frame(maxWidth:.infinity,alignment: .leading)
             }else{
                 Label {
-                    Text(fileSource.title).font(.system(size:14)).frame(maxWidth:.infinity,alignment: .leading)
+                    Text(fileSource.type == checkFileSource.type ? checkFileSource.title :fileSource.title).font(.system(size:14)).frame(maxWidth:.infinity,alignment: .leading)
                 } icon: {
                     Image(systemName: fileSource.icon)
                 }

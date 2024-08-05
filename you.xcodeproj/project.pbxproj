@@ -150,6 +150,27 @@
 		1CD2194E2C3D3B3800562661 /* ZoomableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD2194D2C3D3B3800562661 /* ZoomableImageView.swift */; };
 		1CD219512C3D415B00562661 /* MindMapPathView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD219502C3D415B00562661 /* MindMapPathView.swift */; };
 		1CD402B32C40DAF2001EAD8D /* DataUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD402B22C40DAF2001EAD8D /* DataUtil.swift */; };
+		1CDEE4B92C607E4900E3DC68 /* FastTransmitPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDEE4B82C607E4900E3DC68 /* FastTransmitPopup.swift */; };
+		1CDEE4BB2C60A84500E3DC68 /* FastConnectPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDEE4BA2C60A84400E3DC68 /* FastConnectPopup.swift */; };
+		1CDEE4BD2C60AF3000E3DC68 /* FastConnectStatusPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDEE4BC2C60AF3000E3DC68 /* FastConnectStatusPopup.swift */; };
+		1CDEE4C02C60C1A800E3DC68 /* ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDEE4BF2C60C1A800E3DC68 /* ActivityIndicatorView.swift */; };
+		1CDEE4CC2C60C1D900E3DC68 /* ArcsIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDEE4C22C60C1D700E3DC68 /* ArcsIndicatorView.swift */; };
+		1CDEE4CD2C60C1D900E3DC68 /* ScalingDotsIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDEE4C32C60C1D700E3DC68 /* ScalingDotsIndicatorView.swift */; };
+		1CDEE4CE2C60C1D900E3DC68 /* DefaultIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDEE4C42C60C1D700E3DC68 /* DefaultIndicatorView.swift */; };
+		1CDEE4CF2C60C1D900E3DC68 /* FlickeringDotsIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDEE4C52C60C1D700E3DC68 /* FlickeringDotsIndicatorView.swift */; };
+		1CDEE4D02C60C1D900E3DC68 /* RotatingDotsIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDEE4C62C60C1D800E3DC68 /* RotatingDotsIndicatorView.swift */; };
+		1CDEE4D12C60C1D900E3DC68 /* OpacityDotsIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDEE4C72C60C1D800E3DC68 /* OpacityDotsIndicatorView.swift */; };
+		1CDEE4D22C60C1D900E3DC68 /* GradientIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDEE4C82C60C1D800E3DC68 /* GradientIndicatorView.swift */; };
+		1CDEE4D32C60C1D900E3DC68 /* EqualizerIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDEE4C92C60C1D900E3DC68 /* EqualizerIndicatorView.swift */; };
+		1CDEE4D42C60C1D900E3DC68 /* GrowingArcIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDEE4CA2C60C1D900E3DC68 /* GrowingArcIndicatorView.swift */; };
+		1CDEE4D52C60C1D900E3DC68 /* GrowingCircleIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDEE4CB2C60C1D900E3DC68 /* GrowingCircleIndicatorView.swift */; };
+		1CDEE4D72C60C44900E3DC68 /* FastTransmissionProgressPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDEE4D62C60C44900E3DC68 /* FastTransmissionProgressPopup.swift */; };
+		1CDEE4DA2C60C6FA00E3DC68 /* ProgressIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDEE4D92C60C6FA00E3DC68 /* ProgressIndicatorView.swift */; };
+		1CDEE4E12C60C71000E3DC68 /* DashBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDEE4DC2C60C70F00E3DC68 /* DashBarView.swift */; };
+		1CDEE4E22C60C71000E3DC68 /* ImpulseBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDEE4DD2C60C71000E3DC68 /* ImpulseBarView.swift */; };
+		1CDEE4E32C60C71000E3DC68 /* DefaultSectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDEE4DE2C60C71000E3DC68 /* DefaultSectorView.swift */; };
+		1CDEE4E42C60C71000E3DC68 /* BarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDEE4DF2C60C71000E3DC68 /* BarView.swift */; };
+		1CDEE4E52C60C71000E3DC68 /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDEE4E02C60C71000E3DC68 /* CircleView.swift */; };
 		1CE45CDC2C44BF8700017B79 /* FileListOnCloudAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE45CDB2C44BF8700017B79 /* FileListOnCloudAPI.swift */; };
 		1CE469172C5CB79900FB5381 /* SideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE469162C5CB79900FB5381 /* SideMenu.swift */; };
 		1CEA0D622C5789DD00B68446 /* FileDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEA0D612C5789DD00B68446 /* FileDetailModel.swift */; };
@@ -409,6 +430,27 @@
 		1CD2194D2C3D3B3800562661 /* ZoomableImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomableImageView.swift; sourceTree = "<group>"; };
 		1CD219502C3D415B00562661 /* MindMapPathView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MindMapPathView.swift; sourceTree = "<group>"; };
 		1CD402B22C40DAF2001EAD8D /* DataUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataUtil.swift; sourceTree = "<group>"; };
+		1CDEE4B82C607E4900E3DC68 /* FastTransmitPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastTransmitPopup.swift; sourceTree = "<group>"; };
+		1CDEE4BA2C60A84400E3DC68 /* FastConnectPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastConnectPopup.swift; sourceTree = "<group>"; };
+		1CDEE4BC2C60AF3000E3DC68 /* FastConnectStatusPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastConnectStatusPopup.swift; sourceTree = "<group>"; };
+		1CDEE4BF2C60C1A800E3DC68 /* ActivityIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorView.swift; sourceTree = "<group>"; };
+		1CDEE4C22C60C1D700E3DC68 /* ArcsIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArcsIndicatorView.swift; sourceTree = "<group>"; };
+		1CDEE4C32C60C1D700E3DC68 /* ScalingDotsIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScalingDotsIndicatorView.swift; sourceTree = "<group>"; };
+		1CDEE4C42C60C1D700E3DC68 /* DefaultIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultIndicatorView.swift; sourceTree = "<group>"; };
+		1CDEE4C52C60C1D700E3DC68 /* FlickeringDotsIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickeringDotsIndicatorView.swift; sourceTree = "<group>"; };
+		1CDEE4C62C60C1D800E3DC68 /* RotatingDotsIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RotatingDotsIndicatorView.swift; sourceTree = "<group>"; };
+		1CDEE4C72C60C1D800E3DC68 /* OpacityDotsIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpacityDotsIndicatorView.swift; sourceTree = "<group>"; };
+		1CDEE4C82C60C1D800E3DC68 /* GradientIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientIndicatorView.swift; sourceTree = "<group>"; };
+		1CDEE4C92C60C1D900E3DC68 /* EqualizerIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EqualizerIndicatorView.swift; sourceTree = "<group>"; };
+		1CDEE4CA2C60C1D900E3DC68 /* GrowingArcIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GrowingArcIndicatorView.swift; sourceTree = "<group>"; };
+		1CDEE4CB2C60C1D900E3DC68 /* GrowingCircleIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GrowingCircleIndicatorView.swift; sourceTree = "<group>"; };
+		1CDEE4D62C60C44900E3DC68 /* FastTransmissionProgressPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastTransmissionProgressPopup.swift; sourceTree = "<group>"; };
+		1CDEE4D92C60C6FA00E3DC68 /* ProgressIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressIndicatorView.swift; sourceTree = "<group>"; };
+		1CDEE4DC2C60C70F00E3DC68 /* DashBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashBarView.swift; sourceTree = "<group>"; };
+		1CDEE4DD2C60C71000E3DC68 /* ImpulseBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImpulseBarView.swift; sourceTree = "<group>"; };
+		1CDEE4DE2C60C71000E3DC68 /* DefaultSectorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultSectorView.swift; sourceTree = "<group>"; };
+		1CDEE4DF2C60C71000E3DC68 /* BarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarView.swift; sourceTree = "<group>"; };
+		1CDEE4E02C60C71000E3DC68 /* CircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 		1CE45CDB2C44BF8700017B79 /* FileListOnCloudAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileListOnCloudAPI.swift; sourceTree = "<group>"; };
 		1CE469162C5CB79900FB5381 /* SideMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenu.swift; sourceTree = "<group>"; };
 		1CEA0D612C5789DD00B68446 /* FileDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileDetailModel.swift; sourceTree = "<group>"; };
@@ -1107,6 +1149,53 @@
 			path = MindMap;
 			sourceTree = "<group>";
 		};
+		1CDEE4BE2C60C19500E3DC68 /* Indicators */ = {
+			isa = PBXGroup;
+			children = (
+				1CDEE4C12C60C1B900E3DC68 /* Category */,
+				1CDEE4BF2C60C1A800E3DC68 /* ActivityIndicatorView.swift */,
+			);
+			path = Indicators;
+			sourceTree = "<group>";
+		};
+		1CDEE4C12C60C1B900E3DC68 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				1CDEE4C22C60C1D700E3DC68 /* ArcsIndicatorView.swift */,
+				1CDEE4C42C60C1D700E3DC68 /* DefaultIndicatorView.swift */,
+				1CDEE4C92C60C1D900E3DC68 /* EqualizerIndicatorView.swift */,
+				1CDEE4C52C60C1D700E3DC68 /* FlickeringDotsIndicatorView.swift */,
+				1CDEE4C82C60C1D800E3DC68 /* GradientIndicatorView.swift */,
+				1CDEE4CA2C60C1D900E3DC68 /* GrowingArcIndicatorView.swift */,
+				1CDEE4CB2C60C1D900E3DC68 /* GrowingCircleIndicatorView.swift */,
+				1CDEE4C72C60C1D800E3DC68 /* OpacityDotsIndicatorView.swift */,
+				1CDEE4C62C60C1D800E3DC68 /* RotatingDotsIndicatorView.swift */,
+				1CDEE4C32C60C1D700E3DC68 /* ScalingDotsIndicatorView.swift */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		1CDEE4D82C60C6E200E3DC68 /* Progress */ = {
+			isa = PBXGroup;
+			children = (
+				1CDEE4DB2C60C70600E3DC68 /* Category */,
+				1CDEE4D92C60C6FA00E3DC68 /* ProgressIndicatorView.swift */,
+			);
+			path = Progress;
+			sourceTree = "<group>";
+		};
+		1CDEE4DB2C60C70600E3DC68 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				1CDEE4DF2C60C71000E3DC68 /* BarView.swift */,
+				1CDEE4E02C60C71000E3DC68 /* CircleView.swift */,
+				1CDEE4DC2C60C70F00E3DC68 /* DashBarView.swift */,
+				1CDEE4DE2C60C71000E3DC68 /* DefaultSectorView.swift */,
+				1CDEE4DD2C60C71000E3DC68 /* ImpulseBarView.swift */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
 		1CEA0DEF2C5A388600B68446 /* ConnectBluetooth */ = {
 			isa = PBXGroup;
 			children = (
@@ -1295,6 +1384,10 @@
 			isa = PBXGroup;
 			children = (
 				1CEA0E652C5B6A8100B68446 /* OutLoginPopup.swift */,
+				1CDEE4B82C607E4900E3DC68 /* FastTransmitPopup.swift */,
+				1CDEE4BA2C60A84400E3DC68 /* FastConnectPopup.swift */,
+				1CDEE4BC2C60AF3000E3DC68 /* FastConnectStatusPopup.swift */,
+				1CDEE4D62C60C44900E3DC68 /* FastTransmissionProgressPopup.swift */,
 			);
 			path = Bottom;
 			sourceTree = "<group>";
@@ -1333,6 +1426,8 @@
 		1CEC86EC2C4F59BE00E5554B /* Widget */ = {
 			isa = PBXGroup;
 			children = (
+				1CDEE4D82C60C6E200E3DC68 /* Progress */,
+				1CDEE4BE2C60C19500E3DC68 /* Indicators */,
 				1CEC870C2C534D6600E5554B /* AlertToast */,
 				1CEC86ED2C4F5A3E00E5554B /* OverlayWidget.swift */,
 				1CEC87002C524D1100E5554B /* ImageCameraPicker.swift */,
@@ -1572,6 +1667,7 @@
 				1C5FFBD82C37FB8F00C0A117 /* AudioCompletionHandlerConductor.swift in Sources */,
 				1CEC87072C525B7700E5554B /* EditUsernameView.swift in Sources */,
 				1CF2980F2C3F81B6002B37A7 /* NetworkBaseRequest.swift in Sources */,
+				1CDEE4C02C60C1A800E3DC68 /* ActivityIndicatorView.swift in Sources */,
 				1CEA0E332C5B665300B68446 /* AnimationType.swift in Sources */,
 				1CD057802C32A5230002E58D /* Tabbable.swift in Sources */,
 				1CEC87102C534DAD00E5554B /* BlurView.swift in Sources */,
@@ -1583,7 +1679,10 @@
 				1CD219332C3BE8BE00562661 /* SummarizeView.swift in Sources */,
 				1CEC86EE2C4F5A3E00E5554B /* OverlayWidget.swift in Sources */,
 				1C9FCBDA2C2D5D190013163C /* BluetoothBaseManager.swift in Sources */,
+				1CDEE4BD2C60AF3000E3DC68 /* FastConnectStatusPopup.swift in Sources */,
 				1CC8FDF62C37E35A00C35F7C /* AudioWaveView.swift in Sources */,
+				1CDEE4D02C60C1D900E3DC68 /* RotatingDotsIndicatorView.swift in Sources */,
+				1CDEE4D32C60C1D900E3DC68 /* EqualizerIndicatorView.swift in Sources */,
 				1CEC87092C525BD800E5554B /* EditModel.swift in Sources */,
 				1C9FCBD82C2D44B70013163C /* BluetoothInfoData.swift in Sources */,
 				1CEC87122C534DFA00E5554B /* AlertToast.swift in Sources */,
@@ -1593,6 +1692,7 @@
 				1CEA0E3E2C5B665300B68446 /* PopupCentreStackView.swift in Sources */,
 				1C11FBCC2C2A6FF40087C39F /* ContentView.swift in Sources */,
 				1CEA0E242C5B665300B68446 /* Public+PopupManager.swift in Sources */,
+				1CDEE4D22C60C1D900E3DC68 /* GradientIndicatorView.swift in Sources */,
 				1CEA0E382C5B665300B68446 /* Array++.swift in Sources */,
 				1C037E8B2C36A9FF00EB56F5 /* DataPoint.swift in Sources */,
 				1CF298112C3F8341002B37A7 /* NetworkConfiguration.swift in Sources */,
@@ -1600,6 +1700,7 @@
 				1CC8FE0E2C37EE1900C35F7C /* MinimapView.swift in Sources */,
 				1CF298082C3F7DF5002B37A7 /* NetworkRequestHelper.swift in Sources */,
 				1CEA0E3A2C5B665300B68446 /* View.ScreenManager++.swift in Sources */,
+				1CDEE4CE2C60C1D900E3DC68 /* DefaultIndicatorView.swift in Sources */,
 				1C037E862C36A64100EB56F5 /* AudioViewModel.swift in Sources */,
 				1CEA0E352C5B665300B68446 /* Int++.swift in Sources */,
 				1CD2194C2C3D3AFB00562661 /* ZoomableModifier.swift in Sources */,
@@ -1608,6 +1709,7 @@
 				1CD2194A2C3D3AE300562661 /* ZoomableView.swift in Sources */,
 				1CBBADE32C32AA6B0015DF46 /* CustomTabBarStyle.swift in Sources */,
 				1C11FBDB2C2A71B70087C39F /* PageRow.swift in Sources */,
+				1CDEE4B92C607E4900E3DC68 /* FastTransmitPopup.swift in Sources */,
 				1CEC86F92C50F15500E5554B /* PushView.swift in Sources */,
 				1CF297F22C3E7686002B37A7 /* TextSizeView.swift in Sources */,
 				1CEC86FF2C52462B00E5554B /* UserModel.swift in Sources */,
@@ -1616,6 +1718,7 @@
 				1C9A06372C3FDFE00028DFB2 /* FileModel.swift in Sources */,
 				1CEA0E402C5B665300B68446 /* Configurable.swift in Sources */,
 				1CEA0E452C5B688300B68446 /* Spacer+Ext.swift in Sources */,
+				1CDEE4D42C60C1D900E3DC68 /* GrowingArcIndicatorView.swift in Sources */,
 				1CD402B32C40DAF2001EAD8D /* DataUtil.swift in Sources */,
 				1CEA0E342C5B665300B68446 /* Animation++.swift in Sources */,
 				1C9FC9E12C2BC1D10013163C /* PersistentStorageManager.swift in Sources */,
@@ -1624,11 +1727,13 @@
 				1CEA0E622C5B699900B68446 /* Font+Ext.swift in Sources */,
 				1CEA0DF12C5A38C000B68446 /* ConnectBluetoothView.swift in Sources */,
 				1CBBADDF2C32A8E40015DF46 /* TabBar.swift in Sources */,
+				1CDEE4DA2C60C6FA00E3DC68 /* ProgressIndicatorView.swift in Sources */,
 				1CD219472C3D263600562661 /* AudioSummarize.swift in Sources */,
 				1CBBADE72C32AE120015DF46 /* CustomTabItemNormalStyle.swift in Sources */,
 				1CEC86E22C4E42D800E5554B /* BaseModel.swift in Sources */,
 				1C9FCBD42C2D413C0013163C /* BluetoothDataView.swift in Sources */,
 				1C9A06392C3FE9030028DFB2 /* DateUtil.swift in Sources */,
+				1CDEE4D12C60C1D900E3DC68 /* OpacityDotsIndicatorView.swift in Sources */,
 				1CEA0E282C5B665300B68446 /* GlobalConfig.Centre.swift in Sources */,
 				1CBBADE52C32AD100015DF46 /* CustomTabBarWhiteStyle.swift in Sources */,
 				1CF298162C3FA941002B37A7 /* RequestSpec.swift in Sources */,
@@ -1646,6 +1751,7 @@
 				1CEA0E312C5B665300B68446 /* Shadow.swift in Sources */,
 				1CEC87142C53859000E5554B /* ModifyPasswordView.swift in Sources */,
 				1CEA0E302C5B665300B68446 /* GlobalConfig.swift in Sources */,
+				1CDEE4D72C60C44900E3DC68 /* FastTransmissionProgressPopup.swift in Sources */,
 				1CEA0E412C5B665300B68446 /* Popup.swift in Sources */,
 				1CD057842C32A5D40002E58D /* TabBarPreferenceKey.swift in Sources */,
 				1CBBADE92C33ACCE0015DF46 /* Color+Ext.swift in Sources */,
@@ -1653,14 +1759,17 @@
 				1CBBADD82C32A8200015DF46 /* DefaultTabItemStyle.swift in Sources */,
 				1CEC87162C53876800E5554B /* ModifyPasswordModel.swift in Sources */,
 				1C74F0B82C4A467C00D10FE0 /* LeanCloudView.swift in Sources */,
+				1CDEE4E12C60C71000E3DC68 /* DashBarView.swift in Sources */,
 				1CEC87052C525A4400E5554B /* MineModel.swift in Sources */,
 				1CEA0E2A2C5B665300B68446 /* LocalConfig.BottomPopup.swift in Sources */,
 				1CEC86EB2C4E5F3F00E5554B /* AccountOperationModel.swift in Sources */,
+				1CDEE4BB2C60A84500E3DC68 /* FastConnectPopup.swift in Sources */,
 				1C3A02052C45251C00960F0E /* ApplePayUtil.swift in Sources */,
 				1CEA0E492C5B68CF00B68446 /* Screen+Ext.swift in Sources */,
 				1C11FBDE2C2A753D0087C39F /* View+Ext.swift in Sources */,
 				1CEA0E432C5B665300B68446 /* RoundedCorner.swift in Sources */,
 				1CEA0E662C5B6A8100B68446 /* OutLoginPopup.swift in Sources */,
+				1CDEE4E32C60C71000E3DC68 /* DefaultSectorView.swift in Sources */,
 				1CEA0E252C5B665300B68446 /* Public+Popup.swift in Sources */,
 				1CEA0E2E2C5B665300B68446 /* ScreenManager.swift in Sources */,
 				1CBBADDD2C32A8630015DF46 /* AnyTabItemStyle.swift in Sources */,
@@ -1670,6 +1779,8 @@
 				1CEA0E2D2C5B665300B68446 /* KeyboardManager.swift in Sources */,
 				1CEA0E3F2C5B665300B68446 /* PopupStack.swift in Sources */,
 				1CBBADEB2C33D9720015DF46 /* NonBouncyScrollView.swift in Sources */,
+				1CDEE4E52C60C71000E3DC68 /* CircleView.swift in Sources */,
+				1CDEE4E22C60C71000E3DC68 /* ImpulseBarView.swift in Sources */,
 				1CBBADEF2C33FE040015DF46 /* UserInfoView.swift in Sources */,
 				1CEC86FD2C50FE1B00E5554B /* PopView.swift in Sources */,
 				1C9FCBCC2C2C10660013163C /* BluetoothManager.swift in Sources */,
@@ -1679,6 +1790,7 @@
 				1CEC87012C524D1100E5554B /* ImageCameraPicker.swift in Sources */,
 				1CF298142C3FA7F7002B37A7 /* ExampleInterceptor.swift in Sources */,
 				1CBBADE12C32AA390015DF46 /* CustomTabItemStyle.swift in Sources */,
+				1CDEE4CC2C60C1D900E3DC68 /* ArcsIndicatorView.swift in Sources */,
 				1CD0578A2C32A69F0002E58D /* AnyTabBarStyle.swift in Sources */,
 				1CF62AEA2C3FD239000D2CA7 /* AudioDownloadAPI.swift in Sources */,
 				1C037E832C36A61000EB56F5 /* AudioData.swift in Sources */,
@@ -1687,9 +1799,12 @@
 				1CEA0E232C5B665300B68446 /* Public+View.swift in Sources */,
 				1C11FBD92C2A714F0087C39F /* WiFiView.swift in Sources */,
 				1CEC871B2C53A2F200E5554B /* LeanCloudUtil.swift in Sources */,
+				1CDEE4E42C60C71000E3DC68 /* BarView.swift in Sources */,
 				1CF2980D2C3F80E8002B37A7 /* NetworkManager.swift in Sources */,
+				1CDEE4CD2C60C1D900E3DC68 /* ScalingDotsIndicatorView.swift in Sources */,
 				1C037E282C3644E300EB56F5 /* FileData.swift in Sources */,
 				1CD219402C3D05E200562661 /* HomeTabBar.swift in Sources */,
+				1CDEE4CF2C60C1D900E3DC68 /* FlickeringDotsIndicatorView.swift in Sources */,
 				1CEC86F72C50F0FB00E5554B /* NavigationStackView.swift in Sources */,
 				1C9FC9E32C2BED8E0013163C /* BluetoothView.swift in Sources */,
 				1CEA0E3B2C5B665300B68446 /* PopupTopStackView.swift in Sources */,
@@ -1701,6 +1816,7 @@
 				1CEA0E3D2C5B665300B68446 /* PopupView.swift in Sources */,
 				1C037E312C36524000EB56F5 /* ScalingHeaderScrollViewDelegate.swift in Sources */,
 				1CEC86E52C4E436600E5554B /* LoginModel.swift in Sources */,
+				1CDEE4D52C60C1D900E3DC68 /* GrowingCircleIndicatorView.swift in Sources */,
 				1C9FCBD62C2D42CB0013163C /* BluetoothDataManager.swift in Sources */,
 				1C037E1A2C354AAD00EB56F5 /* AboutUsView.swift in Sources */,
 				1C037E1D2C35552E00EB56F5 /* LoginView.swift in Sources */,

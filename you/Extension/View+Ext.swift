@@ -56,3 +56,54 @@ extension View {
         buttonStyle(ButtonPressStyle())
     }
 }
+
+
+//MARK: - 弹窗标题栏样式
+struct PopupTitleStyle : ViewModifier{
+  
+    func body(content: Content) -> some View {
+        content.font(.system(size: 18)).foregroundColor(.black)
+    }
+}
+
+//MARK: - 弹窗描述内容
+struct PopupDescStyle : ViewModifier{
+  
+    func body(content: Content) -> some View {
+        content.font(.system(size: 16)).foregroundColor(.black).frame(maxWidth:.infinity,alignment: .leading)
+    }
+}
+
+//MARK: - 弹窗提示内容
+struct PopupContentStyle : ViewModifier{
+  
+    func body(content: Content) -> some View {
+        content.font(.system(size: 12)).foregroundColor(.gray).frame(maxWidth:.infinity,alignment: .leading)
+    }
+}
+
+
+
+struct SizeGetter: ViewModifier {
+    @Binding var size: CGSize
+
+    func body(content: Content) -> some View {
+        content
+            .background(
+                GeometryReader { proxy -> Color in
+                    if proxy.size != self.size {
+                        DispatchQueue.main.async {
+                            self.size = proxy.size
+                        }
+                    }
+                    return Color.clear
+                }
+            )
+    }
+}
+
+extension View {
+    public func sizeGetter(_ size: Binding<CGSize>) -> some View {
+        modifier(SizeGetter(size: size))
+    }
+}
