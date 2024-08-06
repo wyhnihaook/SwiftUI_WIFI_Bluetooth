@@ -31,6 +31,8 @@
 		1C11FBDB2C2A71B70087C39F /* PageRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C11FBDA2C2A71B70087C39F /* PageRow.swift */; };
 		1C11FBDE2C2A753D0087C39F /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C11FBDD2C2A753D0087C39F /* View+Ext.swift */; };
 		1C11FBE12C2A77A70087C39F /* NetworkUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C11FBE02C2A77A70087C39F /* NetworkUtil.swift */; };
+		1C241D382C62166300328AFD /* FileSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C241D372C62166300328AFD /* FileSearchView.swift */; };
+		1C241D3B2C6216CF00328AFD /* FileSearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C241D3A2C6216CF00328AFD /* FileSearchModel.swift */; };
 		1C3A02052C45251C00960F0E /* ApplePayUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C3A02042C45251C00960F0E /* ApplePayUtil.swift */; };
 		1C3A02072C45271900960F0E /* ApplePayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C3A02062C45271900960F0E /* ApplePayView.swift */; };
 		1C4B6EDC2C2A9A3B0095D27D /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4B6EDB2C2A9A3B0095D27D /* LocationManager.swift */; };
@@ -249,6 +251,7 @@
 		1CEC87162C53876800E5554B /* ModifyPasswordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEC87152C53876800E5554B /* ModifyPasswordModel.swift */; };
 		1CEC87192C538E5400E5554B /* OutLoginDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEC87182C538E5400E5554B /* OutLoginDialog.swift */; };
 		1CEC871B2C53A2F200E5554B /* LeanCloudUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEC871A2C53A2F200E5554B /* LeanCloudUtil.swift */; };
+		1CEEE06E2C620F47001484AC /* FileFilterCreateTimePopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEEE06D2C620F47001484AC /* FileFilterCreateTimePopup.swift */; };
 		1CF297F22C3E7686002B37A7 /* TextSizeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF297F12C3E7686002B37A7 /* TextSizeView.swift */; };
 		1CF297F42C3E93DB002B37A7 /* AudioMindMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF297F32C3E93DB002B37A7 /* AudioMindMap.swift */; };
 		1CF298062C3F7B0D002B37A7 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 1CF298052C3F7B0D002B37A7 /* Alamofire */; };
@@ -314,6 +317,8 @@
 		1C11FBDD2C2A753D0087C39F /* View+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Ext.swift"; sourceTree = "<group>"; };
 		1C11FBE02C2A77A70087C39F /* NetworkUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkUtil.swift; sourceTree = "<group>"; };
 		1C11FBE22C2A92290087C39F /* you.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = you.entitlements; sourceTree = "<group>"; };
+		1C241D372C62166300328AFD /* FileSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileSearchView.swift; sourceTree = "<group>"; };
+		1C241D3A2C6216CF00328AFD /* FileSearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileSearchModel.swift; sourceTree = "<group>"; };
 		1C3A02042C45251C00960F0E /* ApplePayUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplePayUtil.swift; sourceTree = "<group>"; };
 		1C3A02062C45271900960F0E /* ApplePayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplePayView.swift; sourceTree = "<group>"; };
 		1C4B6EDB2C2A9A3B0095D27D /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
@@ -527,6 +532,7 @@
 		1CEC87152C53876800E5554B /* ModifyPasswordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifyPasswordModel.swift; sourceTree = "<group>"; };
 		1CEC87182C538E5400E5554B /* OutLoginDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutLoginDialog.swift; sourceTree = "<group>"; };
 		1CEC871A2C53A2F200E5554B /* LeanCloudUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeanCloudUtil.swift; sourceTree = "<group>"; };
+		1CEEE06D2C620F47001484AC /* FileFilterCreateTimePopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileFilterCreateTimePopup.swift; sourceTree = "<group>"; };
 		1CF297F12C3E7686002B37A7 /* TextSizeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextSizeView.swift; sourceTree = "<group>"; };
 		1CF297F32C3E93DB002B37A7 /* AudioMindMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioMindMap.swift; sourceTree = "<group>"; };
 		1CF298072C3F7DF5002B37A7 /* NetworkRequestHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequestHelper.swift; sourceTree = "<group>"; };
@@ -624,6 +630,7 @@
 		1C037E222C36447800EB56F5 /* APP */ = {
 			isa = PBXGroup;
 			children = (
+				1C241D392C6216C200328AFD /* FileSearch */,
 				1CEC86E32C4E435500E5554B /* Account */,
 				1CD219432C3D1E7100562661 /* Detail */,
 				1CD2193E2C3D05D200562661 /* Home */,
@@ -795,6 +802,22 @@
 				1CEC871A2C53A2F200E5554B /* LeanCloudUtil.swift */,
 			);
 			path = Util;
+			sourceTree = "<group>";
+		};
+		1C241D362C62165000328AFD /* FileSearch */ = {
+			isa = PBXGroup;
+			children = (
+				1C241D372C62166300328AFD /* FileSearchView.swift */,
+			);
+			path = FileSearch;
+			sourceTree = "<group>";
+		};
+		1C241D392C6216C200328AFD /* FileSearch */ = {
+			isa = PBXGroup;
+			children = (
+				1C241D3A2C6216CF00328AFD /* FileSearchModel.swift */,
+			);
+			path = FileSearch;
 			sourceTree = "<group>";
 		};
 		1C4B6EDA2C2A9A2F0095D27D /* Manager */ = {
@@ -1006,6 +1029,7 @@
 		1C9FCBE12C2EBB9B0013163C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1C241D362C62165000328AFD /* FileSearch */,
 				1CEA0DEF2C5A388600B68446 /* ConnectBluetooth */,
 				1CEC87172C538E3800E5554B /* Dialog */,
 				1CEC86EC2C4F59BE00E5554B /* Widget */,
@@ -1388,6 +1412,7 @@
 				1CDEE4BA2C60A84400E3DC68 /* FastConnectPopup.swift */,
 				1CDEE4BC2C60AF3000E3DC68 /* FastConnectStatusPopup.swift */,
 				1CDEE4D62C60C44900E3DC68 /* FastTransmissionProgressPopup.swift */,
+				1CEEE06D2C620F47001484AC /* FileFilterCreateTimePopup.swift */,
 			);
 			path = Bottom;
 			sourceTree = "<group>";
@@ -1702,6 +1727,7 @@
 				1CEA0E3A2C5B665300B68446 /* View.ScreenManager++.swift in Sources */,
 				1CDEE4CE2C60C1D900E3DC68 /* DefaultIndicatorView.swift in Sources */,
 				1C037E862C36A64100EB56F5 /* AudioViewModel.swift in Sources */,
+				1CEEE06E2C620F47001484AC /* FileFilterCreateTimePopup.swift in Sources */,
 				1CEA0E352C5B665300B68446 /* Int++.swift in Sources */,
 				1CD2194C2C3D3AFB00562661 /* ZoomableModifier.swift in Sources */,
 				1CEC86F02C50A08100E5554B /* ResultView.swift in Sources */,
@@ -1713,6 +1739,7 @@
 				1CEC86F92C50F15500E5554B /* PushView.swift in Sources */,
 				1CF297F22C3E7686002B37A7 /* TextSizeView.swift in Sources */,
 				1CEC86FF2C52462B00E5554B /* UserModel.swift in Sources */,
+				1C241D3B2C6216CF00328AFD /* FileSearchModel.swift in Sources */,
 				1CEC870E2C534D7C00E5554B /* ActivityIndicator.swift in Sources */,
 				1CEC87032C52521000E5554B /* ImagePhotoPicker.swift in Sources */,
 				1C9A06372C3FDFE00028DFB2 /* FileModel.swift in Sources */,
@@ -1790,6 +1817,7 @@
 				1CEC87012C524D1100E5554B /* ImageCameraPicker.swift in Sources */,
 				1CF298142C3FA7F7002B37A7 /* ExampleInterceptor.swift in Sources */,
 				1CBBADE12C32AA390015DF46 /* CustomTabItemStyle.swift in Sources */,
+				1C241D382C62166300328AFD /* FileSearchView.swift in Sources */,
 				1CDEE4CC2C60C1D900E3DC68 /* ArcsIndicatorView.swift in Sources */,
 				1CD0578A2C32A69F0002E58D /* AnyTabBarStyle.swift in Sources */,
 				1CF62AEA2C3FD239000D2CA7 /* AudioDownloadAPI.swift in Sources */,

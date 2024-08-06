@@ -127,15 +127,17 @@ struct SideMenu: View {
                            Spacer.height(Screen.safeArea.top)
                            
                            //搜索提示
-                           Label {
-                               Text("在所有文件中搜索").font(.system(size:14)).frame(maxWidth:.infinity,alignment: .leading)
-                           } icon: {
-                             Image(systemName: "arkit")
-                           }.padding(.horizontal, 10)
-                           .frame(maxWidth:.infinity)
-                           .frame(height: 30)
-                           .background(Color(hexString: "#F6F7F9"))
-                           .cornerRadius(3)
+                           NavigationLink(destination: FileSearchView()) {
+                               Label {
+                                   Text("在所有文件中搜索").font(.system(size:14)).frame(maxWidth:.infinity,alignment: .leading)
+                               } icon: {
+                                 Image(systemName: "arkit")
+                               }.padding(.horizontal, 10)
+                               .frame(maxWidth:.infinity)
+                               .frame(height: 30)
+                               .background(Color(hexString: "#F6F7F9"))
+                               .cornerRadius(3)
+                           }
                            
                            //文件来源
                            Group{
