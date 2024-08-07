@@ -7,9 +7,17 @@
 //
 
 import SwiftUI
+
 struct DateTimePickerPopup:BottomPopup{
     
+    //初始化让DatePicker在页面显示完成之后再适配高度。避免第一次点击页面内容时造成抖动【高度变化导致】
+    @State private var initDatePicker = false
+    
     @State private var selectDate = Date()
+    
+    private var initDate : Date
+    
+    private var callback : (Date)->Void
     
     var dateFormatter : DateFormatter{
         let formatter = DateFormatter()
@@ -23,22 +31,42 @@ struct DateTimePickerPopup:BottomPopup{
     
     var endDate = Date()
     
+    init(initDate: Date?, callback: @escaping (Date) -> Void){
+        self.initDate = initDate ?? Date()
+        self.callback = callback
+    }
+    
     func createContent() -> some View {
         //displayedComponents: .date 只显示部分日期
         VStack{
-            DatePicker("选择时间", selection: $selectDate, in : startDate...endDate, displayedComponents: .date).padding()
-                //隐藏标题
-                .labelsHidden()
-                //设置展示的样式
-                .datePickerStyle(.graphical)
-//                .frame(height:300)
-                
+            if initDatePicker{
+                DatePicker("选择时间", selection: $selectDate, in : startDate...endDate, displayedComponents: .date).padding()
+                    //隐藏标题
+                    .labelsHidden()
+                    //设置展示的样式
+                    .datePickerStyle(.graphical)
+                    //内部高度会变化 - 需要等待页面完全显示后再出实话
+            }
+            
+            Spacer()
+
             Button{
-                
+                callback(selectDate)
+                dismiss()
             }label:{
                 Text("确定")
             }
-        }.frame(height:500)
+            
+            Spacer().frame(height:20)
+            
+        }.frame(height:450).onAppear{
+            
+            selectDate = initDate
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.01){
+                initDatePicker = true
+            }
+        }
     }
     
 }

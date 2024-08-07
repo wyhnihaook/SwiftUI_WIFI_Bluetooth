@@ -94,6 +94,13 @@ struct OtherView: View {
 //            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0){
 //                showToast = true
 //            }
+            let documentsDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
+            print("documentsDirectory:\(documentsDirectory)")
+            print("folder:\(Folder.home)")
+            print("folder:\(Folder.root)")
+            print("folder:\(Folder.documents)")
+
+            FileUtil.getFileListFilterTime()
         }.onDisappear{
                 //视图 完全 隐藏时回调【在下个页面的onAppear调用后再执行】
         }

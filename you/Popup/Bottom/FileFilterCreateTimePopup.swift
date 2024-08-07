@@ -7,6 +7,11 @@
 
 import SwiftUI
 
+struct FileFilterTimeData{
+    let timeType : CalcNewDataType
+    let numbers : Int
+}
+
 //CaseIterable ： 可以使用for in 循环遍历 allCases 数据
 //时间选择器使用DatePicker结合弹窗功能实现
 public enum FileFilterTime:String,CaseIterable{
@@ -18,10 +23,28 @@ public enum FileFilterTime:String,CaseIterable{
     case LastYear = "最近1年"
     case ALL = "自注册以来"
     
+    func data()->FileFilterTimeData{
+        switch self{
+        case .Last7Days:
+            return .init(timeType: .DAY, numbers: -7)
+        case .Last30Days:
+            return .init(timeType: .DAY, numbers: -30)
+        case .Last3Months:
+            return .init(timeType: .MONTH, numbers: -3)
+        case .Last6Months:
+            return .init(timeType: .MONTH, numbers: -6)
+        case .LastYear:
+            return .init(timeType: .YEAR, numbers: -1)
+        default:
+            //注册以来全部展示
+            return .init(timeType: .ALL, numbers: 0)
+        }
+    }
+    
 }
 //切记高度提前固定，不要使用内容自适应撑开
 struct FileFilterCreateTimePopup : BottomPopup{
-    
+    //需要同步的时间内容通过@Binding数据绑定点击确定后同步
     
     //可选时间列表
     @State var timeList : [FileFilterTime] = [.Last7Days,.Last30Days,.Last3Months,.Last6Months,.LastYear,.ALL]
@@ -32,8 +55,8 @@ struct FileFilterCreateTimePopup : BottomPopup{
     
     //时间的类型。枚举展示
     @State private var timeType = ""
-
     
+ 
     func createContent() -> some View {
         VStack(spacing:0){
             
@@ -41,19 +64,37 @@ struct FileFilterCreateTimePopup : BottomPopup{
             
             Divider().background(Color(hexString: "#E9E9E9"))
             
+            Spacer.height(10)
+            
             HStack{
-                Text("开始于").frame(maxWidth:.infinity).onTapGesture {
-                    
-                    DateTimePickerPopup().showAndStack()
+                Text(startTime.isEmpty ? "开始于" : startTime).frame(maxWidth:.infinity).onTapGesture {
+                    //当前同步到时间数据
+                    DateTimePickerPopup(initDate: DateUtil.convertToDate(dateString: startTime, dateFormatContent: DateFormatContent.YEAR_MONTH_DAY), callback: { date in
+                        startTime = DateUtil.convertToString(date: date,dateFormatContent: DateFormatContent.YEAR_MONTH_DAY)
+                    }).showAndStack()
                 }
                 Text("-")
-                Text("结束于").frame(maxWidth:.infinity)
+                Text(endTime.isEmpty ? "结束于" : endTime).frame(maxWidth:.infinity).onTapGesture {
+                    DateTimePickerPopup(initDate: DateUtil.convertToDate(dateString: endTime, dateFormatContent: DateFormatContent.YEAR_MONTH_DAY), callback: { date in
+                        endTime = DateUtil.convertToString(date: date,dateFormatContent: DateFormatContent.YEAR_MONTH_DAY)
+                    }).showAndStack()
+                }
             }.frame(height:44).background(.white).cornerRadius(4)
             
+            Spacer.height(10)
             
             createTimeCategory()
             
-        }.padding(.horizontal, 15)
+            Spacer.height(10)
+            
+            Button{
+                //筛选结果
+                dismiss()
+            }label:{
+                Text("确认").foregroundColor(.white).frame(maxWidth:.infinity).frame(height:44).background(.black).cornerRadius(10)
+            }
+            
+        }.padding(.horizontal, 15).background(Color.color_f6f7f9)
     }
 }
 
@@ -83,21 +124,40 @@ extension FileFilterCreateTimePopup{
         VStack(spacing:0){
             ForEach(timeList,id:\.rawValue){
                 data in
-                HStack{
-                    Text(data.rawValue).frame(maxWidth:.infinity,alignment: .leading)
-                    
-                    if timeType == data.rawValue{
-                        Text("check")
+                VStack(spacing:0){
+                    HStack{
+                        Text(data.rawValue).frame(maxWidth:.infinity,alignment: .leading).padding(.leading, 15)
+                        
+                        if timeType == data.rawValue{
+                            Text("check")
+                        }
+                        
                     }
+                    //让空白区域点击也有效果的设置
+                    .contentShape(Rectangle())
+                    .onTapGesture {
+                        timeType = data.rawValue
+                        let timeData = data.data()
+                        if timeData.timeType != .ALL{
+                            //开始和结束时间展示同步
+                            if let newDate  = DateUtil.calculateNewDate(type: timeData.timeType, number: timeData.numbers){
+                                startTime = DateUtil.convertToString(date: newDate,dateFormatContent: DateFormatContent.YEAR_MONTH_DAY)
+                            }
+                          
+                            //结束时间都由当前时间来定
+                            endTime = DateUtil.convertToString(date: Date(),dateFormatContent: DateFormatContent.YEAR_MONTH_DAY)
+                        }else{
+                            startTime = ""
+                            endTime = ""
+                        }
+                        
+                    }.frame(height: 40)
                     
+                    Divider().background(Color(hexString: "#E9E9E9")).padding(.leading,15)
+
                 }
-                //让空白区域点击也有效果的设置
-                .contentShape(Rectangle())
-                .onTapGesture {
-                    timeType = data.rawValue
-                }.frame(height: 40)
             }
-        }
+        }.frame(height:41*6 + 5).padding(.bottom, 5).background(.white).cornerRadius(10)
            
     }
 }

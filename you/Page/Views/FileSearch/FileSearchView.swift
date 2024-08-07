@@ -78,6 +78,7 @@ struct FileSearchView: View {
 
             ScrollView(showsIndicators:false){
 
+                
 
             }.frame(maxWidth:.infinity,maxHeight:.infinity)
         }
