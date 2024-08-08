@@ -100,7 +100,9 @@ extension BluetoothManager : ConnectionObserver, DisconnectHandler{
     
     ///关注扫描API的调用：manager.scanForPeripherals
     func connected(to peripheral: PeripheralIdentifier) {
-        print("connected----:\(peripheral)")
+        //蓝牙开启扫描时，如果检测到当前存在已经连接的情况，则直接返回连接的外设信息
+        print("connected2----:\(peripheral)")
+        selectedSensor = peripheral
 
         //完成连接之后的回调。根据业务需求处理：停止扫描、可以跳转新的页面去接受处理对应的操作信息等
         //注册回调完毕之后如果检测连接状态是已连接 - 还是会执行这里，主要是用于体现当前的状态回调

@@ -14,8 +14,8 @@ import LeanCloud
 
 //声明全局静态产量
 let fileManager = FileManager.default
+//全部音频文件存储路径【外设同步 + 云端数据】存储的统一文件夹，初始化时获取文件列表的文件名称用于匹配
 let audioDirectory : String = "AudioDirectory"
-
 
 @main
 struct youApp: App {

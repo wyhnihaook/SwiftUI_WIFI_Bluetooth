@@ -217,7 +217,7 @@ extension BluetoothDataManager : ConnectionObserver, ServiceObserver {
     
     ///关注扫描API的调用：manager.scanForPeripherals
     func connected(to peripheral: PeripheralIdentifier) {
-        print("connected----:\(peripheral)")
+        print("connected1----:\(peripheral)")
 
         //完成连接之后的回调。这里是通过
         initConnected(peripheral: peripheral)

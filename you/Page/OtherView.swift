@@ -100,6 +100,7 @@ struct OtherView: View {
             print("folder:\(Folder.root)")
             print("folder:\(Folder.documents)")
 
+            FileUtil.createFolder()
             FileUtil.getFileListFilterTime()
         }.onDisappear{
                 //视图 完全 隐藏时回调【在下个页面的onAppear调用后再执行】

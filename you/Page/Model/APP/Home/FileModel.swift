@@ -33,14 +33,28 @@ class FileModel : ObservableObject{
     
     //云端文件列表展示
     @Published var fileOnCloudList : [FileOnCloudData] = []
+    
+    //文件下载进度同步
+    @Published var showProgressIndicator: Bool = true
+    @Published var progress: CGFloat = 0.0
+    @Published var enableAutoProgress: Bool = true
+    @Published var progressForDefaultSector: CGFloat = 0.0
+    let timer = Timer.publish(every: 1 / 5, on: .main, in: .common).autoconnect()
 
+    
+    //文件列表信息【由外设同步而来】。外设文件的详细信息
+    @Published var fileCacheList : [FileInformation] = []
+    //当前已经完成的文件下载个数信息
+    @Published var finishSyncFile : Int = 0
+    //当前同步文件的进度【实际上是同步bit和大小的进度情况】。默认为0
+    @Published var currentFileCache = 0
     
     init(){
         //初始化时获取对应的本地文件列表
-        let fileURLs = self.listFilesInDirectory()
-        for file in fileURLs{
-            fileOnLocalList.append(file)
-        }
+//        let fileURLs = self.listFilesInDirectory()
+//        for file in fileURLs{
+//            fileOnLocalList.append(file)
+//        }
 
         //初始化获取云端数据
         FileListOnCloudAPI.getFileListOnCloudMock { request, responseData in

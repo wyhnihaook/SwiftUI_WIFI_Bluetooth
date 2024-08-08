@@ -70,9 +70,42 @@ class FileUtil{
     }
     
     //MARK: - 创建文件夹
+    ///按照业务需要创建文件夹
+    ///【存储音频文件内容文件夹，蓝牙同步来之后上传到云端】- 在云端数据同步时优先从文件夹中识别【初始化应用时进行获取全部本地文件名称信息，后续用来匹配下载】
+    ///所有的需要同步的文件需要连接外设之后，首先从外设同步过来展示【如果需要过滤则统一由云端的数据作为基础来过滤相同命名的需要同步的文件】 - 音频文件的命名规则遵守当前的时间格式，避免重复
     class func createFolder(){
-        
+        //创建文件夹
+        do{
+            //默认创建的存储文件路径。前面的路径结尾是带/符号的，直接拼接即可
+            //如果已经存在，则不做操作，直接返回对应的folder路径
+            
+            //创建存储音频和外设同步音频信息的文件夹
+            let _ = try Folder(path: ((Folder.documents?.path ?? Folder.home.path)
+                                           + audioDirectory))
+            
+            //创建文件信息
+//            let file = try folder.createFile(named: "file.json")
+
+            //删除文件
+//            try file.delete()
+//            try folder.delete()
+        }catch{
+            print("error:\(error)")
+        }
     }
+    
+    //MARK: - 外设数据同步创建对应的文件夹
+    ///获取外设内容的数据，进行本地存储。如果再次获取优先本地匹配对应的名称，如果匹配上就跳过避免多次重复存储
+    class func syncBluetoothContent(){
+        ///一次性写入解析的json内容
+        ///首先判断是否包含对应的文件名称 需要结合云端列表和本地的显示文件列表进行判断，都不存在才能进行存储。避免云端数据同步过后本地数据还存在
+        do{
+           
+        }catch{
+            print("error:\(error)")
+        }
+    }
+    
     
     //MARK: - 从文件夹中获取所有的文件信息，并且按照时间排序
     class func getFileListFilterTime() {

@@ -6,17 +6,24 @@
 //
 
 import SwiftUI
+import Bluejay
 
 struct ConnectBluetoothView: View {
+    let maxScanCount = 9
     
     //扩散水波纹数据记录
     @State private var beatAnimation: Bool = false
     @State private var showPulses: Bool = false
     @State private var pulsedHearts: [HeartParticle] = []
     
-    //蓝牙扫描是否超时
-    @State var isTimeout : Bool = false
+    //蓝牙扫描是否超时 当前扫描超时次数，超过限定扫描次数就显示超时
+    @State var scanCount : Int = 0
 
+    //共享的数据获取
+    @EnvironmentObject var sharedData : SharedData
+    
+    //创建内部管理数据对象
+    @StateObject var model = BluetoothManager()
     
     var body: some View {
         NavigationBody(title: "连接蓝牙") {
@@ -25,7 +32,41 @@ struct ConnectBluetoothView: View {
             VStack(spacing:0){
                 Spacer().frame(height: 40)
                 
-                if !isTimeout{
+                if model.selectedSensor != nil || model.sensors.count > 0{
+                    //展示检索设备结果
+                    if model.selectedSensor != nil && model.sensors.count == 0{
+                        //说明是之前连接的信息展示
+                        HStack{
+                            Text(model.selectedSensor!.name)
+                            Spacer()
+                            
+                            Text("已连接").font(.system(size: 12))
+                                .foregroundColor(.red)
+                            
+                        }.padding(.vertical, 5).padding(.horizontal, 15).frame(height:40).background(.white).cornerRadius(4)
+                    }else{
+                        ForEach(model.sensors,id: \.self.peripheralIdentifier.uuid) { sensor in
+                            
+                            //展示所有检索到的外设信息
+                            HStack{
+                                Text(sensor.peripheralIdentifier.name)
+                                Spacer()
+                                
+                                if model.connceted{
+                                    Text(sensor.peripheralIdentifier.uuid == model.selectedSensor?.uuid ? "已连接":"").font(.system(size: 12))
+                                        .foregroundColor(.red)
+                                }
+                                
+                            }.padding(.vertical, 5).padding(.horizontal, 15).frame(height:40).background(.white).cornerRadius(4).onTapGesture {
+                                //点击链接蓝牙功能.这里可能连接失败，需要根据回调提示用户信息
+                                model.connectBluetooth(device: sensor)
+                            }
+                        }
+                    }
+                    
+                    
+                    Spacer()
+                }else if showPulses{
                     Text("正在搜索附近的蓝牙设备...").foregroundColor(.black).font(.system(size: 14))
                     Spacer().frame(height: 30)
                     Text("让蓝牙设备距离手机更近一点。").foregroundColor(.gray).font(.system(size: 14))
@@ -34,10 +75,8 @@ struct ConnectBluetoothView: View {
                     ///动画效果展示波纹
                     ZStack{
                         ///根据设定的时间间隔不停的进行内容的调度
-                        if showPulses {
-                            TimelineView(.animation(minimumInterval: 0.7, paused: false)) {  timeLine in
-                                addView(timeLine.date)
-                            }
+                        TimelineView(.animation(minimumInterval: 0.7, paused: false)) {  timeLine in
+                            addView(timeLine.date)
                         }
                        
                         
@@ -75,14 +114,39 @@ struct ConnectBluetoothView: View {
                 }
                 
                 
-            }.padding(.horizontal,20)
+            }.onChange(of: model.selectedSensor, perform: { newValue in
+                //连接成功
+                beatAnimation = false
+                ///页面控制标识
+                showPulses = false
+            }).onChange(of: model.sensors.count, perform: { newValue in
+                if newValue > 0{
+                    scanCount = 0
+                    beatAnimation = false
+                    showPulses = false
+                }
+            }).padding(.horizontal,20).background(Color.color_f6f7f9)
                 .onAppear{
+                    //视图初始化创建[BluetoothScanHelper]遵守协议的帮助类，用于验证蓝牙是否可用并开启扫描等业务
+                    //开始扫描，列表展示设备内容。通过点击方法进行连接
+                    SharedData.bluejay.register(connectionObserver: model)
+                    //判断当前蓝牙是否已经连接上，如果已经连接上就不展示内容。只有初始化才进行显示
+                    //这里已经连接上就显示当前的内容
+                    //展示对应的连接设备状态
                     ///开启动画标识
                     beatAnimation.toggle()
                     ///页面控制标识
                     showPulses.toggle()
                     ///添加内容标识
                     addPulsedHeart()
+                    
+
+                }.onDisappear{
+                    //视图销毁
+                    SharedData.bluejay.unregister(connectionObserver: model)
+                    
+                    //页面关闭后，停止扫描功能
+                    SharedData.bluejay.stopScanning()
                 }
 
             
@@ -114,6 +178,17 @@ struct ConnectBluetoothView: View {
                 PulseHeartView()
             }
         }.onChange(of: date) { newValue in
+                //超时标识
+                scanCount += 1
+                if scanCount >= maxScanCount{
+                    //停止水波纹扩散，重置内容
+                    scanCount = 0
+                    beatAnimation.toggle()
+                    showPulses.toggle()
+                    return
+                }
+            
+            
                 if beatAnimation {
                     addPulsedHeart()
                 }

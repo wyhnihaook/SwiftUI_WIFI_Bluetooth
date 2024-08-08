@@ -84,12 +84,75 @@ struct FileView: View {
                     }
                     
                 }
-            }
+            }.overlay(alignment:.top,content: {
+                //只有触发外设数据同步才会展示【蓝牙连接外设，外设发起请求json数据展示文件大小】
+                if !fileModel.fileCacheList.isEmpty {
+                    //当前的顶部展示下载中提示信息
+                    HStack(spacing:10){
+                        //同步的进度展示
+                        //这里的多个任务必须要单个子线程队列同步记录，完成后通过队列循环来执行下一个
+                        
+                        ProgressIndicatorView(isVisible: $fileModel.showProgressIndicator, type: .bar(progress: $fileModel.progress, backgroundColor: .gray.opacity(0.25)))
+                            .frame(height: 8.0)
+                            .foregroundColor(.red)
+                        
+                        //所有下载文件的进度 1/2
+                        Text("\(fileModel.finishSyncFile)/\(fileModel.fileCacheList.count)").font(.system(size: 12)).foregroundColor(.black)
+                        
+                        //当前每秒同步的文件大小【实际上是每次同步的bit】
+                        Text("0 B/s").font(.system(size: 12)).foregroundColor(.black)
+                        
+                        //快传按钮，用于弹窗显示连接外设热点功能
+                        Button{
+                            FastTransmitPopup().showAndStack()
+                        }label:{
+                            Label {
+                                Text("快传").font(.system(size:12))
+                            } icon: {
+                              Image(systemName: "arkit")
+                            }.padding(.horizontal, 10)
+                            .frame(maxWidth:80)
+                            .frame(height: 30)
+                            .background(.black)
+                            .cornerRadius(15)
+                        }
+                        
+                    }.padding(.horizontal, 15).frame(maxWidth:.infinity).frame(height:40)
+                        //Color.cyan.opacity(0.4)
+                        .background(          LinearGradient(gradient: Gradient(colors: [Color.blue, Color.cyan]), startPoint: .topLeading, endPoint: .bottomTrailing)).cornerRadius(4)
+                }
+               
+            })
             .frame(maxWidth: .infinity)
             
             
             
-        }.onChange(of: fileSource, perform: { newValue in
+        }
+        //模拟进度情况
+//        .onReceive(fileModel.timer) { _ in
+//            guard fileModel.enableAutoProgress else { return }
+//            ///进度同步
+//            switch fileModel.progress {
+//            case ...0.3, 0.4...0.6:
+//                fileModel.progress += 1 / 30
+//            case 0.3...0.4, 0.6...0.9:
+//                fileModel.progress += 1 / 120
+//            case 0.9...0.99:
+//                fileModel.progress = 1
+//            case 1.0...:
+//                fileModel.progress = 0
+//            default:
+//                break
+//            }
+//
+//
+//        }
+        .onChange(of: fileModel.finishSyncFile, perform: { newValue in
+            if newValue == fileModel.fileCacheList.count{
+                //完成全部下载，清空下载数据源
+                fileModel.fileCacheList.removeAll()
+            }
+        }).onChange(of: fileSource, perform: { newValue in
             //通过获取变化结果来驱动页面文件检索结果业务
             self.modifyFileCount(currentFileSource: newValue)
         })
@@ -102,18 +165,15 @@ struct FileView: View {
             self.modifyFileCount(currentFileSource: fileSource)
         })
         .padding(EdgeInsets(top: 0, leading: 15, bottom: 15, trailing: 15))
-//        .background(Color(hexString: "#F6F7F8"))
+        .background(Color(hexString: "#F6F7F8"))
         .navigationBarHidden(true)
         .navigationBarBackButtonHidden()
         .onAppear{
             //获取云端文件列表
-            print("fileModel.fileOnCloudList.isEmpty:\(fileModel.fileOnCloudList.isEmpty)")
-            print(fileModel.fileOnCloudList)
             if fileModel.fileOnCloudList.isEmpty{
                 fileModel.getFileDatabase()
             }
             
-//            FastTransmitPopup().showAndStack()
         }
     }
     
