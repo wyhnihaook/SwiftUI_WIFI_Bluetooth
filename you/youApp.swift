@@ -56,7 +56,7 @@ struct youApp: App {
             try AVAudioSession.sharedInstance().setActive(true)
             
             //蓝牙开启
-            SharedData.bluejay.start()
+            sharedData.bluejay.start()
         } catch let err {
             print(err)
         }

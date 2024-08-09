@@ -9,31 +9,31 @@ import Foundation
 import Bluejay
 
 
-let heartRateCharacteristic = CharacteristicIdentifier(
-    uuid: "2A37",
-    service: ServiceIdentifier(uuid: "180D")
-)
-
-let normalCharacteristic = CharacteristicIdentifier(
-    uuid: "83B4A431-A6F1-4540-B3EE-3C14AEF71A04",
-    service: ServiceIdentifier(uuid: "CED261B7-F120-41C8-9A92-A41DE69CF2A8")
-)
-
-//文件同步特征处理
-let fileCharacteristic = CharacteristicIdentifier(
-    uuid: "83B4A431-A6F1-4540-B3EE-3C14AEF71A01",
-    service: ServiceIdentifier(uuid: "CED261B7-F120-41C8-9A92-A41DE69CF2A1")
-)
-
-let fileContiuneCharacteristic = CharacteristicIdentifier(
-    uuid: "83B4A431-A6F1-4540-B3EE-3C14AEF71A02",
-    service: ServiceIdentifier(uuid: "CED261B7-F120-41C8-9A92-A41DE69CF2A2")
-)
-
-let pairingCharacteristic = CharacteristicIdentifier(
-    uuid: "E4D4A76C-B9F1-422F-8BBA-18508356A145",
-    service: ServiceIdentifier(uuid: "16274BFE-C539-416C-9646-CA3F991DADD6")
-)
+//let heartRateCharacteristic = CharacteristicIdentifier(
+//    uuid: "2A37",
+//    service: ServiceIdentifier(uuid: "180D")
+//)
+//
+//let normalCharacteristic = CharacteristicIdentifier(
+//    uuid: "83B4A431-A6F1-4540-B3EE-3C14AEF71A04",
+//    service: ServiceIdentifier(uuid: "CED261B7-F120-41C8-9A92-A41DE69CF2A8")
+//)
+//
+////文件同步特征处理
+//let fileCharacteristic = CharacteristicIdentifier(
+//    uuid: "83B4A431-A6F1-4540-B3EE-3C14AEF71A01",
+//    service: ServiceIdentifier(uuid: "CED261B7-F120-41C8-9A92-A41DE69CF2A1")
+//)
+//
+//let fileContiuneCharacteristic = CharacteristicIdentifier(
+//    uuid: "83B4A431-A6F1-4540-B3EE-3C14AEF71A02",
+//    service: ServiceIdentifier(uuid: "CED261B7-F120-41C8-9A92-A41DE69CF2A2")
+//)
+//
+//let pairingCharacteristic = CharacteristicIdentifier(
+//    uuid: "E4D4A76C-B9F1-422F-8BBA-18508356A145",
+//    service: ServiceIdentifier(uuid: "16274BFE-C539-416C-9646-CA3F991DADD6")
+//)
 
 class BluetoothDataManager : BluetoothBaseManager {
     

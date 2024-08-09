@@ -9,9 +9,8 @@ import Foundation
 import Bluejay
 import SwiftUI
 
-class SharedData:ObservableObject{
-    ///创建蓝牙管理类的唯一实例
-    static let bluejay = Bluejay()
+//将蓝牙外设的操作内容设置为共享，页面按需调用获取即可
+class SharedData:BluetoothManager{
     
     //引起页面刷新。必须在每一个界面中显示的声明才能关联上页面
     @AppStorage("language") var language = String.getCurrentLanguage()

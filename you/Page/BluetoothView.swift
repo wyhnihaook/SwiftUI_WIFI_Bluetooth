@@ -56,14 +56,14 @@ struct BluetoothView: View {
             .navigationBarTitle(Text("蓝牙"), displayMode: .large).onAppear{
             //视图初始化创建[BluetoothScanHelper]遵守协议的帮助类，用于验证蓝牙是否可用并开启扫描等业务
             //开始扫描，列表展示设备内容。通过点击方法进行连接
-            SharedData.bluejay.register(connectionObserver: model)
+            sharedData.bluejay.register(connectionObserver: model)
             
         }.onDisappear{
             //视图销毁
-            SharedData.bluejay.unregister(connectionObserver: model)
+            sharedData.bluejay.unregister(connectionObserver: model)
             
             //页面关闭后，停止扫描功能
-            SharedData.bluejay.stopScanning()
+            sharedData.bluejay.stopScanning()
         }
     }
 }

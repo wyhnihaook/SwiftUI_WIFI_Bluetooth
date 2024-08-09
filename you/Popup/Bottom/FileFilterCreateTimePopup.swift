@@ -69,15 +69,15 @@ struct FileFilterCreateTimePopup : BottomPopup{
             HStack{
                 Text(startTime.isEmpty ? "开始于" : startTime).frame(maxWidth:.infinity).onTapGesture {
                     //当前同步到时间数据
-                    DateTimePickerPopup(initDate: DateUtil.convertToDate(dateString: startTime, dateFormatContent: DateFormatContent.YEAR_MONTH_DAY), callback: { date in
-                        startTime = DateUtil.convertToString(date: date,dateFormatContent: DateFormatContent.YEAR_MONTH_DAY)
-                    }).showAndStack()
+//                    DateTimePickerPopup(initDate: DateUtil.convertToDate(dateString: startTime, dateFormatContent: DateFormatContent.YEAR_MONTH_DAY), callback: { date in
+//                        startTime = DateUtil.convertToString(date: date,dateFormatContent: DateFormatContent.YEAR_MONTH_DAY)
+//                    }).showAndStack()
                 }
                 Text("-")
                 Text(endTime.isEmpty ? "结束于" : endTime).frame(maxWidth:.infinity).onTapGesture {
-                    DateTimePickerPopup(initDate: DateUtil.convertToDate(dateString: endTime, dateFormatContent: DateFormatContent.YEAR_MONTH_DAY), callback: { date in
-                        endTime = DateUtil.convertToString(date: date,dateFormatContent: DateFormatContent.YEAR_MONTH_DAY)
-                    }).showAndStack()
+//                    DateTimePickerPopup(initDate: DateUtil.convertToDate(dateString: endTime, dateFormatContent: DateFormatContent.YEAR_MONTH_DAY), callback: { date in
+//                        endTime = DateUtil.convertToString(date: date,dateFormatContent: DateFormatContent.YEAR_MONTH_DAY)
+//                    }).showAndStack()
                 }
             }.frame(height:44).background(.white).cornerRadius(4)
             

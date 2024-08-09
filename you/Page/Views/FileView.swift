@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct FileView: View {
+    //共享的数据获取【内含蓝牙管理内容】
+    @EnvironmentObject var sharedData : SharedData
+    
     @AppStorage("userScheme") var userTheme: Theme = .systemDefault
 
     @StateObject var fileModel = FileModel()
@@ -26,7 +29,7 @@ struct FileView: View {
             
             HStack{
                 NavigationLink(destination: ConnectBluetoothView()) {
-                    Text("+连接蓝牙").foregroundColor(.black).bold().frame(width: 100,height: 30).background(.white).cornerRadius(5)
+                    Text(sharedData.selectedSensor != nil ? sharedData.selectedSensor!.name : "+连接蓝牙").foregroundColor(.black).bold().frame(width: 100,height: 30).background(.white).cornerRadius(5)
                 }
                 
                 
@@ -77,11 +80,16 @@ struct FileView: View {
                         }
                     }
                     
+                    //待同步的数据内容。不允许点击，显示在同步中。顶部进度处理
                     ForEach(fileModel.fileOnLocalList,id: \.title) { item in
-                        NavigationLink(destination: AudioWaveView(recordId: item.recordId)) {
-                            FileItem(title: item.title, date: item.createdTime, time: item.duration,tag: item.labels ?? [])
-                        }
+//                        NavigationLink(destination: AudioWaveView(recordId: item.recordId)) {
+//                            FileItem(title: item.title, date: item.createdTime, time: item.duration,tag: item.labels ?? [])
+//                        }
+                        
+                        FileItem(title: item.title, date: item.createdTime, time: item.duration,tag: item.labels ?? [])
                     }
+                    
+                    
                     
                 }
             }.overlay(alignment:.top,content: {
@@ -128,8 +136,11 @@ struct FileView: View {
             
             
         }
-        //模拟进度情况
-//        .onReceive(fileModel.timer) { _ in
+        //进度情况，时间间隔下载情况监测
+        .onReceive(fileModel.timer) { _ in
+            
+            fileModel.progress = CGFloat(sharedData.receivedFileData.count)/(2196*20)
+//            /fileModel.fileCacheList[0].fileSize.floatValue
 //            guard fileModel.enableAutoProgress else { return }
 //            ///进度同步
 //            switch fileModel.progress {
@@ -144,9 +155,25 @@ struct FileView: View {
 //            default:
 //                break
 //            }
-//
-//
-//        }
+
+
+        }
+        .onChange(of:sharedData.normalData,perform: { newValue in
+            //同步的数据变化。这里统一清除本地添加的数据，再重新添加
+            //这里是做单条数据的示例
+            if let fileInformation:FileInformation = decodeJson(from: newValue!) {
+                //这里的fileSize是用来判断是否完成了Data类型数据的传输，完成之后开始保存到本地文件内容
+                print("fileName: \(fileInformation.fileName),fileCount:\(fileInformation.fileSize)")
+                
+                //下载状态添加
+                fileModel.fileCacheList.append(fileInformation)
+                
+                let file : FileOnCloudData = .init(recordId: -1, title: fileInformation.fileName, createdTime: "2020-01-02", duration: "11m 20s", keywords: [], transferStatus: 0)
+                
+                //显示文件的数据源添加
+                fileModel.fileOnLocalList.append(file)
+            }
+        })
         .onChange(of: fileModel.finishSyncFile, perform: { newValue in
             if newValue == fileModel.fileCacheList.count{
                 //完成全部下载，清空下载数据源
@@ -172,8 +199,19 @@ struct FileView: View {
             //获取云端文件列表
             if fileModel.fileOnCloudList.isEmpty{
                 fileModel.getFileDatabase()
+                //蓝牙功能注册监听
+                sharedData.bluejay.register(connectionObserver: sharedData)
+                sharedData.bluejay.register(serviceObserver: sharedData)
             }
-            
+
+           
+
+        }.onDisappear{
+
+            //所有的页面切换都是先执行新页面的onAppear后再执行上个页面的onDisappear
+            //取消状态监听的注册。由于外设的监听要贯穿整个APP，所以不需要取消注册的监听
+//            sharedData.bluejay.unregister(connectionObserver: sharedData)
+//            sharedData.bluejay.unregister(serviceObserver: sharedData)
         }
     }
     

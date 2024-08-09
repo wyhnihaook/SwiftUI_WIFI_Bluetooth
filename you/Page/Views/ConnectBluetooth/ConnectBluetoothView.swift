@@ -1,7 +1,7 @@
 //
 //  ConnectBluetoothView.swift
 //  you
-//  连接蓝牙界面
+//  连接蓝牙界面【由于外设同步的信息在多个页面都可以查询，所以要放到公共的全局环境中】
 //  Created by 翁益亨 on 2024/7/31.
 //
 
@@ -19,11 +19,8 @@ struct ConnectBluetoothView: View {
     //蓝牙扫描是否超时 当前扫描超时次数，超过限定扫描次数就显示超时
     @State var scanCount : Int = 0
 
-    //共享的数据获取
+    //共享的数据获取【内含蓝牙管理内容】
     @EnvironmentObject var sharedData : SharedData
-    
-    //创建内部管理数据对象
-    @StateObject var model = BluetoothManager()
     
     var body: some View {
         NavigationBody(title: "连接蓝牙") {
@@ -32,12 +29,12 @@ struct ConnectBluetoothView: View {
             VStack(spacing:0){
                 Spacer().frame(height: 40)
                 
-                if model.selectedSensor != nil || model.sensors.count > 0{
+                if sharedData.selectedSensor != nil || sharedData.sensors.count > 0{
                     //展示检索设备结果
-                    if model.selectedSensor != nil && model.sensors.count == 0{
+                    if sharedData.selectedSensor != nil && sharedData.sensors.count == 0{
                         //说明是之前连接的信息展示
                         HStack{
-                            Text(model.selectedSensor!.name)
+                            Text(sharedData.selectedSensor!.name)
                             Spacer()
                             
                             Text("已连接").font(.system(size: 12))
@@ -45,21 +42,21 @@ struct ConnectBluetoothView: View {
                             
                         }.padding(.vertical, 5).padding(.horizontal, 15).frame(height:40).background(.white).cornerRadius(4)
                     }else{
-                        ForEach(model.sensors,id: \.self.peripheralIdentifier.uuid) { sensor in
+                        ForEach(sharedData.sensors,id: \.self.peripheralIdentifier.uuid) { sensor in
                             
                             //展示所有检索到的外设信息
                             HStack{
                                 Text(sensor.peripheralIdentifier.name)
                                 Spacer()
                                 
-                                if model.connceted{
-                                    Text(sensor.peripheralIdentifier.uuid == model.selectedSensor?.uuid ? "已连接":"").font(.system(size: 12))
+                                if sharedData.connceted{
+                                    Text(sensor.peripheralIdentifier.uuid == sharedData.selectedSensor?.uuid ? "已连接":"").font(.system(size: 12))
                                         .foregroundColor(.red)
                                 }
                                 
                             }.padding(.vertical, 5).padding(.horizontal, 15).frame(height:40).background(.white).cornerRadius(4).onTapGesture {
                                 //点击链接蓝牙功能.这里可能连接失败，需要根据回调提示用户信息
-                                model.connectBluetooth(device: sensor)
+                                sharedData.connectBluetooth(device: sensor)
                             }
                         }
                     }
@@ -114,12 +111,13 @@ struct ConnectBluetoothView: View {
                 }
                 
                 
-            }.onChange(of: model.selectedSensor, perform: { newValue in
+            }.onChange(of: sharedData.selectedSensor, perform: { newValue in
                 //连接成功
                 beatAnimation = false
                 ///页面控制标识
                 showPulses = false
-            }).onChange(of: model.sensors.count, perform: { newValue in
+                
+            }).onChange(of: sharedData.sensors.count, perform: { newValue in
                 if newValue > 0{
                     scanCount = 0
                     beatAnimation = false
@@ -127,9 +125,11 @@ struct ConnectBluetoothView: View {
                 }
             }).padding(.horizontal,20).background(Color.color_f6f7f9)
                 .onAppear{
+
                     //视图初始化创建[BluetoothScanHelper]遵守协议的帮助类，用于验证蓝牙是否可用并开启扫描等业务
                     //开始扫描，列表展示设备内容。通过点击方法进行连接
-                    SharedData.bluejay.register(connectionObserver: model)
+                    sharedData.scanHeartSensors()
+//                    sharedData.bluejay.register(connectionObserver: sharedData)
                     //判断当前蓝牙是否已经连接上，如果已经连接上就不展示内容。只有初始化才进行显示
                     //这里已经连接上就显示当前的内容
                     //展示对应的连接设备状态
@@ -143,10 +143,9 @@ struct ConnectBluetoothView: View {
 
                 }.onDisappear{
                     //视图销毁
-                    SharedData.bluejay.unregister(connectionObserver: model)
-                    
+//                    sharedData.bluejay.unregister(connectionObserver: sharedData)
                     //页面关闭后，停止扫描功能
-                    SharedData.bluejay.stopScanning()
+                    sharedData.bluejay.stopScanning()
                 }
 
             
@@ -239,10 +238,10 @@ struct ConnectBluetoothView: View {
     
 }
 
-struct ConnectBluetoothView_Previews: PreviewProvider {
-    static var previews: some View {
-        ConnectBluetoothView()
-    }
-}
+//struct ConnectBluetoothView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ConnectBluetoothView()
+//    }
+//}
 
 

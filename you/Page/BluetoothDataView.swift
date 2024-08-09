@@ -55,16 +55,16 @@ struct BluetoothDataView: View {
         }.navigationBarTitle(Text("蓝牙数据交互"), displayMode: .large)
             .onAppear{
                 //注册连接状态的获取
-                SharedData.bluejay.register(connectionObserver: model)
-                
-                //订阅信息获取外设数据
-                SharedData.bluejay.register(serviceObserver: model)
+//                SharedData.bluejay.register(connectionObserver: model)
+//
+//                //订阅信息获取外设数据
+//                SharedData.bluejay.register(serviceObserver: model)
                 
             }.onDisappear{
                 //取消状态监听的注册
-                SharedData.bluejay.unregister(connectionObserver: model)
-                
-                SharedData.bluejay.unregister(serviceObserver: model)
+//                SharedData.bluejay.unregister(connectionObserver: model)
+//                
+//                SharedData.bluejay.unregister(serviceObserver: model)
             }
     }
 }
